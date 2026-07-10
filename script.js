@@ -24,25 +24,27 @@ function initLayeredScroll() {
     let vh = window.innerHeight;
     const layerData = [];
 
-    function getUnits(slideRight) {
-        return slideRight ? 1 : 1.5;
+    function isHorizontalSlide(layer) {
+        if (window.innerWidth <= 768) return null;
+        const slide = layer.dataset.slide;
+        if (slide === 'right') return 'right';
+        if (slide === 'left') return 'left';
+        return null;
     }
 
-    function isSlideRight(layer) {
-        return layer.dataset.slide === 'right' && window.innerWidth > 768;
+    function getUnits(dir) {
+        return dir ? 1 : 1.5;
     }
 
     function calcTotalUnits() {
         let total = 0;
         allLayers.forEach(layer => {
-            total += getUnits(isSlideRight(layer));
+            total += getUnits(isHorizontalSlide(layer));
         });
         return total;
     }
 
     allLayers.forEach((layer, i) => {
-        const slideRight = isSlideRight(layer);
-        const units = getUnits(slideRight);
         layer.style.zIndex = i;
         layerData.push({ element: layer, index: i });
     });
@@ -55,15 +57,16 @@ function initLayeredScroll() {
         let cumulative = 0;
 
         allLayers.forEach((layer, i) => {
-            const data = layerData[i];
-            const slideRight = isSlideRight(layer);
-            const units = getUnits(slideRight);
+            const dir = isHorizontalSlide(layer);
+            const units = getUnits(dir);
             const entryPoint = cumulative * vh;
             const progress = Math.min(Math.max((scrollY - entryPoint) / (units * vh), 0), 1);
             const eased = easeOutQuint(progress);
 
-            if (slideRight) {
+            if (dir === 'right') {
                 layer.style.transform = `translate3d(${(1 - eased) * 110}vw, 0, 0)`;
+            } else if (dir === 'left') {
+                layer.style.transform = `translate3d(${-(1 - eased) * 110}vw, 0, 0)`;
             } else {
                 layer.style.transform = `translate3d(0, ${(1 - eased) * 100}vh, 0)`;
             }
