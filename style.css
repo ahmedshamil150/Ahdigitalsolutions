@@ -482,20 +482,21 @@ body {
 }
 
 /* ================================
-   About Section – Neon Edge
+   About Section – Diagonal Image
    ================================ */
 .about-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: left;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+    gap: 0;
+    align-items: stretch;
+    position: relative;
 }
 
 .about-text {
     max-width: 500px;
+    padding: 40px 0;
+    justify-self: end;
 }
 
 .about-badge {
@@ -583,22 +584,19 @@ body {
     line-height: 1.5;
 }
 
-/* About visual column */
+/* About visual — right column with image */
 .about-visual {
+    position: relative;
+    overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.about-visual-card {
+.about-visual img {
     width: 100%;
-    max-width: 340px;
-}
-
-.about-svg {
-    width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
+    clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 /* ================================
@@ -990,25 +988,81 @@ footer > .container {
     }
 
     /* === About section mobile === */
+    .layer[data-slide="right"] {
+        background-image: url('AbouthomeImage.jpg') !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+
+    .layer[data-slide="right"]::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(8, 27, 51, 0.82);
+        border: none !important;
+        animation: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        z-index: 0;
+    }
+
+    .layer[data-slide="right"] > .container {
+        position: relative;
+        z-index: 1;
+    }
+
     .about-section {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 0;
+        position: relative;
+        z-index: 1;
     }
 
     .about-text {
         max-width: 100%;
+        padding: 0;
     }
 
     .about-heading {
         font-size: clamp(1.3rem, 5vw, 1.8rem);
+        color: #ffffff;
+    }
+
+    .about-heading em {
+        color: var(--color-accent);
     }
 
     .about-desc {
         font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .about-desc strong {
+        color: #ffffff;
     }
 
     .about-grid {
         grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .about-card h3 {
+        color: #ffffff;
+    }
+
+    .about-card p {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .about-card-icon {
+        background: var(--color-accent);
+        opacity: 0.6;
     }
 
     .about-visual {
