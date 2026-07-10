@@ -12,6 +12,10 @@
     --color-accent: #0a0a0a;
     --color-muted: #737373;
     --color-border: #e5e5e5;
+    --color-dark-navy: #0F172A;
+    --color-dark-brown: #231500;
+    --color-accent-blue: #00B4FF;
+    --color-gray: #8a8a8a;
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --container-max: 1200px;
     --spacing-xs: 0.5rem;
@@ -104,7 +108,7 @@ body {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--color-text);
+    color: var(--color-accent-blue);
 }
 
 /* Layer Scroll System */
@@ -122,11 +126,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--color-bg);
     overflow: hidden;
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: #e8e8e8;
+    --color-muted: #8a8a8a;
+    --color-border: rgba(255, 255, 255, 0.1);
 }
 
 .layer > .container {
@@ -135,14 +142,18 @@ body {
 }
 
 .layer-content {
+    will-change: opacity, transform;
+}
+
+/* Hero fade-in animation only */
+.hero .layer-content {
     opacity: 0;
     transform: translateY(30px) scale(0.98);
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity, transform;
 }
 
-.layer-active .layer-content {
+.hero.layer-active .layer-content {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
@@ -255,7 +266,7 @@ footer > .container {
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-xs);
-    color: var(--color-text);
+    color: var(--color-accent-blue);
     text-decoration: none;
     font-weight: 500;
     transition: gap 0.2s ease;
@@ -263,6 +274,7 @@ footer > .container {
 
 .link-arrow:hover {
     gap: var(--spacing-sm);
+    color: #ffffff;
 }
 
 .link-arrow span {
@@ -301,18 +313,18 @@ footer > .container {
     align-items: center;
     justify-content: center;
     padding: var(--spacing-md) var(--spacing-xl);
-    background-color: var(--color-text);
-    color: var(--color-bg);
+    background-color: var(--color-accent-blue);
+    color: #0F172A;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
-    border: 2px solid var(--color-text);
+    border: 2px solid var(--color-accent-blue);
     transition: all 0.2s ease;
 }
 
 .cta-button:hover {
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    background-color: transparent;
+    color: var(--color-accent-blue);
 }
 
 .cta-button.primary {
@@ -333,7 +345,7 @@ footer > .container {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--color-muted);
+    color: var(--color-gray);
     margin-bottom: var(--spacing-md);
 }
 
@@ -350,7 +362,7 @@ footer > .container {
     font-weight: 700;
     text-transform: none;
     letter-spacing: -0.02em;
-    color: var(--color-text);
+    color: #ffffff;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -416,7 +428,7 @@ footer > .container {
     font-weight: 700;
     text-transform: none;
     letter-spacing: -0.02em;
-    color: var(--color-text);
+    color: #ffffff;
     margin-bottom: var(--spacing-md);
 }
 
@@ -446,7 +458,7 @@ footer > .container {
 }
 
 .footer-description {
-    color: var(--color-muted);
+    color: var(--color-gray);
     line-height: 1.7;
 }
 
@@ -455,13 +467,13 @@ footer > .container {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-muted);
+    color: var(--color-gray);
     margin-bottom: var(--spacing-md);
 }
 
 .footer-link {
     display: block;
-    color: var(--color-text);
+    color: #c0c0c0;
     text-decoration: none;
     margin-bottom: var(--spacing-xs);
     font-weight: 500;
@@ -469,7 +481,7 @@ footer > .container {
 }
 
 .footer-link:hover {
-    color: var(--color-muted);
+    color: var(--color-accent-blue);
 }
 
 /* Other Pages Styles */
@@ -520,7 +532,7 @@ footer > .container {
 /* Services Page */
 .service-detail {
     padding: var(--spacing-xl) 0;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .service-detail:last-child {
@@ -557,12 +569,12 @@ footer > .container {
 .portfolio-placeholder {
     width: 100%;
     aspect-ratio: 4/3;
-    background-color: var(--color-border);
+    background-color: rgba(255, 255, 255, 0.06);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    color: var(--color-muted);
+    color: var(--color-gray);
     margin-bottom: var(--spacing-md);
 }
 
@@ -586,20 +598,20 @@ footer > .container {
 
 .pricing-card {
     padding: var(--spacing-xl);
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     position: relative;
 }
 
 .pricing-card.featured {
-    border-color: var(--color-text);
+    border-color: var(--color-accent-blue);
 }
 
 .pricing-badge {
     position: absolute;
     top: -12px;
     right: var(--spacing-lg);
-    background-color: var(--color-text);
-    color: var(--color-bg);
+    background-color: var(--color-accent-blue);
+    color: #0F172A;
     padding: 4px 12px;
     font-size: 0.75rem;
     font-weight: 600;
@@ -663,13 +675,13 @@ footer > .container {
 .contact-link {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--color-accent-blue);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .contact-link:hover {
-    color: var(--color-muted);
+    color: #ffffff;
 }
 
 .contact-form {
@@ -695,18 +707,18 @@ footer > .container {
 .form-group input,
 .form-group textarea {
     padding: var(--spacing-md);
-    border: 1px solid var(--color-border);
-    background-color: var(--color-bg);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.06);
     font-family: var(--font-family);
     font-size: 1rem;
-    color: var(--color-text);
+    color: #e8e8e8;
     transition: border-color 0.2s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--color-text);
+    border-color: var(--color-accent-blue);
 }
 
 /* Section Entrance Animation */
@@ -742,7 +754,7 @@ footer > .container {
 .category-card {
     flex: 0 0 280px;
     height: 320px;
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -754,9 +766,9 @@ footer > .container {
 }
 
 .category-card:hover {
-    border-color: var(--color-text);
+    border-color: var(--color-accent-blue);
     transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .category-icon {
@@ -773,7 +785,7 @@ footer > .container {
 
 .category-count {
     font-size: 0.875rem;
-    color: var(--color-muted);
+    color: var(--color-gray);
 }
 
 .categories-hint {
@@ -782,7 +794,7 @@ footer > .container {
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.75rem;
-    color: var(--color-muted);
+    color: var(--color-gray);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     opacity: 0.6;
@@ -811,7 +823,7 @@ footer > .container {
         padding: 0 var(--spacing-md);
     }
     
-    .layer-content {
+    .hero .layer-content {
         transform: translateY(20px) scale(0.98);
     }
 }

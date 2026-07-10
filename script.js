@@ -85,11 +85,14 @@ function initLayeredScroll() {
     let totalScrollUnits = 0;
     const layerData = [];
 
+    const colors = ['#0F172A', '#231500'];
+
     allLayers.forEach((layer, i) => {
         const isHorizontal = layer.dataset.horizontalScroll !== undefined;
         const units = isHorizontal ? 2 : 1;
         if (isHorizontal) horizontalIndex = i;
         layer.style.zIndex = i;
+        layer.style.backgroundColor = colors[i % 2];
 
         let entryPoint = totalScrollUnits * vh;
         layerData.push({
