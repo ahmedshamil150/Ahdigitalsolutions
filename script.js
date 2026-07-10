@@ -32,14 +32,16 @@ function initLayeredScroll() {
         return null;
     }
 
-    function getUnits(dir) {
+    function getUnits(layer) {
+        if (layer.dataset.units) return parseFloat(layer.dataset.units);
+        const dir = isHorizontalSlide(layer);
         return dir ? 1 : 1.5;
     }
 
     function calcTotalUnits() {
         let total = 0;
         allLayers.forEach(layer => {
-            total += getUnits(isHorizontalSlide(layer));
+            total += getUnits(layer);
         });
         return total;
     }
@@ -58,7 +60,7 @@ function initLayeredScroll() {
 
         allLayers.forEach((layer, i) => {
             const dir = isHorizontalSlide(layer);
-            const units = getUnits(dir);
+            const units = getUnits(layer);
             const entryPoint = cumulative * vh;
             const progress = Math.min(Math.max((scrollY - entryPoint) / (units * vh), 0), 1);
             const eased = easeOutQuint(progress);
