@@ -1,52 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    initSmoothScroll();
-    initScrollAnimations();
     initHeaderScroll();
     initLayeredScroll();
-    initLazyLoading();
 });
 
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-    });
+function easeOutQuart(t) {
+    return 1 - Math.pow(1 - t, 4);
 }
 
-function initScrollAnimations() {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    const animatedElements = document.querySelectorAll('.service-card, .stat-item, .capability-item');
-    animatedElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-        observer.observe(el);
-    });
+function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
 }
 
 function initHeaderScroll() {
@@ -61,14 +23,6 @@ function initHeaderScroll() {
             header.classList.remove('scrolled');
         }
     }, { passive: true });
-}
-
-function easeOutQuart(t) {
-    return 1 - Math.pow(1 - t, 4);
-}
-
-function easeOutCubic(t) {
-    return 1 - Math.pow(1 - t, 3);
 }
 
 function initLayeredScroll() {
@@ -112,12 +66,6 @@ function initLayeredScroll() {
 
     container.style.height = ((totalScrollUnits + 1) * vh) + 'px';
 
-    const categoriesTrack = document.getElementById('categories-track');
-    let maxTrackScroll = 0;
-    if (categoriesTrack) {
-        maxTrackScroll = Math.max(0, categoriesTrack.scrollWidth - window.innerWidth);
-    }
-
     function updateLayers() {
         const scrollY = window.scrollY;
         vh = window.innerHeight;
@@ -141,12 +89,6 @@ function initLayeredScroll() {
                     layer.style.transform = `translate3d(0, ${(1 - eased) * 100}vh, 0)`;
                 } else {
                     layer.style.transform = 'translate3d(0, 0, 0)';
-                    if (categoriesTrack) {
-                        const horizProgress = Math.min(Math.max((progress - 0.45) / 0.55, 0), 1);
-                        const easedHoriz = easeOutCubic(horizProgress);
-                        const tx = -easedHoriz * maxTrackScroll;
-                        categoriesTrack.style.transform = `translate3d(${tx}px, 0, 0)`;
-                    }
                 }
             } else {
                 const eased = easeOutQuart(progress);
@@ -184,29 +126,9 @@ function initLayeredScroll() {
                 layerData[i].entryPoint = cumulativeUnits * vh;
             });
             container.style.height = ((totalScrollUnits + 1) * vh) + 'px';
-            if (categoriesTrack) {
-                maxTrackScroll = Math.max(0, categoriesTrack.scrollWidth - window.innerWidth);
-            }
             updateLayers();
         }, 150);
     }, { passive: true });
 
     updateLayers();
-}
-
-function initLazyLoading() {
-    if ('loading' in HTMLImageElement.prototype) {
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach(img => {
-            img.src = img.dataset.src;
-        });
-    }
-}
-
-if (window.performance) {
-    window.addEventListener('load', () => {
-        const perfData = window.performance.timing;
-        const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-        console.log('Page load time:', pageLoadTime + 'ms');
-    });
 }
