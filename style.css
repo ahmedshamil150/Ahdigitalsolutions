@@ -344,12 +344,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(8, 27, 51, 0.55) 0%,
-        rgba(8, 27, 51, 0.10) 45%,
-        rgba(8, 27, 51, 0.35) 100%
-    );
+    background: rgba(0, 0, 0, 0.8);
     pointer-events: none;
 }
 
