@@ -15,8 +15,8 @@
   var COLOR_UPDATE_SPEED = 10;
   var BACK_COLOR = { r: 0.5, g: 0, b: 0 };
   var TRANSPARENT = true;
-  var RAINBOW_MODE = true;
-  var COLOR = '#ff0000';
+  var RAINBOW_MODE = false;
+  var COLOR = '#18B6FF';
   var BACKGROUND_COLOR = { r: 0, g: 0, b: 0 };
 
   var canvas;
