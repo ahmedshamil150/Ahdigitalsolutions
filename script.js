@@ -39,7 +39,9 @@ function initLayeredScroll() {
         const isHorizontal = layer.dataset.horizontalScroll !== undefined;
         const units = isHorizontal ? 2 : 1;
         layer.style.zIndex = i;
-        layer.style.backgroundColor = lightShades[i % 2];
+        if (!('customBg' in layer.dataset)) {
+            layer.style.backgroundColor = lightShades[i % 2];
+        }
 
         let entryPoint = totalScrollUnits * vh;
         layerData.push({
@@ -73,6 +75,9 @@ function initLayeredScroll() {
                 } else {
                     layer.style.transform = 'translate3d(0, 0, 0)';
                 }
+            } else if (layer.dataset.slide === 'right' && window.innerWidth > 768) {
+                const eased = easeOutQuart(progress);
+                layer.style.transform = `translate3d(${(1 - eased) * 110}vw, 0, 0)`;
             } else {
                 const eased = easeOutQuart(progress);
                 layer.style.transform = `translate3d(0, ${(1 - eased) * 100}vh, 0)`;
