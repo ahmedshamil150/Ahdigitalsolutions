@@ -7,10 +7,6 @@ function easeOutQuart(t) {
     return 1 - Math.pow(1 - t, 4);
 }
 
-function easeOutCubic(t) {
-    return 1 - Math.pow(1 - t, 3);
-}
-
 function initHeaderScroll() {
     const header = document.querySelector('.header');
 
@@ -32,10 +28,7 @@ function initLayeredScroll() {
     const layers = container.querySelectorAll('.layer');
     const footerLayer = document.getElementById('footer-layer');
     const allLayers = footerLayer ? [...layers, footerLayer] : [...layers];
-    const numLayers = allLayers.length;
-
     let vh = window.innerHeight;
-    let horizontalIndex = -1;
     let totalScrollUnits = 0;
     const layerData = [];
 
@@ -44,11 +37,8 @@ function initLayeredScroll() {
     allLayers.forEach((layer, i) => {
         const isHorizontal = layer.dataset.horizontalScroll !== undefined;
         const units = isHorizontal ? 2 : 1;
-        if (isHorizontal) horizontalIndex = i;
         layer.style.zIndex = i;
-        if (!layer.classList.contains('hero')) {
-            layer.style.backgroundColor = lightShades[i % 2];
-        }
+        layer.style.backgroundColor = lightShades[i % 2];
 
         let entryPoint = totalScrollUnits * vh;
         layerData.push({
@@ -70,15 +60,7 @@ function initLayeredScroll() {
         const scrollY = window.scrollY;
         vh = window.innerHeight;
 
-        const rawIndex = scrollY / vh;
-        const currentIndex = Math.min(Math.floor(rawIndex + 0.55), numLayers - 1);
-
         allLayers.forEach((layer, i) => {
-            if (i === 0) {
-                layer.style.transform = 'translate3d(0, 0, 0)';
-                return;
-            }
-
             const data = layerData[i];
             const progress = Math.min(Math.max((scrollY - data.entryPoint) / (data.units * vh), 0), 1);
 
@@ -94,10 +76,6 @@ function initLayeredScroll() {
                 const eased = easeOutQuart(progress);
                 layer.style.transform = `translate3d(0, ${(1 - eased) * 100}vh, 0)`;
             }
-        });
-
-        allLayers.forEach((layer, i) => {
-            layer.classList.toggle('layer-active', i === currentIndex);
         });
     }
 
