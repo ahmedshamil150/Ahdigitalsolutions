@@ -47,7 +47,7 @@ function initLayeredScroll() {
     }
 
     allLayers.forEach((layer, i) => {
-        layer.style.zIndex = i;
+        layer.style.zIndex = 100 + i;
         layerData.push({ element: layer, index: i });
     });
 

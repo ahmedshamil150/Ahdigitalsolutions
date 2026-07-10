@@ -146,7 +146,6 @@ body {
 /* Layer Scroll System */
 #scroll-container {
     position: relative;
-    z-index: 3;
 }
 
 .layer::-webkit-scrollbar {
@@ -829,6 +828,69 @@ body {
 
 .svc-learn:hover {
     color: var(--color-accent-hover);
+}
+
+.svc-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.svc-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.svc-card-btn--contact {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border: 1px solid var(--color-accent);
+}
+
+.svc-card-btn--contact:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+}
+
+.svc-card-btn--wa {
+    background: transparent;
+    color: #25D366;
+    border: 1px solid #25D366;
+}
+
+.svc-card-btn--wa:hover {
+    background: #25D366;
+    color: #fff;
+}
+
+.layer[data-bg="light"] .svc-card-btn--contact {
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+}
+
+.layer[data-bg="light"] .svc-card-btn--contact:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+}
+
+.layer[data-bg="light"] .svc-card-btn--wa {
+    color: #25D366;
+    border-color: #25D366;
+}
+
+.layer[data-bg="light"] .svc-card-btn--wa:hover {
+    background: #25D366;
+    color: #fff;
 }
 
 /* Modal */
@@ -1614,6 +1676,102 @@ footer > .container {
     border-radius: 50%;
     background: var(--color-accent);
     opacity: 0.6;
+}
+
+.pricing-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 1.75rem 1.75rem;
+}
+
+.pricing-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    flex: 1;
+}
+
+.pricing-card-btn--cta {
+    background: var(--color-accent);
+    color: #fff;
+    border: 1px solid var(--color-accent);
+}
+
+.pricing-card-btn--cta:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+}
+
+.pricing-card-btn--wa {
+    background: transparent;
+    color: #25D366;
+    border: 1px solid #25D366;
+}
+
+.pricing-card-btn--wa:hover {
+    background: #25D366;
+    color: #fff;
+}
+
+.folio-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.folio-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.folio-card-btn--visit {
+    background: transparent;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+}
+
+.folio-card-btn--visit:hover {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.folio-card-btn--inquire {
+    background: transparent;
+    color: #0f1e33;
+    border: 1px solid #0f1e33;
+}
+
+.folio-card-btn--inquire:hover {
+    background: #0f1e33;
+    color: #fff;
+}
+
+.folio-card-btn--wa {
+    background: transparent;
+    color: #25D366;
+    border: 1px solid #25D366;
+}
+
+.folio-card-btn--wa:hover {
+    background: #25D366;
+    color: #fff;
 }
 
 /* ================================
