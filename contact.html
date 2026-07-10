@@ -11,6 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         .contact-grid { margin: 0 auto; width: 100%; max-width: var(--container-width); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; padding: 2rem 0; }
+        .contact-info-card { background: #fff; border: 1px solid #e8ecf1; border-radius: 16px; padding: 2rem; }
+        .contact-info-card .page-heading { color: #0f1e33; }
+        .contact-info-card .page-text { color: #4a5568; }
+        .contact-info-card .page-badge { color: var(--color-accent); }
         @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -31,10 +35,10 @@
     </header>
 
     <div id="scroll-container">
-        <section class="layer" data-slide="none" data-bg="light">
+        <section class="layer" data-slide="none" data-bg="dark">
             <div class="container">
                 <div class="contact-grid">
-                    <div class="contact-info">
+                    <div class="contact-info-card">
                         <div class="page-badge">Contact Details</div>
                         <h2 class="page-heading" style="margin-bottom:0.5rem">Get in Touch</h2>
                         <p class="page-text" style="margin-bottom:2rem">We're based in Punjab Rawalpindi, Pakistan and work with clients globally. Reach out through any of the channels below.</p>
