@@ -130,10 +130,16 @@ body {
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Hero dark theme override */
+.hero.layer {
+    background-color: #0F172A;
     color: #e8e8e8;
     --color-muted: #8a8a8a;
     --color-border: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .layer > .container {
@@ -274,7 +280,7 @@ footer > .container {
 
 .link-arrow:hover {
     gap: var(--spacing-sm);
-    color: #ffffff;
+    color: #0F172A;
 }
 
 .link-arrow span {
@@ -345,7 +351,7 @@ footer > .container {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--color-gray);
+    color: var(--color-muted);
     margin-bottom: var(--spacing-md);
 }
 
@@ -362,7 +368,7 @@ footer > .container {
     font-weight: 700;
     text-transform: none;
     letter-spacing: -0.02em;
-    color: #ffffff;
+    color: var(--color-text);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -428,7 +434,7 @@ footer > .container {
     font-weight: 700;
     text-transform: none;
     letter-spacing: -0.02em;
-    color: #ffffff;
+    color: var(--color-text);
     margin-bottom: var(--spacing-md);
 }
 
@@ -458,7 +464,7 @@ footer > .container {
 }
 
 .footer-description {
-    color: var(--color-gray);
+    color: var(--color-muted);
     line-height: 1.7;
 }
 
@@ -467,13 +473,13 @@ footer > .container {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-gray);
+    color: var(--color-muted);
     margin-bottom: var(--spacing-md);
 }
 
 .footer-link {
     display: block;
-    color: #c0c0c0;
+    color: var(--color-text);
     text-decoration: none;
     margin-bottom: var(--spacing-xs);
     font-weight: 500;
@@ -532,7 +538,7 @@ footer > .container {
 /* Services Page */
 .service-detail {
     padding: var(--spacing-xl) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .service-detail:last-child {
@@ -569,12 +575,12 @@ footer > .container {
 .portfolio-placeholder {
     width: 100%;
     aspect-ratio: 4/3;
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: var(--color-border);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    color: var(--color-gray);
+    color: var(--color-muted);
     margin-bottom: var(--spacing-md);
 }
 
@@ -598,7 +604,7 @@ footer > .container {
 
 .pricing-card {
     padding: var(--spacing-xl);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--color-border);
     position: relative;
 }
 
@@ -707,11 +713,11 @@ footer > .container {
 .form-group input,
 .form-group textarea {
     padding: var(--spacing-md);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg);
     font-family: var(--font-family);
     font-size: 1rem;
-    color: #e8e8e8;
+    color: var(--color-text);
     transition: border-color 0.2s ease;
 }
 
@@ -754,7 +760,7 @@ footer > .container {
 .category-card {
     flex: 0 0 280px;
     height: 320px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -768,7 +774,7 @@ footer > .container {
 .category-card:hover {
     border-color: var(--color-accent-blue);
     transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 
 .category-icon {
@@ -785,7 +791,7 @@ footer > .container {
 
 .category-count {
     font-size: 0.875rem;
-    color: var(--color-gray);
+    color: var(--color-muted);
 }
 
 .categories-hint {
@@ -794,7 +800,7 @@ footer > .container {
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.75rem;
-    color: var(--color-gray);
+    color: var(--color-muted);
     letter-spacing: 0.15em;
     text-transform: uppercase;
     opacity: 0.6;
