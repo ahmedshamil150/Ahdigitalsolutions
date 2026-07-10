@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initLayeredScroll();
     initLazyLoading();
-    initHeroSpotlight();
 });
 
 function initSmoothScroll() {
@@ -202,23 +201,6 @@ function initLazyLoading() {
             img.src = img.dataset.src;
         });
     }
-}
-
-function initHeroSpotlight() {
-    const hero = document.querySelector('.hero');
-    const spotlight = document.querySelector('.hero-spotlight');
-    if (!hero || !spotlight) return;
-
-    hero.addEventListener('mousemove', (e) => {
-        const rect = hero.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        spotlight.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(0, 180, 255, 0.2) 0%, transparent 50%)`;
-    });
-
-    hero.addEventListener('mouseleave', () => {
-        spotlight.style.background = 'transparent';
-    });
 }
 
 if (window.performance) {
