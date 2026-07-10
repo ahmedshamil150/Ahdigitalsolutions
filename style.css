@@ -264,6 +264,30 @@ body {
     color: var(--color-accent);
 }
 
+.layer[data-bg="light"] .page-heading {
+    color: #0f1e33;
+}
+
+.layer[data-bg="light"] .page-heading em {
+    color: var(--color-accent);
+}
+
+.layer[data-bg="light"] .page-text {
+    color: #4a5568;
+}
+
+.layer[data-bg="light"] .page-stat-num {
+    color: #0f1e33;
+}
+
+.layer[data-bg="light"] .page-stat-label {
+    color: #6b7a8f;
+}
+
+.layer[data-bg="light"] .page-stats {
+    border-top-color: rgba(0, 0, 0, 0.08);
+}
+
 /* ================================
    Hero Section
    ================================ */
@@ -835,11 +859,11 @@ body {
    Subpage Hero
    ================================ */
 .hero-sub {
-    background: linear-gradient(135deg, #081B33 0%, #0E2848 50%, #0A1E3D 100%);
+    background: #000;
 }
 
 .hero-sub::before {
-    background: radial-gradient(ellipse at 50% 30%, rgba(24, 182, 255, 0.08) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 50% 30%, rgba(24, 182, 255, 0.05) 0%, transparent 60%);
 }
 
 .hero-card--sm {
@@ -851,15 +875,31 @@ body {
    ================================ */
 .page-body {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
     align-items: center;
-    justify-content: center;
     height: 100%;
 }
 
 .page-body-content {
-    max-width: 680px;
-    text-align: center;
+    max-width: 500px;
+    justify-self: end;
+}
+
+.page-visual {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+.page-visual img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+    border-radius: 0;
 }
 
 .page-badge {
@@ -1500,8 +1540,14 @@ footer > .container {
     }
 
     /* === Subpage body mobile === */
+    .page-body {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
     .page-body-content {
         max-width: 100%;
+        justify-self: auto;
     }
 
     .page-text {
@@ -1515,6 +1561,12 @@ footer > .container {
 
     .page-stat-num {
         font-size: 1.2rem;
+    }
+
+    .page-visual img {
+        height: 220px;
+        clip-path: none;
+        border-radius: 12px;
     }
 
     /* === Browse/Pricing-Work section mobile === */
