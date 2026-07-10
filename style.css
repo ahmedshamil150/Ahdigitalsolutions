@@ -135,7 +135,13 @@ body {
 
 /* Hero dark theme override */
 .hero.layer {
-    background-color: #0F172A;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(0, 180, 255, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(0, 180, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(0, 180, 255, 0.04) 0%, transparent 40%),
+        linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)),
+        url('https://picsum.photos/seed/herobg/1920/1080') center / cover no-repeat,
+        #0F172A;
     color: #e8e8e8;
     --color-muted: #8a8a8a;
     --color-border: rgba(255, 255, 255, 0.1);
@@ -149,6 +155,160 @@ body {
 
 .layer-content {
     will-change: opacity, transform;
+}
+
+/* Section decorative visual */
+.section-visual {
+    width: 100%;
+    max-height: 160px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.5;
+}
+
+.section-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.6);
+}
+
+/* Section intro text */
+.section-intro {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Philosophy image */
+.philosophy-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.philosophy-image {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    opacity: 0.7;
+}
+
+.philosophy-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.5);
+}
+
+/* Principles list */
+.principles {
+    list-style: none;
+    margin-top: var(--spacing-lg);
+}
+
+.principles li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+}
+
+.principles li:last-child {
+    border-bottom: none;
+}
+
+.principles li strong {
+    color: var(--color-text);
+    font-weight: 600;
+    min-width: 100px;
+}
+
+/* Capabilities categories */
+.capabilities .section-title {
+    margin-bottom: var(--spacing-sm);
+}
+
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.capability-category h4 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+    margin-bottom: var(--spacing-sm);
+}
+
+.capability-category ul {
+    list-style: none;
+}
+
+.capability-category li {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 6px 0;
+    color: var(--color-text);
+}
+
+.capability-category li::before {
+    content: '—';
+    color: var(--color-accent-blue);
+    margin-right: 8px;
+    font-weight: 300;
+}
+
+/* CTA section enhancements */
+.cta-section .cta-content .cta-sub {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Commission process */
+.commission-process {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.process-step {
+    padding: var(--spacing-md) 0;
+}
+
+.process-step .step-number {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-accent-blue);
+    letter-spacing: 0.12em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.process-step h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.process-step p {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    line-height: 1.6;
 }
 
 /* Hero fade-in animation only */
@@ -263,19 +423,6 @@ footer > .container {
     margin-bottom: var(--spacing-lg);
 }
 
-.capabilities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-lg);
-}
-
-.capability-item {
-    font-size: 1.125rem;
-    font-weight: 500;
-    padding: var(--spacing-md) 0;
-}
-
 .link-arrow {
     display: inline-flex;
     align-items: center;
@@ -300,6 +447,13 @@ footer > .container {
 }
 
 /* CTA Section */
+.cta-section.layer {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+        url('https://picsum.photos/seed/ctabg/1920/600') center / cover no-repeat;
+    background-blend-mode: overlay;
+}
+
 .cta-section .container {
     display: flex;
     justify-content: space-between;
@@ -402,28 +556,66 @@ footer > .container {
 }
 
 .service-card {
-    padding: var(--spacing-lg) 0;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+    border-color: var(--color-accent-blue);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 180, 255, 0.06);
+}
+
+.service-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(0.3);
+}
+
+.service-card:hover .service-img img {
+    transform: scale(1.05);
+    filter: grayscale(0);
+}
+
+.service-card-body {
+    padding: var(--spacing-lg);
 }
 
 .service-number {
-    font-size: 0.875rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--color-muted);
-    margin-bottom: var(--spacing-md);
-}
-
-.service-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    letter-spacing: 0.12em;
     margin-bottom: var(--spacing-sm);
 }
 
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
 .service-description {
+    font-size: 0.9rem;
     color: var(--color-muted);
     line-height: 1.7;
 }
 
 /* Stats */
+.stats.layer {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -466,6 +658,12 @@ footer > .container {
 }
 
 /* Footer */
+.footer.layer {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+        url('https://picsum.photos/seed/footerbg/1920/400') center / cover no-repeat;
+}
+
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -778,17 +976,16 @@ footer > .container {
 }
 
 .category-card {
-    flex: 0 0 320px;
+    flex: 0 0 340px;
     border: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: var(--spacing-xl) var(--spacing-lg);
     text-align: center;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    background: #fff;
 }
 
 .card-accent {
@@ -800,19 +997,11 @@ footer > .container {
     background: linear-gradient(90deg, var(--color-accent-blue), #33c4ff, var(--color-accent-blue));
     opacity: 0;
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
 }
 
 .category-card:hover .card-accent {
     opacity: 1;
-}
-
-.card-number {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--color-muted);
-    letter-spacing: 0.12em;
-    margin-bottom: var(--spacing-sm);
-    align-self: flex-start;
 }
 
 .category-card:hover {
@@ -821,9 +1010,53 @@ footer > .container {
     box-shadow: 0 30px 80px rgba(0, 180, 255, 0.08);
 }
 
+/* Card image */
+.card-img {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(0.4);
+}
+
+.category-card:hover .card-img img {
+    transform: scale(1.08);
+    filter: grayscale(0);
+}
+
+.card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.card-body {
+    padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.card-number {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    letter-spacing: 0.12em;
+    margin-bottom: var(--spacing-xs);
+}
+
 .category-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-sm);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xs);
     line-height: 1;
     filter: grayscale(0.2);
     transition: filter 0.4s ease;
@@ -834,18 +1067,18 @@ footer > .container {
 }
 
 .category-name {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: var(--spacing-xs);
     letter-spacing: -0.01em;
 }
 
 .category-desc {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     color: var(--color-muted);
     line-height: 1.6;
     margin-bottom: var(--spacing-md);
-    max-width: 260px;
+    max-width: 280px;
 }
 
 .card-tags {
@@ -857,7 +1090,7 @@ footer > .container {
 }
 
 .card-tag {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -899,25 +1132,6 @@ footer > .container {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .category-card {
-        flex: 0 0 260px;
-        padding: var(--spacing-lg);
-    }
-    
-    .category-desc {
-        font-size: 0.8rem;
-    }
-    
-    .categories-track {
-        gap: var(--spacing-md);
-        padding: 0 var(--spacing-md);
-    }
-    
-    .hero .layer-content {
-        transform: translateY(20px) scale(0.98);
-    }
-}
-@media (max-width: 768px) {
     .nav-links {
         display: none;
     }
@@ -956,6 +1170,27 @@ footer > .container {
     
     .stat-number {
         font-size: 2.5rem;
+    }
+
+    .philosophy-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .philosophy-image {
+        height: 220px;
+    }
+
+    .capabilities-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .commission-process {
+        grid-template-columns: 1fr;
+    }
+
+    .section-visual {
+        max-height: 100px;
     }
     
     .page-title {
