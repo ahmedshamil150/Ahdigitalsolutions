@@ -1,0 +1,12 @@
+{
+  "name": "ah-digital-solutions",
+  "version": "1.0.0",
+  "description": "AH Digital Solutions - Modern Web Architecture",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": ["web", "design", "seo"],
+  "author": "AH Digital Solutions",
+  "license": "MIT"
+}
