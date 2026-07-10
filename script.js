@@ -4,47 +4,71 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
 });
 
-function easeOutQuart(t) {
-    return 1 - Math.pow(1 - t, 4);
+function easeOutQuint(t) {
+    return 1 - Math.pow(1 - t, 5);
 }
 
 function initHeaderScroll() {
     const header = document.querySelector('.header');
-
     window.addEventListener('scroll', () => {
         header.classList.toggle('scrolled', window.scrollY > 50);
     }, { passive: true });
 }
 
 function initLayeredScroll() {
+    if (window.innerWidth <= 768) return;
     const container = document.getElementById('scroll-container');
     if (!container) return;
 
     const allLayers = container.querySelectorAll('.layer');
     let vh = window.innerHeight;
-    let totalScrollUnits = 0;
     const layerData = [];
 
-    allLayers.forEach((layer, i) => {
-        const units = 1.5;
-        layer.style.zIndex = i;
+    function getUnits(slideRight) {
+        return slideRight ? 1 : 1.5;
+    }
 
-        const entryPoint = totalScrollUnits * vh;
-        layerData.push({ element: layer, index: i, units, entryPoint });
-        totalScrollUnits += units;
+    function isSlideRight(layer) {
+        return layer.dataset.slide === 'right' && window.innerWidth > 768;
+    }
+
+    function calcTotalUnits() {
+        let total = 0;
+        allLayers.forEach(layer => {
+            total += getUnits(isSlideRight(layer));
+        });
+        return total;
+    }
+
+    allLayers.forEach((layer, i) => {
+        const slideRight = isSlideRight(layer);
+        const units = getUnits(slideRight);
+        layer.style.zIndex = i;
+        layerData.push({ element: layer, index: i });
     });
 
-    container.style.height = ((totalScrollUnits + 1) * vh) + 'px';
+    container.style.height = ((calcTotalUnits() + 1) * vh) + 'px';
 
     function updateLayers() {
         const scrollY = window.scrollY;
         vh = window.innerHeight;
+        let cumulative = 0;
 
         allLayers.forEach((layer, i) => {
             const data = layerData[i];
-            const progress = Math.min(Math.max((scrollY - data.entryPoint) / (data.units * vh), 0), 1);
-            const eased = easeOutQuart(progress);
-            layer.style.transform = `translate3d(0, ${(1 - eased) * 100}vh, 0)`;
+            const slideRight = isSlideRight(layer);
+            const units = getUnits(slideRight);
+            const entryPoint = cumulative * vh;
+            const progress = Math.min(Math.max((scrollY - entryPoint) / (units * vh), 0), 1);
+            const eased = easeOutQuint(progress);
+
+            if (slideRight) {
+                layer.style.transform = `translate3d(${(1 - eased) * 110}vw, 0, 0)`;
+            } else {
+                layer.style.transform = `translate3d(0, ${(1 - eased) * 100}vh, 0)`;
+            }
+
+            cumulative += units;
         });
     }
 
@@ -59,21 +83,12 @@ function initLayeredScroll() {
         }
     }, { passive: true });
 
-    function recalcEntryPoints() {
-        let cumulative = 0;
-        allLayers.forEach((layer, i) => {
-            layerData[i].entryPoint = cumulative * vh;
-            cumulative += 1.5;
-        });
-    }
-
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             vh = window.innerHeight;
-            recalcEntryPoints();
-            container.style.height = ((totalScrollUnits + 1) * vh) + 'px';
+            container.style.height = ((calcTotalUnits() + 1) * vh) + 'px';
             updateLayers();
         }, 150);
     }, { passive: true });

@@ -12,6 +12,7 @@
 </head>
 <body>
     <header class="header">
+        <div class="mobile-notice">For the best experience, please view on a laptop or desktop device.</div>
         <nav class="nav">
             <a href="index.html" class="logo">AH<span class="logo-accent">.</span>Digital</a>
             <ul class="nav-links">
@@ -69,7 +70,7 @@
             </div>
         </section>
         <div id="scroll-container">
-            <section class="layer" data-custom-bg>
+            <section class="layer" data-slide="right" data-custom-bg>
                 <div class="container layer-content">
                     <div class="about-section">
                         <div class="about-text">
@@ -106,65 +107,110 @@
                     </div>
                 </div>
             </section>
-            <section class="layer">
+            <section class="layer" data-bg="dark">
                 <div class="container layer-content">
-                    <div class="services-section">
-                        <div class="services-header">
+                    <div class="services-alt">
+                        <div class="services-alt-text">
                             <div class="section-badge">What We Offer</div>
-                            <h2 class="services-heading">Full-Scale Digital <em>Services</em></h2>
-                            <p class="services-desc">From concept to launch, we deliver end-to-end solutions tailored to your business goals.</p>
-                        </div>
-                        <div class="services-grid">
-                            <div class="service-card">
-                                <div class="service-icon">
-                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                                        <rect x="2" y="5" width="24" height="16" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                                        <line x1="2" y1="10" x2="26" y2="10" stroke="currentColor" stroke-width="1.5"/>
-                                        <circle cx="6" cy="7.5" r="1" fill="currentColor"/>
-                                        <circle cx="9.5" cy="7.5" r="1" fill="currentColor"/>
-                                        <line x1="7" y1="14" x2="12" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-                                        <line x1="7" y1="17" x2="18" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-                                    </svg>
-                                </div>
-                                <h3>Web Development</h3>
-                                <p>Custom websites and applications built with modern frameworks for maximum performance and scalability.</p>
-                            </div>
-                            <div class="service-card">
-                                <div class="service-icon">
-                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                                        <rect x="3" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                                        <rect x="17" y="4" width="8" height="20" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                                        <rect x="3" y="18" width="10" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                                        <circle cx="8" cy="9" r="1.5" fill="currentColor" opacity="0.4"/>
-                                    </svg>
-                                </div>
-                                <h3>UI/UX Design</h3>
-                                <p>User-centric interfaces that create intuitive experiences and drive higher engagement and conversions.</p>
-                            </div>
-                            <div class="service-card">
-                                <div class="service-icon">
-                                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                                        <path d="M3 22l8-8 5 5 10-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                                        <circle cx="22" cy="7" r="3" fill="currentColor" opacity="0.3"/>
-                                        <line x1="3" y1="22" x2="25" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
-                                    </svg>
-                                </div>
-                                <h3>SEO &amp; Performance</h3>
-                                <p>Search-optimized architecture with lightning-fast load times for better rankings and user experience.</p>
+                            <h2 class="services-alt-heading">Full-Scale Digital <em>Services</em></h2>
+                            <p class="services-alt-desc">From concept to launch, we deliver end-to-end solutions tailored to your business goals.</p>
+                            <div class="service-tags">
+                                <span class="service-tag">Web Development</span>
+                                <span class="service-tag">UI/UX Design</span>
+                                <span class="service-tag">SEO &amp; Performance</span>
+                                <span class="service-tag">Analytics</span>
+                                <span class="service-tag">Brand Identity</span>
+                                <span class="service-tag">Support &amp; Maintenance</span>
                             </div>
                         </div>
-                        <div class="services-cta">
-                            <a href="services.html" class="btn btn--primary">View All Services</a>
+                        <div class="services-alt-visual">
+                            <div class="services-alt-img"></div>
+                            <a href="services.html" class="services-alt-btn">View All Services <span class="btn-arrow">→</span></a>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="layer"></section>
-            <section class="layer"></section>
-            <section class="layer"></section>
-            <section class="layer"></section>
-            <section class="layer"></section>
-            <footer class="footer layer" id="footer-layer"></footer>
+            <section class="layer" data-bg="light">
+                <div class="container layer-content">
+                    <div class="browse-section">
+                        <div class="section-badge">Explore More</div>
+                        <h2 class="browse-heading">Discover <em>What We Can Do</em> For You</h2>
+                        <p class="browse-desc">Whether you want to see our past work or find the right plan, we've got you covered.</p>
+                        <div class="browse-grid">
+                            <a href="work.html" class="browse-card">
+                                <div class="browse-icon">
+                                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                                        <rect x="4" y="6" width="28" height="20" rx="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                        <rect x="8" y="10" width="10" height="8" rx="1.5" fill="currentColor" opacity="0.15"/>
+                                        <rect x="20" y="11" width="8" height="2" rx="1" fill="currentColor" opacity="0.2"/>
+                                        <rect x="20" y="15" width="6" height="2" rx="1" fill="currentColor" opacity="0.12"/>
+                                        <rect x="8" y="20" width="20" height="2" rx="1" fill="currentColor" opacity="0.08"/>
+                                    </svg>
+                                </div>
+                                <h3>Our Work</h3>
+                                <p>Browse our portfolio of handcrafted digital projects and case studies.</p>
+                                <span class="browse-link">View Portfolio →</span>
+                            </a>
+                            <a href="pricing.html" class="browse-card">
+                                <div class="browse-icon">
+                                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                                        <rect x="6" y="8" width="24" height="20" rx="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                        <rect x="10" y="12" width="8" height="8" rx="2" fill="currentColor" opacity="0.15"/>
+                                        <rect x="20" y="14" width="6" height="2" rx="1" fill="currentColor" opacity="0.2"/>
+                                        <rect x="20" y="18" width="6" height="2" rx="1" fill="currentColor" opacity="0.12"/>
+                                        <path d="M14 24l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+                                    </svg>
+                                </div>
+                                <h3>Pricing Plans</h3>
+                                <p>Transparent pricing tailored to your project scope and business needs.</p>
+                                <span class="browse-link">See Plans →</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer layer" id="footer-layer">
+                <div class="container">
+                    <div class="footer-grid">
+                        <div class="footer-brand">
+                            <a href="index.html" class="footer-logo">AH<span class="logo-accent">.</span>Digital</a>
+                            <p class="footer-tagline">Architecture for the modern web. We build considered digital products that balance high-end aesthetics with technical precision.</p>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Quick Links</h4>
+                            <a href="about.html">About Us</a>
+                            <a href="services.html">Services</a>
+                            <a href="work.html">Our Work</a>
+                            <a href="pricing.html">Pricing</a>
+                            <a href="contact.html">Contact</a>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Services</h4>
+                            <a href="services.html">Web Development</a>
+                            <a href="services.html">UI/UX Design</a>
+                            <a href="services.html">SEO & Performance</a>
+                            <a href="services.html">Brand Identity</a>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Contact</h4>
+                            <a href="mailto:hello@ahdigital.solutions">hello@ahdigital.solutions</a>
+                            <a href="tel:+1234567890">+1 (234) 567-890</a>
+                            <div class="footer-social">
+                                <a href="#" aria-label="LinkedIn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                </a>
+                                <a href="#" aria-label="Twitter">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                                </a>
+                                <a href="#" aria-label="GitHub">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                                </a>
+                            </div>
+                            <p class="footer-copy">© 2026 AH Digital Solutions. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </main>
 
