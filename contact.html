@@ -10,11 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .contact-page {
-            background: #fff;
-            min-height: 100vh;
-            padding: 6rem 0 3rem;
-        }
+        .contact-grid { margin: 0 auto; width: 100%; max-width: var(--container-width); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; padding: 2rem 0; }
+        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -32,8 +29,8 @@
         </nav>
     </header>
 
-    <main>
-        <section class="contact-page">
+    <div id="scroll-container">
+        <section class="layer" data-slide="none" data-bg="light">
             <div class="container">
                 <div class="contact-grid">
                     <div class="contact-info">
@@ -107,7 +104,7 @@
             </div>
         </section>
 
-        <footer class="footer" style="position:relative;z-index:1">
+        <footer class="footer layer">
             <div class="container">
                 <div class="footer-wa-callout">
                     <div class="footer-wa-icon">
@@ -162,7 +159,7 @@
                 <p class="footer-copy" style="text-align:center;margin-top:1rem">&copy; 2026 AH Digital Solutions. All rights reserved.</p>
             </div>
         </footer>
-    </main>
+    </div>
 
     <script src="splash-cursor.js" defer></script>
     <script src="script.js" defer></script>
