@@ -166,7 +166,13 @@
         </footer>
     </div>
 
-    <script src="splash-cursor.js" defer></script>
+    <script>
+    if (window.innerWidth > 768) {
+        var sc = document.createElement('script');
+        sc.src = 'splash-cursor.js';
+        document.head.appendChild(sc);
+    }
+    </script>
     <script src="script.js" defer></script>
 </body>
 </html>

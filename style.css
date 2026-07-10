@@ -572,59 +572,7 @@ body {
     background: var(--color-border);
 }
 
-/* Scroll indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 36px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    opacity: 0;
-    transition: opacity 0.6s ease 1.2s;
-    pointer-events: none;
-    z-index: 2;
-}
 
-.hero-fixed .scroll-indicator {
-    opacity: 0.5;
-    z-index: 1;
-}
-
-.scroll-indicator span {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-muted);
-}
-
-.scroll-arrow {
-    width: 18px;
-    height: 28px;
-    border: 1.5px solid var(--color-muted);
-    border-radius: 999px;
-    position: relative;
-}
-
-.scroll-arrow::after {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 8px;
-    background: var(--color-muted);
-    border-radius: 2px;
-    animation: scrollBounce 2s ease-in-out infinite;
-}
-
-@keyframes scrollBounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-    50% { transform: translateX(-50%) translateY(6px); opacity: 0.3; }
-}
 
 /* Hero fade-in entrance */
 .hero-fixed .hero-card {
@@ -1244,42 +1192,6 @@ body {
     }
 }
 
-.border-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 13px 32px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-accent);
-    background: transparent;
-    border: 1px solid var(--color-accent);
-    border-radius: 24px;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    cursor: pointer;
-}
-
-.border-btn:hover {
-    background: rgba(24, 182, 255, 0.06);
-    color: #37C5FF;
-}
-
-/* Scrollable layer (for content-heavy subpages) */
-.layer-scrollable {
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch;
-    justify-content: flex-start;
-    padding-top: 120px;
-}
-
-.layer-scrollable > .container {
-    flex: none;
-    display: block;
-    padding-top: 20px;
-    padding-bottom: 80px;
-}
-
 /* Non-layered pages fallback */
 main {
     position: relative;
@@ -1559,21 +1471,6 @@ footer > .container {
     flex: 1;
 }
 
-.folio-link {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-accent);
-    text-decoration: none;
-    transition: gap 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    margin-top: 0.25rem;
-}
-
-.folio-card:hover .folio-link {
-    gap: 0.5rem;
-}
 
 /* ================================
    Pricing Grid
@@ -2152,10 +2049,6 @@ footer > .container {
 
     .hero-stat-divider {
         height: 24px;
-    }
-
-    .hero-fixed .scroll-indicator {
-        bottom: 24px;
     }
 
     /* === About section mobile — no background overlay, light theme === */

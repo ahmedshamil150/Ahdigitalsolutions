@@ -103,7 +103,7 @@
                             <a href="about.html" class="btn btn--primary">Learn More About Us</a>
                         </div>
                         <div class="about-visual">
-                            <img src="AbouthomeImage.jpg" alt="About AH Digital Solutions">
+                            <img src="AbouthomeImage.jpg" alt="About AH Digital Solutions" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -228,7 +228,13 @@
         </div>
     </main>
 
-    <script src="splash-cursor.js" defer></script>
+    <script>
+    if (window.innerWidth > 768) {
+        var sc = document.createElement('script');
+        sc.src = 'splash-cursor.js';
+        document.head.appendChild(sc);
+    }
+    </script>
     <script src="script.js" defer></script>
 </body>
 </html>
