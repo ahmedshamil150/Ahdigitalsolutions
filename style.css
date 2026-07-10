@@ -485,10 +485,18 @@ body {
    About Section – Neon Edge
    ================================ */
 .about-section {
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
-    text-align: center;
-    padding: 60px 0 80px;
+    text-align: left;
+    padding: 40px 0 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-text {
+    max-width: 520px;
 }
 
 .about-badge {
@@ -506,7 +514,7 @@ body {
 }
 
 .about-heading {
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
     font-weight: 800;
     line-height: 1.12;
     letter-spacing: -0.03em;
@@ -520,11 +528,10 @@ body {
 }
 
 .about-desc {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: #4a5568;
-    max-width: 640px;
-    margin: 0 auto var(--spacing-xl);
     line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
 }
 
 .about-desc strong {
@@ -535,8 +542,8 @@ body {
 .about-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
 }
 
 .about-card {
@@ -576,11 +583,30 @@ body {
     line-height: 1.6;
 }
 
+/* About visual column */
+.about-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-visual-card {
+    width: 100%;
+    max-width: 380px;
+}
+
+.about-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Neon border on the about layer */
 .layer[data-slide="right"] {
     border: none;
     justify-content: flex-start;
     padding-top: 100px;
+    overflow-y: auto;
     box-shadow:
         inset 0 0 30px rgba(24, 182, 255, 0.06),
         0 0 30px rgba(24, 182, 255, 0.08);
@@ -770,39 +796,31 @@ footer > .container {
         padding: 8px var(--spacing-md);
     }
 
-    /* === Disable fixed-layer scroll — use natural document flow === */
+    /* === Keep layered scroll, but content scrollable within layers === */
     .hero-fixed {
-        position: relative !important;
-        height: auto !important;
-        min-height: 100vh;
+        padding-top: 0;
+    }
+
+    .layer {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .layer > .container {
+        flex: none;
+        display: block;
         padding-top: 80px;
         padding-bottom: 40px;
     }
 
-    .layer {
-        position: relative !important;
-        height: auto !important;
-        min-height: 0 !important;
-        transform: none !important;
-        background-color: transparent !important;
-        padding-top: 60px !important;
-        padding-bottom: 60px !important;
-        overflow: visible !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
     .layer[data-slide="right"] {
-        padding-top: 80px !important;
-        justify-content: flex-start;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
-    #scroll-container {
-        height: auto !important;
-    }
-
-    /* Fix about layer background on mobile (joins bottom hero layer) */
-    .layer[data-slide="right"] {
-        background: #f5f7fa !important;
+    .layer[data-slide="right"] > .container {
+        padding-top: 80px;
+        padding-bottom: 40px;
     }
 
     /* === Hero sizing === */
@@ -872,7 +890,13 @@ footer > .container {
 
     /* === About section mobile === */
     .about-section {
-        padding: 30px 0 50px;
+        padding: 20px 0 40px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-text {
+        max-width: 100%;
     }
 
     .about-heading {
@@ -887,5 +911,9 @@ footer > .container {
     .about-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
+    }
+
+    .about-visual {
+        display: none;
     }
 }
