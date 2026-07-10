@@ -259,19 +259,15 @@ body {
 }
 
 .hero-line {
-    display: block;
+    display: inline;
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.2;
     letter-spacing: -0.04em;
+    font-size: clamp(1.6rem, 3.8vw, 3rem);
 }
 
 .hero-line--sm {
-    font-size: clamp(2rem, 5vw, 3.5rem);
     color: var(--color-heading);
-}
-
-.hero-line--lg {
-    font-size: clamp(3rem, 8vw, 5.5rem);
 }
 
 .hero-line--gradient {
@@ -282,7 +278,6 @@ body {
 }
 
 .hero-line--md {
-    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
     color: var(--color-body);
     font-weight: 500;
     letter-spacing: -0.02em;
@@ -311,6 +306,7 @@ body {
     font-size: 0.95rem;
     font-weight: 600;
     text-decoration: none;
+    border-radius: 24px;
     transition: all 0.25s ease;
     cursor: pointer;
 }
