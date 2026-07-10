@@ -125,12 +125,21 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 120px;
     overflow: hidden;
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.layer > .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
 
 /* Hero dark theme override */
@@ -146,15 +155,6 @@ body {
     --color-muted: #8a8a8a;
     --color-border: rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.layer > .container {
-    padding-top: 120px;
-    width: 100%;
-}
-
-.layer-scrollable > .container {
-    padding-top: 40px;
 }
 
 .layer-content {
@@ -185,7 +185,7 @@ body {
     margin-bottom: var(--spacing-lg);
 }
 
-/* Philosophy image */
+/* Philosophy — editorial spread */
 .philosophy-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -195,16 +195,48 @@ body {
 
 .philosophy-image {
     width: 100%;
-    height: 320px;
+    height: 100%;
+    min-height: 360px;
     overflow: hidden;
-    opacity: 0.7;
 }
 
 .philosophy-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(0.5);
+    filter: grayscale(0.4);
+}
+
+.philosophy-content {
+    position: relative;
+}
+
+.philosophy-content::before {
+    content: '"';
+    position: absolute;
+    top: -40px;
+    left: -8px;
+    font-size: 6rem;
+    line-height: 1;
+    font-weight: 800;
+    color: var(--color-accent-blue);
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.philosophy-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.philosophy-sub {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+    margin-top: var(--spacing-md);
+    max-width: 480px;
 }
 
 /* Principles list */
@@ -215,26 +247,24 @@ body {
 
 .principles li {
     display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-sm);
+    align-items: center;
+    gap: var(--spacing-md);
     padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-muted);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
-.principles li:last-child {
-    border-bottom: none;
+.principles li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent-blue);
+    flex-shrink: 0;
 }
 
-.principles li strong {
-    color: var(--color-text);
-    font-weight: 600;
-    min-width: 100px;
-}
-
-/* Capabilities categories */
+/* Capabilities — bordered cards */
 .capabilities .section-title {
     margin-bottom: var(--spacing-sm);
 }
@@ -246,40 +276,87 @@ body {
     margin-top: var(--spacing-lg);
 }
 
-.capability-category h4 {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-muted);
-    margin-bottom: var(--spacing-sm);
+.capability-card {
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-lg);
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-.capability-category ul {
+.capability-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
+}
+
+.capability-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--card-accent, var(--color-accent-blue));
+}
+
+.capability-card h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--card-accent, var(--color-accent-blue));
+    margin-bottom: var(--spacing-md);
+}
+
+.capability-card ul {
     list-style: none;
 }
 
-.capability-category li {
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 6px 0;
-    color: var(--color-text);
+.capability-card li {
+    font-size: 0.95rem;
+    font-weight: 400;
+    padding: 5px 0;
+    color: var(--color-muted);
 }
 
-.capability-category li::before {
+.capability-card li::before {
     content: '—';
-    color: var(--color-accent-blue);
+    color: var(--card-accent, var(--color-accent-blue));
     margin-right: 8px;
     font-weight: 300;
 }
 
-/* CTA section enhancements */
-.cta-section .cta-content .cta-sub {
-    font-size: 0.95rem;
-    color: var(--color-muted);
-    line-height: 1.7;
-    max-width: 480px;
+/* CTA Section — bold statement banner */
+.cta-section.layer {
+    background: linear-gradient(135deg, #0F172A 0%, #1a2744 50%, #0F172A 100%);
+    color: #fff;
+    --color-muted: rgba(255, 255, 255, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cta-section .container {
+    text-align: center;
+}
+
+.cta-statement {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    max-width: 720px;
     margin-bottom: var(--spacing-lg);
+}
+
+.cta-statement em {
+    color: var(--color-accent-blue);
+    font-style: normal;
+}
+
+.cta-section .link-arrow {
+    color: var(--color-accent-blue);
+}
+
+.cta-section .link-arrow:hover {
+    color: #fff;
 }
 
 /* Commission process */
@@ -327,15 +404,69 @@ body {
     transform: translateY(0) scale(1);
 }
 
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.6s ease 1.2s;
+    pointer-events: none;
+}
+
+.hero.layer-active .scroll-indicator {
+    opacity: 0.4;
+}
+
+.scroll-indicator span {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-muted);
+}
+
+.scroll-arrow {
+    width: 20px;
+    height: 30px;
+    border: 1.5px solid var(--color-muted);
+    border-radius: 999px;
+    position: relative;
+}
+
+.scroll-arrow::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 8px;
+    background: var(--color-muted);
+    border-radius: 2px;
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    50% { transform: translateX(-50%) translateY(6px); opacity: 0.3; }
+}
+
 /* Scrollable layer (for content-heavy subpages) */
 .layer-scrollable {
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;
     justify-content: flex-start;
-    padding-top: 80px;
+    padding-top: 120px;
 }
 
 .layer-scrollable > .container {
+    flex: none;
+    display: block;
     padding-top: 20px;
     padding-bottom: 80px;
 }
@@ -412,11 +543,6 @@ footer > .container {
     color: var(--color-border);
 }
 
-/* Capabilities */
-.capabilities {
-    padding-top: 0;
-}
-
 .section-title {
     font-size: 0.875rem;
     font-weight: 600;
@@ -449,35 +575,7 @@ footer > .container {
     transform: translateX(4px);
 }
 
-/* CTA Section */
-.cta-section.layer {
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)),
-        url('https://picsum.photos/seed/laptop/1920/600') center / cover no-repeat;
-}
-
-.cta-section .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: var(--spacing-lg);
-}
-
-.cta-content {
-    display: flex;
-    align-items: flex-end;
-    gap: var(--spacing-xl);
-    flex-wrap: wrap;
-}
-
-.cta-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-}
-
+/* CTA button (shared across sections) */
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -502,11 +600,16 @@ footer > .container {
     font-size: 1.125rem;
 }
 
-.cta-badge {
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-align: right;
-    line-height: 1.4;
+/* CTA button dark variant */
+.cta-button.light {
+    background-color: #fff;
+    border-color: #fff;
+    color: #0F172A;
+}
+
+.cta-button.light:hover {
+    background-color: transparent;
+    color: #fff;
 }
 
 /* Philosophy */
@@ -612,60 +715,109 @@ footer > .container {
     line-height: 1.7;
 }
 
-/* Stats */
+/* Stats — dark section */
 .stats.layer {
-    background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-    background-size: 24px 24px;
+    background: #0F172A;
+    color: #fff;
+    --color-muted: rgba(255, 255, 255, 0.5);
+    --color-border: rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.stats .section-label {
+    color: var(--color-muted);
+}
+
+.stats .section-title {
+    color: #fff;
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-xl);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
 }
 
 .stat-item {
-    text-align: left;
+    text-align: center;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
 }
 
 .stat-number {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
     letter-spacing: -0.02em;
     margin-bottom: var(--spacing-xs);
+    color: var(--color-accent-blue);
 }
 
 .stat-label {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--color-muted);
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
-/* Commission Section */
+/* Commission Section — accent CTA */
+.commission.layer {
+    background: linear-gradient(135deg, #0088cc 0%, #00B4FF 50%, #33c4ff 100%);
+    color: #fff;
+    --color-muted: rgba(255, 255, 255, 0.7);
+    --color-text: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.commission .section-label {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.commission .section-label::before {
+    background: rgba(255, 255, 255, 0.6);
+}
+
 .commission .section-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 700;
     text-transform: none;
     letter-spacing: -0.02em;
-    color: var(--color-text);
+    color: #fff;
     margin-bottom: var(--spacing-md);
 }
 
 .commission-text {
-    font-size: 1.125rem;
+    font-size: 1.05rem;
     color: var(--color-muted);
     max-width: 600px;
     margin-bottom: var(--spacing-lg);
     line-height: 1.7;
 }
 
-/* Footer */
-.footer.layer {
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-        url('https://picsum.photos/seed/agency/1920/400') center / cover no-repeat;
+.commission .process-step .step-number {
+    color: rgba(255, 255, 255, 0.6);
 }
 
+.commission .process-step h4 {
+    color: #fff;
+}
+
+.commission .process-step p {
+    color: var(--color-muted);
+}
+
+.commission .cta-button {
+    background-color: #fff;
+    border-color: #fff;
+    color: #0088cc;
+}
+
+.commission .cta-button:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+/* Footer */
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1127,11 +1279,6 @@ footer > .container {
     50% { opacity: 0.8; transform: translateX(-50%) translateY(-4px); }
 }
 
-/* Footer specific */
-.footer {
-    justify-content: center;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
@@ -1144,21 +1291,6 @@ footer > .container {
     
     .hero-description {
         font-size: 1.1rem;
-    }
-    
-    .cta-section .container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .cta-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--spacing-lg);
-    }
-    
-    .cta-title {
-        font-size: 2rem;
     }
     
     .philosophy-text {
@@ -1180,19 +1312,25 @@ footer > .container {
     }
 
     .philosophy-image {
+        min-height: 220px;
         height: 220px;
     }
 
     .capabilities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
         grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .stat-item {
+        padding: var(--spacing-md);
     }
 
     .commission-process {
         grid-template-columns: 1fr;
-    }
-
-    .section-visual {
-        max-height: 100px;
     }
     
     .page-title {
