@@ -201,19 +201,29 @@ body {
     position: relative;
     z-index: 1;
     height: auto;
-}
-
-.hero-fixed .container {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 }
 
-.hero-content {
-    max-width: 620px;
+/* Glass card wrapping all content */
+.hero-card {
+    max-width: 600px;
+    width: 100%;
+    padding: 48px;
+    background: rgba(8, 27, 51, 0.55);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
-/* Glass badge */
+/* Badge */
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -228,8 +238,6 @@ body {
     background: rgba(24, 182, 255, 0.08);
     border: 1px solid rgba(24, 182, 255, 0.15);
     border-radius: 999px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
 }
 
 .hero-badge-dot {
@@ -245,7 +253,7 @@ body {
     50% { opacity: 0.3; }
 }
 
-/* Hero title — stacked lines */
+/* Hero title */
 .hero-title {
     margin-bottom: var(--spacing-md);
 }
@@ -275,7 +283,7 @@ body {
 
 .hero-line--md {
     font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-    color: var(--color-muted);
+    color: var(--color-body);
     font-weight: 500;
     letter-spacing: -0.02em;
 }
@@ -283,8 +291,8 @@ body {
 /* Description */
 .hero-desc {
     font-size: 1.05rem;
-    color: var(--color-muted);
-    max-width: 500px;
+    color: var(--color-body);
+    max-width: 460px;
     line-height: 1.7;
     margin-bottom: var(--spacing-lg);
 }
@@ -342,22 +350,21 @@ body {
 .hero-actions {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--spacing-sm);
     margin-bottom: 0;
 }
 
-/* Glass stats bar */
-.hero-glass-stats {
+/* Stats bar (no glass — inside the card) */
+.hero-stats {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--spacing-lg);
-    padding: 20px 28px;
-    background: rgba(19, 47, 82, 0.5);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    flex-shrink: 0;
+    padding: 20px 0 0;
+    margin-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+    width: 100%;
 }
 
 .hero-stat {
@@ -442,7 +449,7 @@ body {
 }
 
 /* Hero fade-in entrance */
-.hero-fixed .hero-content {
+.hero-fixed .hero-card {
     opacity: 0;
     transform: translateY(30px);
     animation: heroFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
@@ -504,20 +511,20 @@ footer > .container {
         gap: var(--spacing-lg);
     }
 
-    .hero-content {
+    .hero-card {
         max-width: 100%;
+        padding: 32px 24px;
+        border-radius: 16px;
     }
 
-    .hero-glass-stats {
-        padding: 16px 20px;
+    .hero-stats {
         gap: var(--spacing-md);
-        width: 100%;
-        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .hero-actions {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: var(--spacing-sm);
     }
 
