@@ -603,9 +603,13 @@ body {
    Services Section – Glass Cards
    ================================ */
 .services-section {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
+}
+
+.services-header {
+    margin-bottom: var(--spacing-lg);
 }
 
 .services-heading {
@@ -640,19 +644,20 @@ body {
     font-size: 0.9rem;
     color: var(--color-muted);
     max-width: 540px;
-    margin: 0 auto var(--spacing-lg);
+    margin: 0 auto;
     line-height: 1.6;
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
 }
 
 .service-card {
     text-align: left;
-    padding: 24px 22px;
+    padding: 32px 26px;
     border-radius: 16px;
     border: 1px solid var(--color-border);
     background: rgba(19, 47, 82, 0.5);
@@ -667,29 +672,29 @@ body {
     box-shadow: 0 8px 32px rgba(24, 182, 255, 0.08);
 }
 
-.service-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    background: rgba(24, 182, 255, 0.1);
+.service-card-icon {
+    font-size: 1.4rem;
+    font-weight: 800;
     color: var(--color-accent);
     margin-bottom: var(--spacing-sm);
+    opacity: 0.5;
 }
 
 .service-card h3 {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-heading);
     margin-bottom: 8px;
 }
 
 .service-card p {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     color: var(--color-muted);
-    line-height: 1.55;
+    line-height: 1.6;
+}
+
+.services-cta {
+    text-align: center;
 }
 
 /* Neon border on the about layer */
@@ -1005,16 +1010,17 @@ footer > .container {
     }
 
     /* === Services section mobile === */
+    .services-header {
+        margin-bottom: var(--spacing-md);
+    }
+
     .services-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-sm);
-    }
-
-    .services-desc {
         margin-bottom: var(--spacing-md);
     }
 
     .service-card {
-        padding: 18px 16px;
+        padding: 20px 18px;
     }
 }
