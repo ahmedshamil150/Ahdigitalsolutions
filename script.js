@@ -100,7 +100,7 @@ function initLayeredScroll() {
             if (i > 0) {
                 layerData[i].entryPoint = cumulative * vh;
             }
-            const u = layer.dataset.horizontalScroll !== undefined ? 2 : (layer.dataset.slide === 'right' ? 1.5 : 1);
+            const u = layer.dataset.horizontalScroll !== undefined ? 2 : (layer.dataset.slide === 'right' ? 2 : 1);
             cumulative += u;
         });
     }
