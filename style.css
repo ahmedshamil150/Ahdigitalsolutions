@@ -599,6 +599,99 @@ body {
     display: block;
 }
 
+/* ================================
+   Services Section – Glass Cards
+   ================================ */
+.services-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-heading {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--color-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+.services-heading em {
+    font-style: normal;
+    color: var(--color-accent);
+}
+
+.section-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+    padding: 5px 14px;
+    border: 1px solid rgba(24, 182, 255, 0.25);
+    border-radius: 999px;
+    background: rgba(24, 182, 255, 0.08);
+}
+
+.services-desc {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    max-width: 540px;
+    margin: 0 auto var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.service-card {
+    text-align: left;
+    padding: 24px 22px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    background: rgba(19, 47, 82, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    border-color: rgba(24, 182, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(24, 182, 255, 0.08);
+}
+
+.service-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(24, 182, 255, 0.1);
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-card h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 8px;
+}
+
+.service-card p {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    line-height: 1.55;
+}
+
 /* Neon border on the about layer */
 .layer[data-slide="right"] {
     border: none;
@@ -909,5 +1002,19 @@ footer > .container {
 
     .about-visual {
         display: none;
+    }
+
+    /* === Services section mobile === */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .services-desc {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .service-card {
+        padding: 18px 16px;
     }
 }
