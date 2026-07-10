@@ -441,8 +441,8 @@ body {
 }
 
 .hero-desc-em {
-    color: var(--color-heading);
-    font-weight: 500;
+    color: inherit;
+    font-weight: inherit;
 }
 
 /* Buttons */
