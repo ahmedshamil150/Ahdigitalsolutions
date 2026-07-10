@@ -132,3 +132,87 @@ function initMobileMenu() {
         if (e.target === overlay) closeMenu();
     });
 }
+
+function initServiceModal() {
+    var modal = document.getElementById('svcModal');
+    if (!modal) return;
+
+    var bg = modal.querySelector('.svc-modal-bg');
+    var close = modal.querySelector('.svc-modal-close');
+    var titleEl = document.getElementById('svcModalTitle');
+    var bodyEl = document.getElementById('svcModalBody');
+
+    var details = {
+        'custom-website-design': {
+            title: 'Custom Website Design',
+            body: 'We create unique, hand-crafted designs tailored to your brand identity instead of relying on generic templates. Every pixel is considered, every interaction intentional. The result is a website that feels unmistakably yours — building trust with your audience from the first click.'
+        },
+        'small-apps-tools': {
+            title: 'Small Apps & Tools',
+            body: 'Lightweight web applications and custom business tools designed to automate repetitive tasks, streamline workflows, and improve customer service. From booking systems to internal dashboards, we build tools that save you time and scale with your business.'
+        },
+        'web-design-uiux': {
+            title: 'Web Design & UI/UX',
+            body: 'Visually stunning and intuitively structured interfaces optimized to convert visitors into customers. We combine aesthetic excellence with user research to create experiences that feel natural, reduce friction, and drive measurable results.'
+        },
+        'responsive-design': {
+            title: 'Responsive Design',
+            body: 'Websites built to function flawlessly across every device — mobile, tablet, and desktop. We ensure your content looks great and performs perfectly at any screen size, so you never miss an opportunity to connect with your audience.'
+        },
+        'ecommerce-solutions': {
+            title: 'E-commerce Solutions',
+            body: 'Fully integrated online store setups that make it easy to sell products and services. From product catalogs and shopping carts to secure payment gateways and order management, we build e-commerce experiences that drive revenue.'
+        },
+        'email-design': {
+            title: 'Email Design',
+            body: 'Branded email templates and campaigns designed to engage subscribers, nurture leads, and boost conversions. We create emails that look great in every inbox and drive real engagement for your business.'
+        },
+        'fast-loading-speed': {
+            title: 'Fast Loading Speed',
+            body: 'Performance optimization is at the core of everything we build. We optimize code, images, and infrastructure to ensure quick load times that keep visitors engaged and improve your search engine rankings.'
+        },
+        'seo-friendly-structure': {
+            title: 'SEO-Friendly Structure',
+            body: 'Websites built with search engine best practices baked in from the ground up. Clean semantic markup, fast performance, proper metadata, and mobile-first design — so potential customers can find you easily.'
+        },
+        'contact-forms-lead': {
+            title: 'Contact Forms & Lead Generation',
+            body: 'Smart, strategically placed forms designed to seamlessly capture inquiries and turn traffic into leads. We design forms that are easy to use, integrate with your CRM, and optimized for conversion.'
+        },
+        'website-maintenance': {
+            title: 'Website Maintenance',
+            body: 'Ongoing support, security monitoring, and regular updates to keep your website running smoothly and securely. From plugin updates to performance audits, we handle the technical details so you can focus on your business.'
+        }
+    };
+
+    function openModal(key) {
+        var data = details[key];
+        if (!data) return;
+        titleEl.textContent = data.title;
+        bodyEl.textContent = data.body;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.svc-learn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var card = btn.closest('.svc-card');
+            if (card) openModal(card.dataset.service);
+        });
+    });
+
+    close.addEventListener('click', closeModal);
+    bg.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    initServiceModal();
+});
