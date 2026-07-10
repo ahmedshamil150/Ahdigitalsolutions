@@ -37,7 +37,7 @@ function initLayeredScroll() {
 
     allLayers.forEach((layer, i) => {
         const isHorizontal = layer.dataset.horizontalScroll !== undefined;
-        const units = isHorizontal ? 2 : 1;
+        const units = isHorizontal ? 2 : (layer.dataset.slide === 'right' ? 1.5 : 1);
         layer.style.zIndex = i;
         if (!('customBg' in layer.dataset)) {
             layer.style.backgroundColor = lightShades[i % 2];
@@ -52,9 +52,7 @@ function initLayeredScroll() {
             entryPoint: i === 0 ? 0 : entryPoint,
         });
 
-        if (i > 0) {
-            totalScrollUnits += units;
-        }
+        totalScrollUnits += units;
     });
 
     container.style.height = ((totalScrollUnits + 1) * vh) + 'px';
@@ -96,19 +94,23 @@ function initLayeredScroll() {
         }
     }, { passive: true });
 
+    function recalcEntryPoints() {
+        let cumulative = 0;
+        allLayers.forEach((layer, i) => {
+            if (i > 0) {
+                layerData[i].entryPoint = cumulative * vh;
+            }
+            const u = layer.dataset.horizontalScroll !== undefined ? 2 : (layer.dataset.slide === 'right' ? 1.5 : 1);
+            cumulative += u;
+        });
+    }
+
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             vh = window.innerHeight;
-            allLayers.forEach((data, i) => {
-                if (i === 0) return;
-                let cumulativeUnits = 0;
-                for (let j = 1; j < i; j++) {
-                    cumulativeUnits += allLayers[j].dataset.horizontalScroll !== undefined ? 2 : 1;
-                }
-                layerData[i].entryPoint = cumulativeUnits * vh;
-            });
+            recalcEntryPoints();
             container.style.height = ((totalScrollUnits + 1) * vh) + 'px';
             updateLayers();
         }, 150);
