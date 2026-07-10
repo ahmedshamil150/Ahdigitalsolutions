@@ -26,14 +26,26 @@ function initLayeredScroll() {
     const container = document.getElementById('scroll-container');
     if (!container) return;
 
-    const layers = container.querySelectorAll('.layer');
-    const footerLayer = document.getElementById('footer-layer');
-    const allLayers = footerLayer ? [...layers, footerLayer] : [...layers];
+    const allLayers = container.querySelectorAll('.layer');
     let vh = window.innerHeight;
     let totalScrollUnits = 0;
     const layerData = [];
 
     allLayers.forEach((layer, i) => {
+        if (i === 0) {
+            layer.style.transform = 'translate3d(0, 0, 0)';
+            layer.style.zIndex = 0;
+            layerData.push({
+                element: layer,
+                index: 0,
+                isHorizontal: false,
+                units: 0,
+                entryPoint: 0,
+            });
+            totalScrollUnits = 1;
+            return;
+        }
+
         const isHorizontal = layer.dataset.horizontalScroll !== undefined;
         const units = isHorizontal ? 2 : (layer.dataset.slide === 'right' ? 2 : 1);
         layer.style.zIndex = i;
@@ -44,7 +56,7 @@ function initLayeredScroll() {
             index: i,
             isHorizontal,
             units,
-            entryPoint: i === 0 ? 0 : entryPoint,
+            entryPoint,
         });
 
         totalScrollUnits += units;
@@ -57,6 +69,8 @@ function initLayeredScroll() {
         vh = window.innerHeight;
 
         allLayers.forEach((layer, i) => {
+            if (i === 0) return;
+
             const data = layerData[i];
             const progress = Math.min(Math.max((scrollY - data.entryPoint) / (data.units * vh), 0), 1);
 
@@ -90,13 +104,13 @@ function initLayeredScroll() {
     }, { passive: true });
 
     function recalcEntryPoints() {
-        let cumulative = 0;
+        let cumulative = 1;
         allLayers.forEach((layer, i) => {
             if (i > 0) {
                 layerData[i].entryPoint = cumulative * vh;
+                const u = layer.dataset.horizontalScroll !== undefined ? 2 : (layer.dataset.slide === 'right' ? 2 : 1);
+                cumulative += u;
             }
-            const u = layer.dataset.horizontalScroll !== undefined ? 2 : (layer.dataset.slide === 'right' ? 2 : 1);
-            cumulative += u;
         });
     }
 
