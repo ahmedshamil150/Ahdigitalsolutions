@@ -702,7 +702,7 @@ body {
 }
 
 /* Neon border on the about layer */
-.layer[data-slide="right"] {
+.layer[data-custom-bg] {
     border: none;
     justify-content: center;
     padding-top: 60px;
@@ -715,7 +715,7 @@ body {
         radial-gradient(ellipse at 70% 50%, rgba(24, 182, 255, 0.03) 0%, transparent 60%);
 }
 
-.layer[data-slide="right"]::before {
+.layer[data-custom-bg]::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -726,7 +726,7 @@ body {
     animation: neonPulse 3s ease-in-out infinite;
 }
 
-.layer[data-slide="right"] .layer-content {
+.layer[data-custom-bg] .layer-content {
     position: relative;
     z-index: 1;
 }
@@ -908,12 +908,12 @@ footer > .container {
         padding-bottom: 40px;
     }
 
-    .layer[data-slide="right"] {
+    .layer[data-custom-bg] {
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
 
-    .layer[data-slide="right"] > .container {
+    .layer[data-custom-bg] > .container {
         padding-top: 80px;
         padding-bottom: 40px;
     }
@@ -984,13 +984,13 @@ footer > .container {
     }
 
     /* === About section mobile === */
-    .layer[data-slide="right"] {
+    .layer[data-custom-bg] {
         background-image: url('AbouthomeImage.jpg') !important;
         background-size: cover !important;
         background-position: center !important;
     }
 
-    .layer[data-slide="right"]::before {
+    .layer[data-custom-bg]::before {
         content: '';
         position: absolute;
         inset: 0;
@@ -1002,7 +1002,7 @@ footer > .container {
         z-index: 0;
     }
 
-    .layer[data-slide="right"] > .container {
+    .layer[data-custom-bg] > .container {
         position: relative;
         z-index: 1;
     }

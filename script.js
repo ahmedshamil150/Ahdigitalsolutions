@@ -12,13 +12,7 @@ function initHeaderScroll() {
     const header = document.querySelector('.header');
 
     window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-
-        if (scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+        header.classList.toggle('scrolled', window.scrollY > 50);
     }, { passive: true });
 }
 
@@ -32,33 +26,11 @@ function initLayeredScroll() {
     const layerData = [];
 
     allLayers.forEach((layer, i) => {
-        if (i === 0) {
-            layer.style.transform = 'translate3d(0, 0, 0)';
-            layer.style.zIndex = 0;
-            layerData.push({
-                element: layer,
-                index: 0,
-                isHorizontal: false,
-                units: 0,
-                entryPoint: 0,
-            });
-            totalScrollUnits = 1;
-            return;
-        }
-
-        const isHorizontal = layer.dataset.horizontalScroll !== undefined;
-        const units = isHorizontal ? 2 : (layer.dataset.slide === 'right' ? 2 : 1);
+        const units = 1.5;
         layer.style.zIndex = i;
 
-        let entryPoint = totalScrollUnits * vh;
-        layerData.push({
-            element: layer,
-            index: i,
-            isHorizontal,
-            units,
-            entryPoint,
-        });
-
+        const entryPoint = totalScrollUnits * vh;
+        layerData.push({ element: layer, index: i, units, entryPoint });
         totalScrollUnits += units;
     });
 
@@ -69,26 +41,10 @@ function initLayeredScroll() {
         vh = window.innerHeight;
 
         allLayers.forEach((layer, i) => {
-            if (i === 0) return;
-
             const data = layerData[i];
             const progress = Math.min(Math.max((scrollY - data.entryPoint) / (data.units * vh), 0), 1);
-
-            if (data.isHorizontal) {
-                if (progress < 0.45) {
-                    const slideProgress = progress / 0.45;
-                    const eased = easeOutQuart(slideProgress);
-                    layer.style.transform = `translate3d(0, ${(1 - eased) * 100}vh, 0)`;
-                } else {
-                    layer.style.transform = 'translate3d(0, 0, 0)';
-                }
-            } else if (layer.dataset.slide === 'right' && window.innerWidth > 768) {
-                const eased = easeOutQuart(progress);
-                layer.style.transform = `translate3d(${(1 - eased) * 110}vw, 0, 0)`;
-            } else {
-                const eased = easeOutQuart(progress);
-                layer.style.transform = `translate3d(0, ${(1 - eased) * 100}vh, 0)`;
-            }
+            const eased = easeOutQuart(progress);
+            layer.style.transform = `translate3d(0, ${(1 - eased) * 100}vh, 0)`;
         });
     }
 
@@ -104,13 +60,10 @@ function initLayeredScroll() {
     }, { passive: true });
 
     function recalcEntryPoints() {
-        let cumulative = 1;
+        let cumulative = 0;
         allLayers.forEach((layer, i) => {
-            if (i > 0) {
-                layerData[i].entryPoint = cumulative * vh;
-                const u = layer.dataset.horizontalScroll !== undefined ? 2 : (layer.dataset.slide === 'right' ? 2 : 1);
-                cumulative += u;
-            }
+            layerData[i].entryPoint = cumulative * vh;
+            cumulative += 1.5;
         });
     }
 
