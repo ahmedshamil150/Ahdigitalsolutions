@@ -488,38 +488,37 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     text-align: left;
-    padding: 40px 0 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 50px;
     align-items: center;
 }
 
 .about-text {
-    max-width: 520px;
+    max-width: 500px;
 }
 
 .about-badge {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--color-accent);
-    margin-bottom: var(--spacing-md);
-    padding: 6px 14px;
+    margin-bottom: var(--spacing-sm);
+    padding: 5px 12px;
     border: 1px solid rgba(24, 182, 255, 0.25);
     border-radius: 999px;
     background: rgba(24, 182, 255, 0.08);
 }
 
 .about-heading {
-    font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
     font-weight: 800;
     line-height: 1.12;
     letter-spacing: -0.03em;
     color: #0f1e33;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
 .about-heading em {
@@ -528,10 +527,10 @@ body {
 }
 
 .about-desc {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #4a5568;
-    line-height: 1.7;
-    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
 }
 
 .about-desc strong {
@@ -542,45 +541,44 @@ body {
 .about-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
 }
 
 .about-card {
     text-align: left;
-    padding: 28px 24px;
+    padding: 18px 16px;
     border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 16px;
+    border-radius: 14px;
     background: #ffffff;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .about-card:hover {
     border-color: rgba(24, 182, 255, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(24, 182, 255, 0.08);
 }
 
 .about-card-icon {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 800;
     color: var(--color-accent);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 8px;
     opacity: 0.6;
 }
 
 .about-card h3 {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: #0f1e33;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .about-card p {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: #6b7a8f;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* About visual column */
@@ -592,7 +590,7 @@ body {
 
 .about-visual-card {
     width: 100%;
-    max-width: 380px;
+    max-width: 340px;
 }
 
 .about-svg {
@@ -604,9 +602,8 @@ body {
 /* Neon border on the about layer */
 .layer[data-slide="right"] {
     border: none;
-    justify-content: flex-start;
-    padding-top: 100px;
-    overflow-y: auto;
+    justify-content: center;
+    padding-top: 60px;
     box-shadow:
         inset 0 0 30px rgba(24, 182, 255, 0.06),
         0 0 30px rgba(24, 182, 255, 0.08);
@@ -890,9 +887,8 @@ footer > .container {
 
     /* === About section mobile === */
     .about-section {
-        padding: 20px 0 40px;
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
     }
 
     .about-text {
@@ -905,12 +901,10 @@ footer > .container {
 
     .about-desc {
         font-size: 0.9rem;
-        margin-bottom: var(--spacing-lg);
     }
 
     .about-grid {
         grid-template-columns: 1fr;
-        gap: var(--spacing-md);
     }
 
     .about-visual {

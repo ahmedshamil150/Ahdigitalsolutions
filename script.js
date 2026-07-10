@@ -37,7 +37,7 @@ function initLayeredScroll() {
 
     allLayers.forEach((layer, i) => {
         const isHorizontal = layer.dataset.horizontalScroll !== undefined;
-        const units = isHorizontal ? 2 : (layer.dataset.slide === 'right' ? 1.5 : 1);
+        const units = isHorizontal ? 2 : (layer.dataset.slide === 'right' ? 2 : 1);
         layer.style.zIndex = i;
         if (!('customBg' in layer.dataset)) {
             layer.style.backgroundColor = lightShades[i % 2];
