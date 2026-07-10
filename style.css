@@ -427,10 +427,7 @@ body {
 }
 
 .hero-line--gradient {
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-secondary) 50%, var(--color-heading) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-accent);
 }
 
 .hero-line--md {
