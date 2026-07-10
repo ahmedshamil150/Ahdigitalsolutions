@@ -51,14 +51,24 @@ body {
     padding: 0 var(--spacing-lg);
 }
 
-/* Header Styles - Always Pill-Shaped Glassmorphism */
+/* Header — flat bar → pill on scroll */
 .header {
     position: fixed;
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 10000;
+    padding: 12px var(--spacing-lg);
+    transition: all 0.4s ease;
+}
+
+.header.scrolled {
+    top: 16px;
+    left: 50%;
+    right: auto;
     width: min(90%, 1200px);
+    padding: 0;
+    transform: translateX(-50%);
 }
 
 .nav {
@@ -66,19 +76,26 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-sm) var(--spacing-lg);
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    transition: all 0.4s ease;
+}
+
+.header.scrolled .nav {
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 9999px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 8px var(--spacing-lg);
 }
 
 .logo {
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--color-text);
+    display: flex;
+    align-items: center;
     text-decoration: none;
     transition: opacity 0.2s ease;
 }
@@ -87,8 +104,10 @@ body {
     opacity: 0.7;
 }
 
-.logo-accent {
-    color: var(--color-text);
+.logo img {
+    display: block;
+    height: 32px;
+    width: auto;
 }
 
 .nav-links {
@@ -145,16 +164,43 @@ body {
 /* Hero dark theme override */
 .hero.layer {
     background:
-        radial-gradient(ellipse at 20% 50%, rgba(0, 180, 255, 0.08) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(0, 180, 255, 0.04) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 80%, rgba(0, 180, 255, 0.02) 0%, transparent 40%),
-        linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.45)),
-        url('https://picsum.photos/seed/macbook/1920/1080') center / cover no-repeat,
+        linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
+        url('hero-workspace.jpg') center / cover no-repeat,
         #0F172A;
     color: #e8e8e8;
     --color-muted: #8a8a8a;
     --color-border: rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Hero spotlight overlay */
+.hero-spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: transparent;
+    transition: background 0.08s ease;
+}
+
+/* Hero container above spotlight */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Translucent hero card */
+.hero-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: var(--spacing-xl);
+    max-width: 640px;
+}
+
+.hero-card .hero-label {
+    color: var(--color-accent-blue);
 }
 
 .layer-content {
@@ -405,7 +451,7 @@ body {
 }
 
 /* Scroll indicator */
-.scroll-indicator {
+.hero .scroll-indicator {
     position: absolute;
     bottom: 40px;
     left: 50%;
@@ -417,6 +463,7 @@ body {
     opacity: 0;
     transition: opacity 0.6s ease 1.2s;
     pointer-events: none;
+    z-index: 2;
 }
 
 .hero.layer-active .scroll-indicator {
