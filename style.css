@@ -1312,6 +1312,91 @@ footer > .container {
 }
 
 /* ================================
+   Portfolio / Work Grid
+   ================================ */
+.folio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+.folio-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.75rem;
+    border-radius: 16px;
+    background: var(--color-card);
+    border: 1px solid rgba(0,0,0,0.06);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.layer[data-bg="light"] .folio-card {
+    background: #fff;
+    border-color: #e8ecf1;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.layer[data-bg="light"] .folio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+    border-color: var(--color-accent);
+}
+
+.folio-card-badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    background: rgba(24,182,255,0.1);
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+}
+
+.layer[data-bg="light"] .folio-card-badge {
+    background: rgba(24,182,255,0.1);
+    color: var(--color-accent);
+}
+
+.folio-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1f2e;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.folio-card-desc {
+    font-size: 0.85rem;
+    color: #5a6577;
+    margin: 0;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.folio-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: gap 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.25rem;
+}
+
+.folio-card:hover .folio-link {
+    gap: 0.5rem;
+}
+
+/* ================================
    Browse Section – Link Cards
    ================================ */
 .browse-section {
@@ -1758,6 +1843,11 @@ footer > .container {
         height: 220px;
         clip-path: none;
         border-radius: 12px;
+    }
+
+    /* === Portfolio / Work grid mobile === */
+    .folio-grid {
+        grid-template-columns: 1fr;
     }
 
     /* === Browse/Pricing-Work section mobile === */
