@@ -33,7 +33,7 @@ function initLayeredScroll() {
     }
 
     function getUnits(dir) {
-        return dir ? 1 : 1.5;
+        return dir ? 2 : 1.5;
     }
 
     function calcTotalUnits() {
