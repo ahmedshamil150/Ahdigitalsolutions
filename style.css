@@ -1824,6 +1824,69 @@ footer > .container {
     flex-shrink: 0;
 }
 
+.footer-wa-callout {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 14px;
+    background: rgba(24,182,255,0.08);
+    border: 1px solid rgba(24,182,255,0.2);
+}
+
+.footer-wa-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(24,182,255,0.15);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.footer-wa-text {
+    flex: 1;
+}
+
+.footer-wa-text strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-heading);
+    margin-bottom: 2px;
+}
+
+.footer-wa-text p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.footer-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: 100px;
+    background: #25D366;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+}
+
+.footer-wa-btn:hover {
+    background: #20bd5a;
+    color: #fff;
+}
+
 /* Responsive — mobile: normal page flow, no scroll effects */
 @media (max-width: 768px) {
     .nav-links {
