@@ -336,7 +336,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 20px;
 }
 
 .hero-fixed::before {
@@ -355,7 +354,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding-left: 5%;
 }
 
 /* Glass card wrapping all content */
@@ -370,8 +368,8 @@ body {
     border-radius: 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
 }
 
 /* Badge */
@@ -520,7 +518,7 @@ body {
 .hero-actions {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: var(--spacing-sm);
     margin-bottom: 0;
 }
@@ -2074,7 +2072,7 @@ footer > .container {
 
     .hero-actions {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         gap: 8px;
     }
 
