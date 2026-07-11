@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initLayeredScroll();
     initMobileMenu();
+    initHeroCarousel();
 });
 
 function easeOutQuint(t) {
@@ -215,6 +216,18 @@ function initServiceModal() {
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeModal();
     });
+}
+
+function initHeroCarousel() {
+    var slides = document.querySelectorAll('.hero-carousel-slide');
+    if (slides.length < 2) return;
+    var current = 0;
+    slides[0].classList.add('active');
+    setInterval(function () {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 4000);
 }
 
 document.addEventListener('DOMContentLoaded', function () {

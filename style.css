@@ -370,6 +370,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+    margin-top: -40px;
 }
 
 /* Badge */
@@ -1055,21 +1056,13 @@ body {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    animation: heroFade 25s infinite;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: scale(1.05);
 }
 
-.hero-carousel-slide:nth-child(1) { animation-delay: 0s; }
-.hero-carousel-slide:nth-child(2) { animation-delay: 5s; }
-.hero-carousel-slide:nth-child(3) { animation-delay: 10s; }
-.hero-carousel-slide:nth-child(4) { animation-delay: 15s; }
-.hero-carousel-slide:nth-child(5) { animation-delay: 20s; }
-
-@keyframes heroFade {
-    0% { opacity: 0; }
-    4% { opacity: 1; }
-    16% { opacity: 1; }
-    20% { opacity: 0; }
-    100% { opacity: 0; }
+.hero-carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* Contact page hero background */
