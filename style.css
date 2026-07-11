@@ -908,11 +908,15 @@ body {
 
 .services-alt-text {
     max-width: 460px;
-    padding: 20px 0;
+    padding: 32px 28px;
     justify-self: end;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background: rgba(8, 27, 51, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
 }
 
 .services-alt-heading {
@@ -972,9 +976,9 @@ body {
 .services-alt-img {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(8,27,51,0.65) 0%, rgba(19,47,82,0.5) 50%, rgba(30,74,118,0.35) 100%);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: rgba(24, 182, 255, 0.06);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
     opacity: 0;
     transform: translateX(60px) scale(0.95);
@@ -2172,8 +2176,12 @@ footer > .container {
 
     .services-alt-text {
         max-width: 100%;
-        padding: 0;
+        padding: 24px 20px;
         justify-self: auto;
+        background: rgba(8, 27, 51, 0.55);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 16px;
     }
 
     .services-alt-visual {
