@@ -328,7 +328,6 @@ body {
     height: 100vh;
     z-index: 2;
     background-color: var(--color-bg);
-    background-image: url('hero-workspace.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -354,8 +353,9 @@ body {
     height: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-left: 5%;
 }
 
 /* Glass card wrapping all content */
@@ -1034,10 +1034,62 @@ body {
    ================================ */
 .hero-sub {
     background: #000;
+    background-size: cover;
+    background-position: center;
 }
 
 .hero-sub::before {
-    background: radial-gradient(ellipse at 50% 30%, rgba(24, 182, 255, 0.05) 0%, transparent 60%);
+    background: rgba(0, 0, 0, 0.75);
+}
+
+/* ================================
+   Hero Carousel (Homepage)
+   ================================ */
+.hero-carousel {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-carousel-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: heroFade 25s infinite;
+}
+
+.hero-carousel-slide:nth-child(1) { animation-delay: 0s; }
+.hero-carousel-slide:nth-child(2) { animation-delay: 5s; }
+.hero-carousel-slide:nth-child(3) { animation-delay: 10s; }
+.hero-carousel-slide:nth-child(4) { animation-delay: 15s; }
+.hero-carousel-slide:nth-child(5) { animation-delay: 20s; }
+
+@keyframes heroFade {
+    0% { opacity: 0; }
+    4% { opacity: 1; }
+    16% { opacity: 1; }
+    20% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Contact page hero background */
+.contact-hero {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: #000;
+    background-image: url('contact-bg.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
 }
 
 .hero-card--sm {
@@ -1979,7 +2031,8 @@ footer > .container {
     .hero-fixed {
         position: relative;
         height: auto;
-        min-height: 100vh;
+        min-height: 50vh;
+        padding: 80px 0 40px;
     }
 
     /* === Hero sizing === */
