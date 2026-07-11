@@ -184,8 +184,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     padding-top: 80px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
