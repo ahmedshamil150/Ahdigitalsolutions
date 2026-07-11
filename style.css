@@ -60,7 +60,10 @@ body {
 @media (max-width: 768px) {
     .mobile-notice {
         display: block;
-        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
         box-sizing: border-box;
         white-space: nowrap;
         overflow: hidden;
@@ -71,6 +74,7 @@ body {
         color: var(--color-muted);
         background: rgba(8, 27, 51, 0.95);
         border-bottom: 1px solid var(--color-border);
+        z-index: 10001;
     }
 }
 
@@ -2030,6 +2034,10 @@ footer > .container {
 
     .nav {
         padding: 12px var(--spacing-md);
+    }
+
+    .header {
+        top: 36px;
     }
 
     .header.scrolled .nav {
