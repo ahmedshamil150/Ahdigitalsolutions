@@ -2072,6 +2072,7 @@ footer > .container {
         max-width: 100%;
         padding: 20px 18px;
         border-radius: 16px;
+        margin-top: 0;
     }
 
     .hero-line {
