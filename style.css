@@ -215,6 +215,13 @@ body {
 .layer.services-layer {
     background: transparent;
     border-bottom: none;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .layer.services-layer {
+        overflow: hidden !important;
+    }
 }
 
 .layer.services-layer::before {
