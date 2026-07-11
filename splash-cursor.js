@@ -1,16 +1,16 @@
 (function () {
   'use strict';
 
-  var SIM_RESOLUTION = 128;
-  var DYE_RESOLUTION = 720;
-  var CAPTURE_RESOLUTION = 512;
+  var SIM_RESOLUTION = 64;
+  var DYE_RESOLUTION = 360;
+  var CAPTURE_RESOLUTION = 256;
   var DENSITY_DISSIPATION = 3.5;
   var VELOCITY_DISSIPATION = 2;
   var PRESSURE = 0.1;
-  var PRESSURE_ITERATIONS = 20;
+  var PRESSURE_ITERATIONS = 8;
   var CURL = 3;
   var SPLAT_RADIUS = 0.2;
-  var SPLAT_FORCE = 6000;
+  var SPLAT_FORCE = 3000;
   var SHADING = true;
   var COLOR_UPDATE_SPEED = 10;
   var BACK_COLOR = { r: 0.5, g: 0, b: 0 };
@@ -659,8 +659,18 @@
     displayMaterial.setKeywords(displayKeywords);
   }
 
+  var lastFrameTime = 0;
+  var FPS_INTERVAL = 1000 / 30;
+
   function updateFrame() {
     if (!isActive) return;
+    var now = Date.now();
+    var elapsed = now - lastFrameTime;
+    if (elapsed < FPS_INTERVAL) {
+      animationFrameId = requestAnimationFrame(updateFrame);
+      return;
+    }
+    lastFrameTime = now - (elapsed % FPS_INTERVAL);
     var dt = calcDeltaTime();
     if (resizeCanvas()) initFramebuffers();
     updateColors(dt);

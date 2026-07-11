@@ -1110,7 +1110,7 @@ body {
     inset: 0;
     z-index: 1;
     background: #000;
-    background-image: url('contact-bg.png');
+    background-image: url('contact-bg.webp');
     background-size: cover;
     background-position: center;
 }
@@ -1853,6 +1853,13 @@ footer > .container {
     border-top: 1px solid var(--color-border);
 }
 
+.footer.layer {
+    position: relative;
+    height: auto;
+    padding: 0;
+    overflow: visible;
+}
+
 .footer .container {
     padding-top: 60px;
     padding-bottom: 40px;
@@ -2036,7 +2043,8 @@ footer > .container {
         padding: 12px var(--spacing-md);
     }
 
-    .header {
+    .header,
+    .header.scrolled {
         top: 36px;
     }
 
