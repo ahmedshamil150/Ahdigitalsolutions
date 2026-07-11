@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initLayeredScroll();
     initMobileMenu();
     initHeroCarousel();
+    initServicesReveal();
 });
 
 function easeOutQuint(t) {
@@ -136,6 +137,20 @@ function initMobileMenu() {
     overlay.addEventListener('click', function (e) {
         if (e.target === overlay) closeMenu();
     });
+}
+
+function initServicesReveal() {
+    var section = document.querySelector('.services-layer');
+    if (!section || window.innerWidth <= 768) return;
+    var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                section.classList.add('is-visible');
+                obs.disconnect();
+            }
+        });
+    }, { threshold: 0.3 });
+    obs.observe(section);
 }
 
 function initServiceModal() {
