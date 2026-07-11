@@ -16,7 +16,7 @@
   var BACK_COLOR = { r: 0.5, g: 0, b: 0 };
   var TRANSPARENT = true;
   var RAINBOW_MODE = false;
-  var COLOR = '#37C5FF';
+  var COLOR = '#0A4F7A';
   var BACKGROUND_COLOR = { r: 0, g: 0, b: 0 };
 
   var canvas;
@@ -872,7 +872,7 @@
     var r = parseInt(val.slice(0, 2), 16) / 255;
     var g = parseInt(val.slice(2, 4), 16) / 255;
     var b = parseInt(val.slice(4, 6), 16) / 255;
-    return { r: r * 0.5, g: g * 0.5, b: b * 0.5 };
+    return { r: r * 0.28, g: g * 0.28, b: b * 0.28 };
   }
 
   function generateColor() {
@@ -880,9 +880,9 @@
       return hexToRGB(config.COLOR);
     }
     var c = HSVtoRGB(Math.random(), 1.0, 1.0);
-    c.r *= 0.5;
-    c.g *= 0.5;
-    c.b *= 0.5;
+    c.r *= 0.28;
+    c.g *= 0.28;
+    c.b *= 0.28;
     return c;
   }
 
