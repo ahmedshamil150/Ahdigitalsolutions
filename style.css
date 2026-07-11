@@ -1853,13 +1853,6 @@ footer > .container {
     border-top: 1px solid var(--color-border);
 }
 
-.footer.layer {
-    position: relative;
-    height: auto;
-    padding: 0;
-    overflow: visible;
-}
-
 .footer .container {
     padding-top: 60px;
     padding-bottom: 40px;
