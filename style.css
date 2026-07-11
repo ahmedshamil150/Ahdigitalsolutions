@@ -338,13 +338,7 @@ body {
     justify-content: center;
 }
 
-.hero-fixed::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.8);
-    pointer-events: none;
-}
+
 
 .hero-fixed .container {
     position: relative;
@@ -1037,10 +1031,6 @@ body {
     background-position: center;
 }
 
-.hero-sub::before {
-    background: rgba(0, 0, 0, 0.75);
-}
-
 /* ================================
    Hero Carousel (Homepage)
    ================================ */
@@ -1076,12 +1066,7 @@ body {
     background-position: center;
 }
 
-.contact-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-}
+
 
 .hero-card--sm {
     padding: 36px 44px;
