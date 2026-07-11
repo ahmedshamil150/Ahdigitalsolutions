@@ -972,8 +972,20 @@ body {
 .services-alt-img {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #0A1E3D 0%, #132F52 35%, #1E4A76 70%, #2A6090 100%);
+    background: linear-gradient(135deg, rgba(8,27,51,0.65) 0%, rgba(19,47,82,0.5) 50%, rgba(30,74,118,0.35) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0;
+    transform: translateX(60px) scale(0.95);
+    animation: servicesImgReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+}
+
+@keyframes servicesImgReveal {
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
 }
 
 /* Overlay button — fades in from right */
