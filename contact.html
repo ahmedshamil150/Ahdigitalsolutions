@@ -11,11 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         .contact-grid { margin: 0 auto; width: 100%; max-width: var(--container-width); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; padding: 2rem 0; }
-        .contact-info-card { background: #fff; border: 1px solid #e8ecf1; border-radius: 16px; padding: 2rem; }
-        .contact-info-card .page-heading { color: #0f1e33; }
-        .contact-info-card .page-text { color: #4a5568; }
-        .contact-info-card .page-badge { color: var(--color-accent); }
-        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+        .contact-info-card { background: rgba(8,27,51,0.55); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--color-border); border-radius: 24px; padding: 2rem; }
+        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 2rem; padding: 1rem 0; } .contact-info-card, .contact-form-wrap { padding: 1.25rem; } }
     </style>
 </head>
 <body>
