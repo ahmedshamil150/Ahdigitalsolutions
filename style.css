@@ -906,6 +906,24 @@ body {
     height: 100%;
 }
 
+.services-alt::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #000;
+    background-image:
+        radial-gradient(ellipse at 20% 30%, rgba(24, 182, 255, 0.03) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, rgba(104, 215, 255, 0.02) 0%, transparent 50%);
+    clip-path: polygon(0 0, 61% 0, 50% 100%, 0 100%);
+    pointer-events: none;
+}
+
+.services-alt > * {
+    position: relative;
+    z-index: 1;
+}
+
 .services-alt-text {
     max-width: 460px;
     padding: 20px 0;
@@ -972,9 +990,10 @@ body {
 .services-alt-img {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(24,182,255,0.08) 0%, rgba(24,182,255,0.03) 100%);
+    background: linear-gradient(135deg, rgba(24,182,255,0.08) 0%, rgba(24,182,255,0.02) 100%);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(24, 182, 255, 0.10);
     clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
     opacity: 0;
     transform: translateX(60px) scale(0.95);
