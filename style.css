@@ -221,6 +221,25 @@ body {
     pointer-events: none;
 }
 
+.layer.services-layer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgba(8, 27, 51, 0.55);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+    clip-path: polygon(61% 0, 100% 0, 100% 100%, 50% 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.layer.services-layer.is-visible::after {
+    opacity: 1;
+}
+
 .layer.services-layer > .container {
     position: relative;
     z-index: 1;
@@ -997,26 +1016,7 @@ body {
     padding: 24px;
 }
 
-.services-alt-img {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(24,182,255,0.12) 0%, rgba(24,182,255,0.04) 50%, transparent 100%);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(24, 182, 255, 0.15);
-    box-shadow: 0 0 40px rgba(24, 182, 255, 0.06);
-    clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
-    opacity: 0;
-    transform: translateX(80px) scale(0.92);
-    transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.services-layer.is-visible .services-alt-img {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-}
-
-/* Overlay button — fades in from right */
 .services-alt-btn {
     position: relative;
     z-index: 2;
