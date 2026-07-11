@@ -203,6 +203,29 @@ body {
         radial-gradient(ellipse at 80% 70%, rgba(104, 215, 255, 0.02) 0%, transparent 50%);
 }
 
+.layer.services-layer {
+    background: transparent;
+    border-bottom: none;
+}
+
+.layer.services-layer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #000;
+    background-image:
+        radial-gradient(ellipse at 20% 30%, rgba(24, 182, 255, 0.03) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, rgba(104, 215, 255, 0.02) 0%, transparent 50%);
+    clip-path: polygon(0 0, 61% 0, 50% 100%, 0 100%);
+    pointer-events: none;
+}
+
+.layer.services-layer > .container {
+    position: relative;
+    z-index: 1;
+}
+
 .layer[data-bg="slate"] {
     background: #11161E;
     background-image:
@@ -904,19 +927,6 @@ body {
     align-items: stretch;
     position: relative;
     height: 100%;
-}
-
-.services-alt::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background: #000;
-    background-image:
-        radial-gradient(ellipse at 20% 30%, rgba(24, 182, 255, 0.03) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 70%, rgba(104, 215, 255, 0.02) 0%, transparent 50%);
-    clip-path: polygon(0 0, 61% 0, 50% 100%, 0 100%);
-    pointer-events: none;
 }
 
 .services-alt > * {
