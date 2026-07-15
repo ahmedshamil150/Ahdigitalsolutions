@@ -1813,7 +1813,8 @@ footer > .container {
     max-width: 300px;
 }
 
-.footer-col h4 {
+.footer-col h4,
+.footer-col h3 {
     font-size: 0.9rem;
     font-weight: 700;
     color: var(--color-heading);
@@ -2321,7 +2322,8 @@ footer > .container {
         text-align: center;
     }
 
-    .footer-col h4 {
+    .footer-col h4,
+.footer-col h3 {
         font-size: 0.8rem;
         margin-bottom: var(--spacing-sm);
     }

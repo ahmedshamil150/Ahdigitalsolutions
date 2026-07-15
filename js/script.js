@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    initHeaderScroll();
-    initLayeredScroll();
-    initMobileMenu();
-    initServicesReveal();
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            initHeaderScroll();
+            initLayeredScroll();
+            initMobileMenu();
+            initServicesReveal();
+        }, 50);
+    });
 });
 
 function easeOutQuint(t) {
