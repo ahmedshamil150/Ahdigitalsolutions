@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="preload" as="image" href="hero-bg.gif" fetchpriority="high">
+    <link rel="preload" as="video" href="hero-bg.mp4" fetchpriority="high">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H6WFZZ0VVP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -71,7 +72,10 @@
     </header>
 
     <main>
-        <section class="hero-fixed" id="hero-fixed" style="background-image:url('hero-bg.gif')">
+        <section class="hero-fixed" id="hero-fixed">
+            <video class="hero-video-bg" autoplay loop muted playsinline poster="hero-bg.gif">
+                <source src="hero-bg.mp4" type="video/mp4">
+            </video>
             <div class="container">
                 <div class="hero-card">
                     <h1 class="hero-title">
