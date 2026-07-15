@@ -411,51 +411,18 @@ body {
     justify-content: center;
 }
 
-/* Glass card wrapping all content */
+/* Hero card — solid overlay, no glass */
 .hero-card {
     max-width: 600px;
     width: 100%;
     padding: 48px;
-    background: rgba(8, 27, 51, 0.55);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--color-border);
-    border-radius: 24px;
+    background: rgba(8, 27, 51, 0.85);
+    border-left: 3px solid var(--color-accent);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
     margin-top: -40px;
-}
-
-/* Badge */
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-accent);
-    margin-bottom: var(--spacing-lg);
-    padding: 7px 16px;
-    background: rgba(24, 182, 255, 0.08);
-    border: 1px solid rgba(24, 182, 255, 0.15);
-    border-radius: 999px;
-}
-
-.hero-badge-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--color-accent);
-    animation: badgePulse 2s ease-in-out infinite;
-}
-
-@keyframes badgePulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
 }
 
 /* Hero title */
@@ -577,45 +544,6 @@ body {
     justify-content: flex-start;
     gap: var(--spacing-sm);
     margin-bottom: 0;
-}
-
-/* Stats bar (no glass — inside the card) */
-.hero-stats {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    padding: 20px 0 0;
-    margin-top: var(--spacing-lg);
-    border-top: 1px solid var(--color-border);
-    width: 100%;
-}
-
-.hero-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    text-align: center;
-}
-
-.hero-stat-num {
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--color-heading);
-    letter-spacing: -0.02em;
-}
-
-.hero-stat-label {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-muted);
-}
-
-.hero-stat-divider {
-    width: 1px;
-    height: 36px;
-    background: var(--color-border);
 }
 
 
@@ -1112,17 +1040,6 @@ body {
 .hero-carousel-slide.active {
     opacity: 1;
     transform: scale(1);
-}
-
-/* Contact page hero background */
-.contact-hero {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    background: #000;
-    background-image: url('contact-bg.webp');
-    background-size: cover;
-    background-position: center;
 }
 
 
@@ -2378,9 +2295,4 @@ footer > .container {
     }
 
     /* === Contact hero mobile === */
-    .contact-hero {
-        position: relative;
-        height: 40vh;
-        z-index: 0;
-    }
 }

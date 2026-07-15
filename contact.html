@@ -20,7 +20,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="preload" as="image" href="contact-bg.webp" fetchpriority="high">
     <style>
         .contact-grid { margin: 0 auto; width: 100%; max-width: var(--container-width); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; padding: 2rem 0; }
         .contact-info-card { background: rgba(8,27,51,0.55); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--color-border); border-radius: 24px; padding: 2rem; }
@@ -51,8 +50,21 @@
         </nav>
     </header>
 
-    <div class="contact-hero"></div>
-    <div id="scroll-container">
+    <main>
+        <section class="hero-fixed hero-sub" id="hero-fixed" style="background:#000">
+            <div class="container">
+                <div class="hero-card hero-card--sm">
+                    <h1 class="hero-title">
+                        <span class="hero-line hero-line--sm">Let's</span>
+                        <span class="hero-line hero-line--lg hero-line--gradient">Talk</span>
+                    </h1>
+                    <p class="hero-desc">
+                        Have a project in mind? <span class="hero-desc-em">We'd love to hear from you.</span> Drop us a message and we'll get back to you within 24 hours.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div id="scroll-container">
         <section class="layer" data-slide="none" style="background:transparent">
             <div class="container">
                 <div class="contact-grid">
