@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initLayeredScroll();
     initMobileMenu();
-    initHeroCarousel();
     initServicesReveal();
 });
 
