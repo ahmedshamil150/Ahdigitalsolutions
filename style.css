@@ -106,7 +106,7 @@ body {
 }
 
 .header.scrolled .nav {
-    background: rgba(20, 20, 20, 0.85);
+    background: #000;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 9999px;
@@ -1771,9 +1771,7 @@ footer > .container {
    Footer
    ================================ */
 .footer {
-    background: rgba(10, 10, 10, 0.55);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: #000;
     border-top: 1px solid var(--color-border);
 }
 

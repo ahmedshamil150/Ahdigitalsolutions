@@ -16,7 +16,7 @@
   var BACK_COLOR = { r: 0.5, g: 0, b: 0 };
   var TRANSPARENT = true;
   var RAINBOW_MODE = false;
-  var COLOR = '#0A4F7A';
+  var COLOR = '#FFFFFF';
   var BACKGROUND_COLOR = { r: 0, g: 0, b: 0 };
 
   var canvas;
