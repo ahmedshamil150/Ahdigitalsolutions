@@ -1484,6 +1484,45 @@ footer > .container {
 /* ================================
    Pricing Grid
    ================================ */
+.region-selector {
+    text-align: center;
+    padding: 1rem 0 2rem;
+}
+.region-selector p {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+}
+.region-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.region-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+.region-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-heading);
+}
+.region-btn.active {
+    background: var(--color-accent);
+    color: #000;
+    border-color: var(--color-accent);
+}
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

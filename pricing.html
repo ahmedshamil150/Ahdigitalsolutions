@@ -37,7 +37,16 @@
       }, 10000);
       setTimeout(function(){gtag('js', new Date());gtag('config','G-H6WFZZ0VVP');}, 10000);
     </script>
-    
+    <style>
+      .region-selector{text-align:center;padding:1rem 0 2rem}
+      .region-selector p{font-size:.85rem;color:var(--color-muted);margin-bottom:1rem}
+      .region-btns{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+      .region-btn{display:inline-flex;align-items:center;gap:.35rem;padding:.5rem .9rem;border:1px solid var(--color-border);border-radius:8px;background:transparent;color:var(--color-body);font-size:.8rem;font-weight:500;cursor:pointer;transition:all .2s ease;font-family:inherit}
+      .region-btn:hover{border-color:var(--color-accent);color:var(--color-heading)}
+      .region-btn.active{background:var(--color-accent);color:#000;border-color:var(--color-accent)}
+      .pricing-grid{display:none}
+      .pricing-grid.visible{display:grid}
+    </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -121,11 +130,24 @@
                 <div class="container layer-content">
                     <div class="page-badge" style="margin-top:2rem">Plans &amp; Pricing</div>
                     <h2 class="page-heading">Choose Your Plan</h2>
-                    <div class="pricing-grid">
-                        <div class="pricing-card">
+                    <div class="region-selector">
+                        <p>Select your region to see pricing in your currency</p>
+                        <div class="region-btns">
+                            <button class="region-btn" data-currency="PKR">🇵🇰 PKR</button>
+                            <button class="region-btn" data-currency="USD">🇺🇸 USD</button>
+                            <button class="region-btn" data-currency="EUR">🇪🇺 EUR</button>
+                            <button class="region-btn" data-currency="GBP">🇬🇧 GBP</button>
+                            <button class="region-btn" data-currency="AED">🇦🇪 AED</button>
+                            <button class="region-btn" data-currency="SAR">🇸🇦 SAR</button>
+                            <button class="region-btn" data-currency="CAD">🇨🇦 CAD</button>
+                            <button class="region-btn" data-currency="AUD">🇦🇺 AUD</button>
+                        </div>
+                    </div>
+                    <div class="pricing-grid" id="pricingGrid">
+                        <div class="pricing-card" data-price-low-pkr="15000" data-price-high-pkr="25000">
                             <div class="pricing-header">
                                 <h3 class="pricing-name">Basic</h3>
-                                <div class="pricing-range">Rs. 15,000 – 25,000</div>
+                                <div class="pricing-range"><span class="price-display"></span></div>
                                 <p class="pricing-badge">Starter Website</p>
                                 <p class="pricing-desc">Small shops, property dealers, and personal brands.</p>
                             </div>
@@ -141,10 +163,10 @@
                                 <a href="https://wa.me/923295087704" target="_blank" rel="noopener noreferrer" class="pricing-card-btn pricing-card-btn--wa">Ask a Question</a>
                             </div>
                         </div>
-                        <div class="pricing-card pricing-card--featured">
+                        <div class="pricing-card pricing-card--featured" data-price-low-pkr="35000" data-price-high-pkr="60000">
                             <div class="pricing-header">
                                 <h3 class="pricing-name">Standard</h3>
-                                <div class="pricing-range">Rs. 35,000 – 60,000</div>
+                                <div class="pricing-range"><span class="price-display"></span></div>
                                 <p class="pricing-badge">Business Growth</p>
                                 <p class="pricing-desc">Clinics &amp; gyms, real estate, and consultants.</p>
                             </div>
@@ -161,10 +183,10 @@
                                 <a href="https://wa.me/923295087704" target="_blank" rel="noopener noreferrer" class="pricing-card-btn pricing-card-btn--wa">Ask a Question</a>
                             </div>
                         </div>
-                        <div class="pricing-card">
+                        <div class="pricing-card" data-price-low-pkr="70000" data-price-high-pkr="140000">
                             <div class="pricing-header">
                                 <h3 class="pricing-name">Premium</h3>
-                                <div class="pricing-range">Rs. 70,000 – 140,000</div>
+                                <div class="pricing-range"><span class="price-display"></span></div>
                                 <p class="pricing-badge">Advanced / Brand Level</p>
                                 <p class="pricing-desc">Established businesses and brands targeting serious growth.</p>
                             </div>
@@ -181,10 +203,10 @@
                                 <a href="https://wa.me/923295087704" target="_blank" rel="noopener noreferrer" class="pricing-card-btn pricing-card-btn--wa">Ask a Question</a>
                             </div>
                         </div>
-                        <div class="pricing-card pricing-card--accent">
+                        <div class="pricing-card pricing-card--accent" data-price-low-pkr="20000" data-price-high-pkr="0">
                             <div class="pricing-header">
                                 <h3 class="pricing-name">E-commerce</h3>
-                                <div class="pricing-range">Starting from Rs. 20,000+</div>
+                                <div class="pricing-range"><span class="price-display"></span></div>
                                 <p class="pricing-badge">Custom Online Store</p>
                                 <p class="pricing-desc">Retailers, product sellers, and online shops.</p>
                             </div>
@@ -275,6 +297,46 @@
         document.addEventListener('scroll',_ls);
         setTimeout(_ls,10000);
     }
+    </script>
+    <script>
+    var currencies = {
+        PKR: { symbol: 'Rs.', rate: 1, locale: 'en-PK' },
+        USD: { symbol: '$', rate: 278, locale: 'en-US' },
+        EUR: { symbol: '\u20ac', rate: 302, locale: 'de-DE' },
+        GBP: { symbol: '\u00a3', rate: 352, locale: 'en-GB' },
+        AED: { symbol: 'AED ', rate: 76, locale: 'ar-AE' },
+        SAR: { symbol: 'SAR ', rate: 74, locale: 'ar-SA' },
+        CAD: { symbol: 'C$', rate: 203, locale: 'en-CA' },
+        AUD: { symbol: 'A$', rate: 182, locale: 'en-AU' }
+    };
+    (function(){
+        var grid = document.getElementById('pricingGrid');
+        var btns = document.querySelectorAll('.region-btn');
+        btns.forEach(function(btn){
+            btn.addEventListener('click', function(){
+                btns.forEach(function(b){b.classList.remove('active');});
+                btn.classList.add('active');
+                var currency = btn.getAttribute('data-currency');
+                var c = currencies[currency];
+                var cards = grid.querySelectorAll('.pricing-card');
+                cards.forEach(function(card){
+                    var low = parseInt(card.getAttribute('data-price-low-pkr'));
+                    var high = parseInt(card.getAttribute('data-price-high-pkr'));
+                    var display = card.querySelector('.price-display');
+                    var fmt = function(v){return Math.round(v / c.rate);};
+                    if (high > 0) {
+                        display.textContent = c.symbol + ' ' + fmt(low).toLocaleString(c.locale) + ' \u2013 ' + fmt(high).toLocaleString(c.locale);
+                    } else {
+                        display.textContent = 'Starting from ' + c.symbol + ' ' + fmt(low).toLocaleString(c.locale) + '+';
+                    }
+                });
+                grid.classList.add('visible');
+            });
+        });
+        // Auto-select PKR
+        var pkrBtn = document.querySelector('.region-btn[data-currency="PKR"]');
+        if (pkrBtn) pkrBtn.click();
+    })();
     </script>
     <script src="js/script.min.js" defer></script>
 </body>
