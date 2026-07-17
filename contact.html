@@ -40,7 +40,8 @@
         .form-group input:focus,.form-group textarea:focus{border-color:var(--color-accent)}
         .form-group textarea{resize:vertical;min-height:120px}
         .contact-form .btn{width:100%;justify-content:center;margin-top:.5rem}
-        @media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:2rem;padding:1rem 0}.contact-info-card,.contact-form-wrap{padding:1.25rem}}
+        .contact-section{padding:7rem 0 4rem}
+        @media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:2rem;padding:1rem 0}.contact-info-card,.contact-form-wrap{padding:1.25rem}.contact-section{padding:5rem 0 2rem}}
     </style>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -131,8 +132,7 @@
                 </div>
             </div>
         </section>
-        <div id="scroll-container">
-        <section class="layer" data-slide="none">
+        <section class="contact-section">
             <div class="container">
                 <div class="contact-grid">
                     <div class="contact-info-card">
@@ -206,7 +206,7 @@
                 </div>
             </div>
         </section>
-        <footer class="footer layer" data-slide="vertical">
+        <footer class="footer">
             <div class="container">
                 <div class="footer-wa-callout">
                     <div class="footer-wa-icon">
@@ -261,20 +261,8 @@
                 <p class="footer-copy" style="text-align:center;margin-top:1rem">&copy; 2026 AH Digital Solutions. All rights reserved.</p>
             </div>
         </footer>
-        </div>
     </main>
-    <script>
-    if (window.innerWidth > 768) {
-        var sc = document.createElement('script');
-        sc.src = 'js/splash-cursor.min.js';
-        var _sl=false;
-        function _ls(){if(_sl)return;_sl=true;document.body.appendChild(sc);document.removeEventListener('mousemove',_ls);document.removeEventListener('touchstart',_ls);document.removeEventListener('scroll',_ls)}
-        document.addEventListener('mousemove',_ls);
-        document.addEventListener('touchstart',_ls);
-        document.addEventListener('scroll',_ls);
-        setTimeout(_ls,10000);
-    }
-    </script>
+
     <script src="js/script.min.js" defer></script>
 </body>
 </html>
