@@ -328,12 +328,18 @@
                     </div>
                 </div>
             </section>
-            <section class="layer" data-slide="right" data-units style="background:#fff;border-bottom:none">
+            <section class="layer" data-slide="right" style="background:#fff;border-bottom:none">
                 <div class="container layer-content" style="justify-content:flex-start; padding-top:2rem">
                     <div class="section-badge" style="background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.15);color:#111">Google Reviews</div>
                     <h2 class="page-heading" style="text-align:left;margin-bottom:0;color:#111">What Our Clients Say</h2>
-                    <div style="margin-top:2rem;display:flex;flex-direction:column;gap:1rem">
-                        <div style="background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:16px;padding:1.5rem">
+                    <style>
+                        .rw{overflow:hidden;width:100%;margin-top:2rem;-webkit-mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+                        .rt{display:flex;gap:1rem;width:max-content}
+                        .rc{flex:0 0 calc((100vw - 4rem - 2rem) / 3);max-width:400px;min-width:280px;background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:16px;padding:1.5rem;box-sizing:border-box}
+                        @media(max-width:768px){.rc{flex:0 0 calc(100vw - 4rem - .5rem);min-width:0}.rw{-webkit-mask:none;mask:none}.rt{gap:.5rem}}
+                    </style>
+                    <div class="rw"><div class="rt" id="rt">
+                        <div class="rc">
                             <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
                                 <span style="font-size:.75rem;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:.05em">Google Review</span>
@@ -351,7 +357,7 @@
                                 <a href="https://maps.app.goo.gl/c1vHZ9L1AXT3o9xs5" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#666;text-decoration:none">View on Google →</a>
                             </div>
                         </div>
-                        <div style="background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:16px;padding:1.5rem">
+                        <div class="rc">
                             <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
                                 <span style="font-size:.75rem;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:.05em">Google Review</span>
@@ -369,7 +375,7 @@
                                 <a href="https://maps.app.goo.gl/c1vHZ9L1AXT3o9xs5" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#666;text-decoration:none">View on Google →</a>
                             </div>
                         </div>
-                        <div style="background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:16px;padding:1.5rem">
+                        <div class="rc">
                             <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
                                 <span style="font-size:.75rem;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:.05em">Google Review</span>
@@ -387,7 +393,7 @@
                                 <a href="https://maps.app.goo.gl/c1vHZ9L1AXT3o9xs5" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#666;text-decoration:none">View on Google →</a>
                             </div>
                         </div>
-                        <div style="background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:16px;padding:1.5rem">
+                        <div class="rc">
                             <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
                                 <span style="font-size:.75rem;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:.05em">Google Review</span>
@@ -405,7 +411,7 @@
                                 <a href="https://maps.app.goo.gl/c1vHZ9L1AXT3o9xs5" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#666;text-decoration:none">View on Google →</a>
                             </div>
                         </div>
-                        <div style="background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:16px;padding:1.5rem">
+                        <div class="rc">
                             <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
                                 <span style="font-size:.75rem;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:.05em">Google Review</span>
@@ -423,7 +429,10 @@
                                 <a href="https://maps.app.goo.gl/c1vHZ9L1AXT3o9xs5" target="_blank" rel="noopener noreferrer" style="font-size:.75rem;color:#666;text-decoration:none">View on Google →</a>
                             </div>
                         </div>
-                    </div>
+                    </div></div>
+                    <script>
+                    (function(){var t=document.getElementById('rt'),c=t.children,n=c.length;if(n<4)return;for(var i=0;i<3;i++)t.appendChild(c[i].cloneNode(true));var cc=t.children,si=setInterval(function(){var w=cc[0].offsetWidth+parseFloat(getComputedStyle(t).gap||16);if(!w)return;var x=parseFloat(t.style.transform.replace('translateX(','').replace('px)',''))||0,p=x-w;t.style.transition='transform .6s ease';t.style.transform='translateX('+p+'px)';if(Math.abs(p)>=n*w){setTimeout(function(){t.style.transition='none';t.style.transform='translateX(0)'},600)}},3500)})();
+                    </script>
                 </div>
             </section>
             <footer class="footer layer" data-slide="vertical">
