@@ -1,0 +1,26 @@
+# AH Digital Solutions — Website Design & Digital Marketing Agency
+> Architecture for the modern web. We build custom websites, web applications, and digital products that balance high-end aesthetics with technical precision.
+
+## Pages
+- [Home](https://www.ahdigitalsolutions.dev/): Website design and web development agency based in Rawalpindi, Pakistan
+- [About](https://www.ahdigitalsolutions.dev/about): Learn about our team, process, and 50+ delivered projects
+- [Services](https://www.ahdigitalsolutions.dev/services): Full-scale digital services — web development, UI/UX design, SEO, e-commerce, and maintenance
+- [Work](https://www.ahdigitalsolutions.dev/work): Portfolio of handcrafted digital projects and case studies
+- [Pricing](https://www.ahdigitalsolutions.dev/pricing): Transparent pricing plans in PKR, USD, EUR, GBP, AED, SAR, CAD, AUD
+- [Contact](https://www.ahdigitalsolutions.dev/contact): Get in touch for your next web project
+
+## Services
+- Custom Website Design
+- Web Development
+- UI/UX Design Strategy
+- SEO & Performance Optimization
+- E-commerce Solutions
+- Brand Identity
+- Website Maintenance & Support
+
+## Contact
+- Email: info@ahdigitalsolutions.dev
+- Phone: +92 329 5087704
+- WhatsApp: https://wa.me/923295087704
+- Instagram: https://www.instagram.com/solutionsahdigital
+- LinkedIn: https://www.linkedin.com/company/ah-digital-solutions/
