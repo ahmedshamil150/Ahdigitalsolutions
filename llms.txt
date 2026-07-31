@@ -7,6 +7,10 @@
 - [Services](https://www.ahdigitalsolutions.dev/services): Full-scale digital services — web development, UI/UX design, SEO, e-commerce, and maintenance
 - [Work](https://www.ahdigitalsolutions.dev/work): Portfolio of handcrafted digital projects and case studies
 - [Pricing](https://www.ahdigitalsolutions.dev/pricing): Transparent pricing plans in PKR, USD, EUR, GBP, AED, SAR, CAD, AUD
+- [Blog](https://www.ahdigitalsolutions.dev/blog): Guides on web design, SEO, and digital growth
+- [What Is AEO?](https://www.ahdigitalsolutions.dev/blog/what-is-aeo.html): Answer Engine Optimization explained and how to win AI traffic
+- [Website Cost in Pakistan](https://www.ahdigitalsolutions.dev/blog/website-cost-pakistan.html): 2026 price breakdown for website design and development in Pakistan
+- [Improve Website Speed](https://www.ahdigitalsolutions.dev/blog/improve-website-speed.html): Complete guide to faster loading and Core Web Vitals
 - [Contact](https://www.ahdigitalsolutions.dev/contact): Get in touch for your next web project
 
 ## Services
