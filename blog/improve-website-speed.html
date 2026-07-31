@@ -7,6 +7,8 @@
     <title>How to Improve Website Speed: A Complete Guide | AH Digital Solutions</title>
     <meta name="description" content="A practical guide to making your website load faster: image optimization, caching, code splitting, and Core Web Vitals. Includes the exact steps we use to cut load times in half.">
     <meta name="keywords" content="improve website speed, website performance optimization, Core Web Vitals, page speed optimization, faster website loading, lazy loading">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta property="og:site_name" content="AH Digital Solutions">
     <meta property="og:title" content="How to Improve Website Speed: A Complete Guide">
     <meta property="og:description" content="A practical guide to making your website load faster: image optimization, caching, code splitting, and Core Web Vitals.">
     <meta property="og:image" content="https://www.ahdigitalsolutions.dev/images/logo.png">
@@ -72,6 +74,54 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you improve website speed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reduce what the page downloads and how much work the browser has to do: compress images, enable caching, minify CSS and JavaScript, use lazy loading, and serve modern formats like WebP over HTTP/2. A well-optimized site should load in under 2.5 seconds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the biggest website speed win?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Images are usually 60 to 80 percent of a page's total weight, so compressing, resizing, and converting them to WebP or AVIF with lazy loading is the single highest-impact fix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are Core Web Vitals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Core Web Vitals are Google's three speed metrics: LCP (Largest Contentful Paint), INP (Interaction to Next Paint), and CLS (Cumulative Layout Shift). Target an LCP under 2.5 seconds, INP under 200 milliseconds, and CLS under 0.1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a CDN for faster loading?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A CDN serves your files from servers located near each visitor, cutting round-trip time worldwide. It helps significantly if your audience is spread across countries."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast should a website load?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aim for an LCP under 2.5 seconds, an INP under 200 milliseconds, and a CLS under 0.1 on both mobile and desktop, with a 90+ PageSpeed score as a bonus signal."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [{
     "@type": "ListItem",
@@ -129,7 +179,7 @@
         </section>
 
         <div id="scroll-container">
-            <section class="layer" data-units="5" data-bg="dark">
+            <section class="layer" data-units="5" data-bg="light">
                 <div class="container layer-content blog-layer">
                     <div class="blog-article" style="margin-top:2rem">
                         <span class="blog-card-cat">Performance</span>
