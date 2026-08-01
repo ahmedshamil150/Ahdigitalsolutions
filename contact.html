@@ -228,10 +228,10 @@
                     </div>
 
                     <div class="contact-form-wrap">
-                        <form class="contact-form" action="https://formsubmit.co/info@ahdigitalsolutions.dev" method="POST">
+                        <form class="contact-form" action="https://formsubmit.co/solutionsahdigital@gmail.com" method="POST">
                             <input type="hidden" name="_subject" value="New inquiry from AH Digital Solutions website">
                             <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://www.ahdigitalsolutions.dev/success">
+                            <input type="hidden" name="_next" value="https://www.ahdigitalsolutions.dev/success.html">
                             <input type="text" name="_honey" style="display:none">
                             <div class="form-group">
                                 <label for="name">Your Name</label>
@@ -310,6 +310,43 @@
         </div>
     </main>
 
+    <script>
+    (function(){
+        var form = document.querySelector('.contact-form');
+        if (!form) return;
+        var btn = form.querySelector('button[type="submit"]');
+        var original = btn ? btn.textContent : '';
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            if (form.classList.contains('sending')) return;
+            form.classList.add('sending');
+            if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
+            var get = function(id){ var el = document.getElementById(id); return el ? el.value : ''; };
+            fetch('https://formsubmit.co/ajax/solutionsahdigital@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    name: get('name'),
+                    email: get('email'),
+                    message: get('message')
+                })
+            })
+            .then(function(r){ return r.json(); })
+            .then(function(data){
+                if (data && (data.success === 'true' || data.success === true)) {
+                    window.location.href = '/success.html';
+                } else {
+                    throw new Error('form submit failed');
+                }
+            })
+            .catch(function(){
+                form.classList.remove('sending');
+                if (btn) { btn.textContent = original; btn.disabled = false; }
+                alert('Sorry, something went wrong. Please try again or message us on WhatsApp.');
+            });
+        });
+    })();
+    </script>
     <script src="js/script.min.js" defer></script>
 </body>
 </html>
