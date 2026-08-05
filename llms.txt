@@ -8,14 +8,14 @@
 - [Work](https://www.ahdigitalsolutions.dev/work): Portfolio of handcrafted digital projects and case studies
 - [Pricing](https://www.ahdigitalsolutions.dev/pricing): Transparent pricing plans in PKR, USD, EUR, GBP, AED, SAR, CAD, AUD
 - [Blog](https://www.ahdigitalsolutions.dev/blog): Guides on web design, SEO, and digital growth
-- [What Is AEO?](https://www.ahdigitalsolutions.dev/blog/what-is-aeo.html): Answer Engine Optimization explained and how to win AI traffic
-- [Website Cost in Pakistan](https://www.ahdigitalsolutions.dev/blog/website-cost-pakistan.html): 2026 price breakdown for website design and development in Pakistan
-- [Improve Website Speed](https://www.ahdigitalsolutions.dev/blog/improve-website-speed.html): Complete guide to faster loading and Core Web Vitals
-- [What Is GEO?](https://www.ahdigitalsolutions.dev/blog/what-is-geo.html): Generative Engine Optimization explained and how to win AI search traffic
-- [Local SEO in Pakistan](https://www.ahdigitalsolutions.dev/blog/local-seo-pakistan.html): 2026 guide to ranking your business locally — Google Business Profile, reviews, and citations
-- [Choose a Web Development Company in Pakistan](https://www.ahdigitalsolutions.dev/blog/choose-web-development-company-pakistan.html): Buyer's guide — portfolio, technical quality, SEO, pricing, and support
-- [SEO vs Google Ads in Pakistan](https://www.ahdigitalsolutions.dev/blog/seo-vs-google-ads-pakistan.html): Costs, speed, and results — and when to use each or combine both
-- [Why Your Business Needs a Website](https://www.ahdigitalsolutions.dev/blog/why-business-needs-website.html): Why a website still matters in 2026, even with social media
+- [What Is AEO?](https://www.ahdigitalsolutions.dev/blog/what-is-aeo): Answer Engine Optimization explained and how to win AI traffic
+- [Website Cost in Pakistan](https://www.ahdigitalsolutions.dev/blog/website-cost-pakistan): 2026 price breakdown for website design and development in Pakistan
+- [Improve Website Speed](https://www.ahdigitalsolutions.dev/blog/improve-website-speed): Complete guide to faster loading and Core Web Vitals
+- [What Is GEO?](https://www.ahdigitalsolutions.dev/blog/what-is-geo): Generative Engine Optimization explained and how to win AI search traffic
+- [Local SEO in Pakistan](https://www.ahdigitalsolutions.dev/blog/local-seo-pakistan): 2026 guide to ranking your business locally — Google Business Profile, reviews, and citations
+- [Choose a Web Development Company in Pakistan](https://www.ahdigitalsolutions.dev/blog/choose-web-development-company-pakistan): Buyer's guide — portfolio, technical quality, SEO, pricing, and support
+- [SEO vs Google Ads in Pakistan](https://www.ahdigitalsolutions.dev/blog/seo-vs-google-ads-pakistan): Costs, speed, and results — and when to use each or combine both
+- [Why Your Business Needs a Website](https://www.ahdigitalsolutions.dev/blog/why-business-needs-website): Why a website still matters in 2026, even with social media
 - [Contact](https://www.ahdigitalsolutions.dev/contact): Get in touch for your next web project
 
 ## Services
