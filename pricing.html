@@ -147,7 +147,7 @@
                         </div>
                     </div>
                     <div class="pricing-grid" id="pricingGrid">
-                        <div class="pricing-card" data-price-low-pkr="15000" data-price-high-pkr="25000">
+                        <div class="pricing-card" data-price-low-pkr="15000" data-price-high-pkr="25000" data-price-low-usd="100" data-price-high-usd="200" data-price-low-eur="100" data-price-high-eur="200" data-price-low-gbp="100" data-price-high-gbp="200" data-price-low-aed="400" data-price-high-aed="800" data-price-low-sar="400" data-price-high-sar="800" data-price-low-cad="150" data-price-high-cad="300" data-price-low-aud="160" data-price-high-aud="320">
                             <div class="pricing-header">
                                 <h3 class="pricing-name">Basic</h3>
                                 <div class="pricing-range"><span class="price-display"></span></div>
@@ -166,7 +166,7 @@
                                 <a href="https://wa.me/923295087704" target="_blank" rel="noopener noreferrer" class="pricing-card-btn pricing-card-btn--wa">Ask a Question</a>
                             </div>
                         </div>
-                        <div class="pricing-card pricing-card--featured" data-price-low-pkr="35000" data-price-high-pkr="60000">
+                        <div class="pricing-card pricing-card--featured" data-price-low-pkr="35000" data-price-high-pkr="60000" data-price-low-usd="250" data-price-high-usd="500" data-price-low-eur="250" data-price-high-eur="500" data-price-low-gbp="250" data-price-high-gbp="500" data-price-low-aed="1000" data-price-high-aed="2000" data-price-low-sar="1000" data-price-high-sar="2000" data-price-low-cad="350" data-price-high-cad="700" data-price-low-aud="400" data-price-high-aud="800">
                             <div class="pricing-header">
                                 <h3 class="pricing-name">Standard</h3>
                                 <div class="pricing-range"><span class="price-display"></span></div>
@@ -186,7 +186,7 @@
                                 <a href="https://wa.me/923295087704" target="_blank" rel="noopener noreferrer" class="pricing-card-btn pricing-card-btn--wa">Ask a Question</a>
                             </div>
                         </div>
-                        <div class="pricing-card" data-price-low-pkr="70000" data-price-high-pkr="140000">
+                        <div class="pricing-card" data-price-low-pkr="70000" data-price-high-pkr="140000" data-price-low-usd="600" data-price-high-usd="1200" data-price-low-eur="600" data-price-high-eur="1200" data-price-low-gbp="600" data-price-high-gbp="1200" data-price-low-aed="2400" data-price-high-aed="4800" data-price-low-sar="2400" data-price-high-sar="4800" data-price-low-cad="850" data-price-high-cad="1700" data-price-low-aud="950" data-price-high-aud="1900">
                             <div class="pricing-header">
                                 <h3 class="pricing-name">Premium</h3>
                                 <div class="pricing-range"><span class="price-display"></span></div>
@@ -206,7 +206,7 @@
                                 <a href="https://wa.me/923295087704" target="_blank" rel="noopener noreferrer" class="pricing-card-btn pricing-card-btn--wa">Ask a Question</a>
                             </div>
                         </div>
-                        <div class="pricing-card pricing-card--accent" data-price-low-pkr="20000" data-price-high-pkr="0">
+                        <div class="pricing-card pricing-card--accent" data-price-low-pkr="20000" data-price-high-pkr="0" data-price-low-usd="150" data-price-high-usd="0" data-price-low-eur="150" data-price-high-eur="0" data-price-low-gbp="150" data-price-high-gbp="0" data-price-low-aed="550" data-price-high-aed="0" data-price-low-sar="550" data-price-high-sar="0" data-price-low-cad="210" data-price-high-cad="0" data-price-low-aud="230" data-price-high-aud="0">
                             <div class="pricing-header">
                                 <h3 class="pricing-name">E-commerce</h3>
                                 <div class="pricing-range"><span class="price-display"></span></div>
@@ -324,14 +324,15 @@
                 var c = currencies[currency];
                 var cards = grid.querySelectorAll('.pricing-card');
                 cards.forEach(function(card){
-                    var low = parseInt(card.getAttribute('data-price-low-pkr'));
-                    var high = parseInt(card.getAttribute('data-price-high-pkr'));
+                    var lowKey = 'data-price-low-' + currency.toLowerCase();
+                    var highKey = 'data-price-high-' + currency.toLowerCase();
+                    var low = parseInt(card.getAttribute(lowKey));
+                    var high = parseInt(card.getAttribute(highKey));
                     var display = card.querySelector('.price-display');
-                    var fmt = function(v){return Math.round(v / c.rate);};
                     if (high > 0) {
-                        display.textContent = c.symbol + ' ' + fmt(low).toLocaleString(c.locale) + ' \u2013 ' + fmt(high).toLocaleString(c.locale);
+                        display.textContent = c.symbol + ' ' + low.toLocaleString(c.locale) + ' \u2013 ' + high.toLocaleString(c.locale);
                     } else {
-                        display.textContent = 'Starting from ' + c.symbol + ' ' + fmt(low).toLocaleString(c.locale) + '+';
+                        display.textContent = 'Starting from ' + c.symbol + ' ' + low.toLocaleString(c.locale) + '+';
                     }
                 });
                 grid.classList.add('visible');
