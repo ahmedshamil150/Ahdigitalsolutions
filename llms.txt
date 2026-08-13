@@ -5,6 +5,7 @@
 - [Home](https://www.ahdigitalsolutions.dev/): Website development agency in Pakistan — professional web designers & website developers in Rawalpindi, Islamabad, Lahore, and Karachi
 - [About](https://www.ahdigitalsolutions.dev/about): Learn about our team, process, and 50+ delivered projects
 - [Services](https://www.ahdigitalsolutions.dev/services): Full-scale digital services — web development, UI/UX design, SEO, e-commerce, and maintenance
+- [Web Development in Pakistan](https://www.ahdigitalsolutions.dev/services/web-development): Custom website development, e-commerce, and web applications for businesses in Rawalpindi, Islamabad, Lahore, and Karachi
 - [Work](https://www.ahdigitalsolutions.dev/work): Portfolio of handcrafted digital projects and case studies
 - [Pricing](https://www.ahdigitalsolutions.dev/pricing): Transparent pricing plans in PKR, USD, EUR, GBP, AED, SAR, CAD, AUD
 - [Blog](https://www.ahdigitalsolutions.dev/blog): Guides on web design, SEO, and digital growth
