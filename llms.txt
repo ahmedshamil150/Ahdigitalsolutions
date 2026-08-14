@@ -13,6 +13,10 @@
 - [Website Maintenance in Pakistan](https://www.ahdigitalsolutions.dev/services/website-maintenance): Security, backups, updates, and support that keep your website fast and safe
 - [UI/UX Design in Pakistan](https://www.ahdigitalsolutions.dev/services/ui-ux-design): User interface and user experience design for websites, web apps, and mobile apps
 - [Performance Optimization in Pakistan](https://www.ahdigitalsolutions.dev/services/performance-optimization): Page speed and Core Web Vitals improvements that boost rankings and conversions
+- [Small Apps & Business Tools in Pakistan](https://www.ahdigitalsolutions.dev/services/small-apps-tools): Booking systems, calculators, client portals, and automation tools built around your workflow
+- [Responsive Web Design in Pakistan](https://www.ahdigitalsolutions.dev/services/responsive-design): Mobile-first websites that work flawlessly on every phone, tablet, and desktop
+- [Email Design in Pakistan](https://www.ahdigitalsolutions.dev/services/email-design): Custom HTML email templates, newsletters, and automated sequences that get opened
+- [Contact Forms & Lead Generation in Pakistan](https://www.ahdigitalsolutions.dev/services/contact-forms-lead-generation): Custom forms with WhatsApp and email alerts that capture and organize every enquiry
 - [Work](https://www.ahdigitalsolutions.dev/work): Portfolio of handcrafted digital projects and case studies
 - [Pricing](https://www.ahdigitalsolutions.dev/pricing): Transparent pricing plans in PKR, USD, EUR, GBP, AED, SAR, CAD, AUD
 - [Blog](https://www.ahdigitalsolutions.dev/blog): Guides on web design, SEO, and digital growth
