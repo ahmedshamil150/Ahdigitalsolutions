@@ -158,6 +158,7 @@ body {
 /* Layer Scroll System */
 #scroll-container {
     position: relative;
+    height: 700vh;
 }
 
 .layer::-webkit-scrollbar {
@@ -287,7 +288,7 @@ body {
 }
 
 .layer[data-bg="light"] .browse-heading em {
-    color: var(--color-accent);
+    color: #05657c;
 }
 
 .layer[data-bg="light"] .browse-desc {
@@ -308,12 +309,16 @@ body {
     color: #111;
 }
 
+.layer[data-bg="light"] .browse-card .browse-link {
+    color: #05657c;
+}
+
 .layer[data-bg="light"] .browse-card p {
     color: #555;
 }
 
 .layer[data-bg="light"] .browse-card:hover .browse-link {
-    color: var(--color-accent-hover);
+    color: #05657c;
 }
 
 .layer[data-bg="light"] .browse-icon {
@@ -324,7 +329,7 @@ body {
 .layer[data-bg="light"] .section-badge {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.25);
-    color: var(--color-accent);
+    color: #05657c;
 }
 
 .layer[data-bg="light"] .page-heading {
@@ -593,7 +598,7 @@ body {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--color-accent);
+    color: #05657c;
     margin-bottom: var(--spacing-sm);
     padding: 5px 12px;
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -612,7 +617,7 @@ body {
 
 .about-heading em {
     font-style: normal;
-    color: var(--color-accent);
+    color: #05657c;
 }
 
 .about-desc {
@@ -668,7 +673,7 @@ body {
 
 .about-card p {
     font-size: 0.78rem;
-    color: #999;
+    color: #595959;
     line-height: 1.5;
 }
 
@@ -1904,7 +1909,7 @@ footer > .container {
 
 .footer-copy {
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.55);
 }
 
 .footer-location {
@@ -1975,7 +1980,7 @@ footer > .container {
     gap: 0.4rem;
     padding: 0.65rem 1.25rem;
     border-radius: 100px;
-    background: #25D366;
+    background: #0f8040;
     color: #fff;
     font-size: 0.9rem;
     font-weight: 600;
@@ -1986,7 +1991,7 @@ footer > .container {
 }
 
 .footer-wa-btn:hover {
-    background: #20bd5a;
+    background: #0d6b35;
     color: #fff;
 }
 
@@ -2190,7 +2195,7 @@ footer > .container {
     }
 
     .about-heading em {
-        color: var(--color-accent);
+        color: #05657c;
     }
 
     .about-desc {
@@ -2216,7 +2221,7 @@ footer > .container {
     }
 
     .about-card p {
-        color: #999;
+        color: #595959;
     }
 
     .about-card-icon {
