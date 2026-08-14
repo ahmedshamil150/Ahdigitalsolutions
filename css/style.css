@@ -2005,9 +2005,44 @@ footer > .container {
 
 /* === FAQ Section === */
 .faq-section {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 40px 0;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 var(--spacing-xl);
+    align-items: start;
+}
+
+/* Desktop only: keep the FAQ inside the viewport when an answer expands */
+@media (min-width: 769px) {
+    .faq-section {
+        max-height: calc(100vh - 140px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .faq-grid {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+        padding-right: 8px;
+    }
+
+    .faq-grid::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .faq-grid::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
 }
 
 .faq-item {
@@ -2058,6 +2093,20 @@ footer > .container {
 
 .faq-question .faq-toggle.open {
     transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+    .faq-section {
+        max-width: 600px;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+        max-height: none;
+        overflow: visible;
+        padding-right: 0;
+    }
 }
 
 /* Responsive — mobile: normal page flow, no scroll effects */
