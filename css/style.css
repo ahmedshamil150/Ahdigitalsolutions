@@ -1825,6 +1825,8 @@ footer > .container {
    Footer
    ================================ */
 .footer {
+    position: relative;
+    z-index: 300;
     background: #000;
     border-top: 1px solid var(--color-border);
 }
