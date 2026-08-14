@@ -1838,7 +1838,7 @@ footer > .container {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1.5fr;
     gap: var(--spacing-xl);
     align-items: start;
 }
@@ -1881,6 +1881,12 @@ footer > .container {
 
 .footer-col a:hover {
     color: var(--color-accent);
+}
+
+.footer-service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 var(--spacing-md);
 }
 
 .footer-social {
