@@ -2330,7 +2330,7 @@ footer > .container {
     }
 
     .hero-line {
-        font-size: clamp(1.1rem, 4.5vw, 1.6rem);
+        font-size: clamp(1.5rem, 6.2vw, 2.2rem);
     }
 
     .hero-badge {

@@ -1,10 +1,11 @@
 .hero-line > .stroke-text {
-    display: block;
+    display: inline-block;
     width: auto;
     max-width: 100%;
     height: auto;
     overflow: visible;
     vertical-align: baseline;
+    white-space: nowrap;
 }
 
 .stroke-text-sr {
