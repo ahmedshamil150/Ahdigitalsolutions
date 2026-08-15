@@ -557,13 +557,13 @@ body {
 
 /* Hero title */
 .hero-title {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
 .hero-line {
     display: inline;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.05;
     letter-spacing: -0.04em;
     font-size: clamp(2rem, 4.6vw, 3.6rem);
 }
@@ -588,7 +588,11 @@ body {
     color: var(--color-body);
     max-width: 460px;
     line-height: 1.7;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-desc + .hero-desc {
+    margin-top: calc(-1 * var(--spacing-xs));
 }
 
 .hero-desc-em {
