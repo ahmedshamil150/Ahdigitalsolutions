@@ -2273,9 +2273,9 @@ footer > .container {
 
     .hero-fixed {
         position: relative;
-        height: 100vh;
+        height: 92vh;
         min-height: 0;
-        max-height: 100vh;
+        max-height: 92vh;
         padding: 0;
         overflow: hidden;
     }
@@ -2321,7 +2321,7 @@ footer > .container {
     .hero-media {
         display: block;
         flex: none;
-        width: min(120px, 34%);
+        width: min(170px, 46%);
         margin: 4px auto 0;
     }
 
