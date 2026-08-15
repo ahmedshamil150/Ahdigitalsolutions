@@ -2273,40 +2273,60 @@ footer > .container {
 
     .hero-fixed {
         position: relative;
-        height: auto;
-        min-height: 50vh;
-        padding: 80px 0 40px;
-        background-image: url('../images/hero-section.webp');
-        background-size: cover;
-        background-position: center;
+        height: 100vh;
+        min-height: 0;
+        max-height: 100vh;
+        padding: 0;
+        overflow: hidden;
     }
 
     .hero-fixed .hero-bg-gradient {
-        opacity: 0.5;
+        opacity: 1;
     }
 
     /* === Hero sizing === */
     .hero-fixed .container {
         gap: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 var(--spacing-lg);
     }
 
     .hero-layout {
         flex-direction: column;
         gap: 0;
-        margin-top: 0;
+        margin-top: -24px;
+        width: 100%;
     }
 
     .hero-card {
         max-width: 100%;
-        padding: 20px 18px;
+        padding: 16px 16px 14px;
         border-radius: 16px;
         margin-top: 0;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.85);
         border-left: 3px solid var(--color-accent);
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .hero-card-text {
+        max-width: 100%;
+        align-items: flex-start;
     }
 
     .hero-media {
-        display: none;
+        display: block;
+        flex: none;
+        width: min(120px, 34%);
+        margin: 4px auto 0;
+    }
+
+    .hero-media::before {
+        border-radius: 50%;
     }
 
     .hero-line {
@@ -2320,25 +2340,25 @@ footer > .container {
     }
 
     .hero-title {
-        margin-bottom: var(--spacing-sm);
+        margin-bottom: 10px;
     }
 
     .hero-desc {
-        font-size: 0.8rem;
-        margin-bottom: var(--spacing-sm);
-        line-height: 1.5;
+        font-size: 0.78rem;
+        margin-bottom: 12px;
+        line-height: 1.45;
     }
 
     .btn {
-        padding: 10px 20px;
-        font-size: 0.8rem;
+        padding: 9px 20px;
+        font-size: 0.78rem;
         border-radius: 20px;
     }
 
     .hero-actions {
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
+        gap: 6px;
     }
 
     .hero-stats {
