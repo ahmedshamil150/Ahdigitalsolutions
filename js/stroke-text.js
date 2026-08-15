@@ -61,8 +61,9 @@
     };
 
     var css = window.getComputedStyle(el);
-    var fontSize = cfg.fontSize || parseFloat(css.fontSize) || 72;
+    var fontSize = (cfg.fontSize || parseFloat(css.fontSize) || 72) * 1.18;
     var fontWeight = css.fontWeight || '800';
+    if (['800', '900', 'bold'].indexOf(fontWeight) !== -1) fontWeight = '600';
     var fontFamily = css.fontFamily;
     var letterSpacing = parseFloat(css.letterSpacing);
     if (isNaN(letterSpacing)) letterSpacing = 0;
@@ -83,7 +84,7 @@
     svg.setAttribute('class', 'stroke-text');
     svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     svg.setAttribute('aria-hidden', 'true');
-    svg.style.height = Math.round(fontSize * 1.3) + 'px';
+    svg.style.height = Math.round(fontSize * 1.1) + 'px';
     svg.style.width = 'auto';
     svg.style.maxWidth = '100%';
     svg.style.opacity = '0';
