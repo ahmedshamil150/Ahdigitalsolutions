@@ -565,7 +565,7 @@ body {
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: -0.04em;
-    font-size: clamp(1.6rem, 3.8vw, 3rem);
+    font-size: clamp(2rem, 4.6vw, 3.6rem);
 }
 
 .hero-line--sm {
@@ -2330,7 +2330,7 @@ footer > .container {
     }
 
     .hero-line {
-        font-size: clamp(1.5rem, 6.2vw, 2.2rem);
+        font-size: clamp(1.8rem, 7.5vw, 2.7rem);
     }
 
     .hero-badge {
