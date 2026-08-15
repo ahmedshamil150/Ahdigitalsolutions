@@ -31,6 +31,14 @@
     };
   }
 
+  function easeTween(cancels, from, to, dur, ease, setFn) {
+    if (from === to) {
+      setFn(to);
+      return;
+    }
+    cancels.push(tween(from, to, dur, ease, setFn));
+  }
+
   function init(root) {
     var panels = Array.prototype.slice.call(root.querySelectorAll('.ag-panel'));
     var count = panels.length;
@@ -79,26 +87,16 @@
         var label = panel.querySelector('.ag-panel__label');
         var rot = isActive ? 0 : i < active ? tilt : -tilt;
 
-        cancels.push(
-          tween(parseFloat(panel.style.flexGrow) || 1, isActive ? grow : 1, dur, ease, function (v) {
-            panel.style.flexGrow = v;
-          })
-        );
+        easeTween(cancels, parseFloat(panel.style.flexGrow) || 1, isActive ? grow : 1, dur, ease, function (v) {
+          panel.style.flexGrow = v;
+        });
 
         if (!reduced) {
-          cancels.push(
-            tween(
-              getRot(panel),
-              rot,
-              dur,
-              ease,
-              (function (el, target) {
-                return function (v) {
-                  el.style.transform = 'perspective(1200px) rotateY(' + v + 'deg)';
-                };
-              })(panel, rot)
-            )
-          );
+          easeTween(cancels, getRot(panel), rot, dur, ease, (function (el, target) {
+            return function (v) {
+              el.style.transform = 'perspective(1200px) rotateY(' + v + 'deg)';
+            };
+          })(panel, rot));
         } else {
           panel.style.transform = '';
         }
@@ -106,48 +104,34 @@
         if (media) {
           var drift = Math.max(-1.5, Math.min(1.5, active - i));
           var shift = drift * parallax * mediaSize * 0.06;
-          cancels.push(
-            tween(getMediaX(media), isActive ? 0 : shift, dur, ease, function (v) {
-              media.style.transform = 'translate(-50%, -50%) translateX(' + v + 'px)';
-            })
-          );
+          easeTween(cancels, getMediaX(media), isActive ? 0 : shift, dur, ease, function (v) {
+            media.style.transform = 'translate(-50%, -50%) translateX(' + v + 'px)';
+          });
           var grayFrom = parseFloat(getComputedStyle(media).getPropertyValue('--ag-gray')) || 1;
           var dimFrom = parseFloat(getComputedStyle(media).getPropertyValue('--ag-dim')) || 0.35;
-          cancels.push(
-            tween(grayFrom, grayscaleOf(isActive), dur, ease, function (v) {
-              media.style.setProperty('--ag-gray', v);
-            })
-          );
-          cancels.push(
-            tween(dimFrom, isActive ? 0 : 0.35, dur, ease, function (v) {
-              media.style.setProperty('--ag-dim', v);
-            })
-          );
+          easeTween(cancels, grayFrom, grayscaleOf(isActive), dur, ease, function (v) {
+            media.style.setProperty('--ag-gray', v);
+          });
+          easeTween(cancels, dimFrom, isActive ? 0 : 0.35, dur, ease, function (v) {
+            media.style.setProperty('--ag-dim', v);
+          });
         }
 
         if (label) {
           if (isActive) {
-            cancels.push(
-              tween(parseFloat(label.style.opacity) || 0, 1, dur, ease, function (v) {
-                label.style.opacity = v;
-              })
-            );
-            cancels.push(
-              tween(parseFloat(label.style.translateX) || -14, 0, dur, ease, function (v) {
-                label.style.translateX = v;
-              })
-            );
+            easeTween(cancels, parseFloat(label.style.opacity) || 0, 1, dur, ease, function (v) {
+              label.style.opacity = v;
+            });
+            easeTween(cancels, parseFloat(label.style.translateX) || -14, 0, dur, ease, function (v) {
+              label.style.translateX = v;
+            });
           } else {
-            cancels.push(
-              tween(parseFloat(label.style.opacity) || 0, 0, dur * 0.6, ease, function (v) {
-                label.style.opacity = v;
-              })
-            );
-            cancels.push(
-              tween(parseFloat(label.style.translateX) || 0, -14, dur * 0.6, ease, function (v) {
-                label.style.translateX = v;
-              })
-            );
+            easeTween(cancels, parseFloat(label.style.opacity) || 0, 0, dur * 0.6, ease, function (v) {
+              label.style.opacity = v;
+            });
+            easeTween(cancels, parseFloat(label.style.translateX) || 0, -14, dur * 0.6, ease, function (v) {
+              label.style.translateX = v;
+            });
           }
         }
 

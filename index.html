@@ -655,11 +655,13 @@
                 <div class="container layer-content" style="justify-content:flex-start;padding-top:2rem">
                     <div class="section-badge" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff">From the Blog</div>
                     <h2 class="page-heading" style="text-align:left;margin-bottom:0;color:#fff">Latest Articles & Guides</h2>
-                    <p class="page-text" style="margin:0.5rem 0 0;text-align:left;color:#ccc">Browse our blog by category. Hover a panel to expand it, then click to jump straight to that topic's articles.</p>
-                    <div class="accordion-gallery" data-ag-trigger="hover" data-ag-default-index="0" data-ag-height="440px" role="list" aria-label="Blog categories">
+                    <p class="ag-intro" style="margin:0.5rem 0 0;text-align:left;color:#ccc">Browse our blog by category. Hover a panel to expand it, then click to jump straight to that topic's articles.</p>
+                    <div class="accordion-gallery" data-ag-trigger="hover" data-ag-default-index="0" data-ag-height="340px" data-ag-duration="0.55" role="list" aria-label="Blog categories">
                         <style>
-                            .bc-all{display:inline-flex;padding:.8rem 1.75rem;border:1px solid rgba(255,255,255,.4);border-radius:4px;color:#fff;text-decoration:none;font-size:.88rem;font-weight:600;background:transparent;transition:all .2s ease}
+                            .ag-intro{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+                            .bc-all{display:inline-flex;padding:.6rem 1.6rem;border:1px solid rgba(255,255,255,.4);border-radius:4px;color:#fff;text-decoration:none;font-size:.85rem;font-weight:600;background:transparent;transition:all .2s ease}
                             .bc-all:hover{background:#01d3fd;border-color:#01d3fd;color:#000}
+                            @media (max-width:520px){.ag-intro{white-space:normal}}
                         </style>
                         <a class="ag-panel" href="/blog?cat=Web%20Design" role="listitem" tabindex="0" aria-label="Web Design articles">
                             <span class="ag-panel__frame">

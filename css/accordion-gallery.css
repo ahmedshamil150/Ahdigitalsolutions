@@ -13,7 +13,7 @@
   max-width: 100%;
   perspective: 1400px;
   perspective-origin: 50% 50%;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .accordion-gallery--vertical {
@@ -97,6 +97,7 @@
   gap: 12px;
   pointer-events: none;
   z-index: 2;
+  will-change: opacity, translate;
 }
 
 .ag-panel__bar {
