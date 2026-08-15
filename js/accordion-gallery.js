@@ -59,6 +59,9 @@
     var firstRun = true;
     var cancels = [];
     var mq = window.matchMedia('(max-width: 520px)');
+    var isTouch =
+      (typeof window.matchMedia === 'function' && window.matchMedia('(hover: none)').matches) ||
+      'ontouchstart' in window;
 
     root.style.height = data.agHeight || '460px';
 
@@ -184,7 +187,7 @@
 
     panels.forEach(function (panel, i) {
       panel.addEventListener('mouseenter', function (e) {
-        if (trigger === 'hover') {
+        if (trigger === 'hover' && !isTouch) {
           e.preventDefault && e.preventDefault();
           setActive(i, !PREFERS_REDUCED);
         }
@@ -196,7 +199,7 @@
         }
       });
       panel.addEventListener('focus', function () {
-        setActive(i, !PREFERS_REDUCED);
+        if (!isTouch) setActive(i, !PREFERS_REDUCED);
       });
       panel.addEventListener('keydown', function (e) {
         var next = -1;
