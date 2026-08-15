@@ -169,7 +169,16 @@
                     <div class="page-badge" style="margin-top:2rem">Blog</div>
                     <h2 class="page-heading">Latest Articles</h2>
                     <p class="blog-intro">Practical, no-fluff writing on web design, SEO, and performance — researched and written by the AH Digital Solutions team.</p>
-                    <div class="blog-grid">
+                    <div class="blog-tabs" id="blogTabs" role="tablist" aria-label="Blog categories">
+                        <button class="blog-tab active" data-cat="All" role="tab" aria-selected="true">All</button>
+                        <button class="blog-tab" data-cat="Web Design" role="tab" aria-selected="false">Web Design</button>
+                        <button class="blog-tab" data-cat="SEO" role="tab" aria-selected="false">SEO</button>
+                        <button class="blog-tab" data-cat="Pricing" role="tab" aria-selected="false">Pricing</button>
+                        <button class="blog-tab" data-cat="E-commerce" role="tab" aria-selected="false">E-commerce</button>
+                        <button class="blog-tab" data-cat="Marketing" role="tab" aria-selected="false">Marketing</button>
+                        <button class="blog-tab" data-cat="Performance" role="tab" aria-selected="false">Performance</button>
+                    </div>
+                    <div class="blog-grid" id="blogGrid">
                         <a class="blog-card" href="/blog/website-cost-sydney">
                             <span class="blog-card-index" aria-hidden="true">01</span>
                             <span class="blog-card-cat">Pricing</span>
@@ -382,6 +391,29 @@
         document.addEventListener('scroll',_ls);
         setTimeout(_ls,10000);
     }
+    </script>
+    <script>
+    (function () {
+        var tabs = document.querySelectorAll('.blog-tab');
+        var cards = document.querySelectorAll('.blog-card');
+        if (!tabs.length || !cards.length) return;
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                tabs.forEach(function (t) {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                var cat = tab.getAttribute('data-cat');
+                cards.forEach(function (card) {
+                    var cardCat = card.querySelector('.blog-card-cat');
+                    var show = cat === 'All' || (cardCat && cardCat.textContent.trim() === cat);
+                    card.classList.toggle('hidden', !show);
+                });
+            });
+        });
+    })();
     </script>
     <script src="js/script.min.js" defer></script>
     <script src="js/stroke-text.min.js" defer></script>
