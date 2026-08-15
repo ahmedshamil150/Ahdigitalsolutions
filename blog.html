@@ -397,22 +397,39 @@
         var tabs = document.querySelectorAll('.blog-tab');
         var cards = document.querySelectorAll('.blog-card');
         if (!tabs.length || !cards.length) return;
+        function click(tab) {
+            tabs.forEach(function (t) {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            var cat = tab.getAttribute('data-cat');
+            cards.forEach(function (card) {
+                var cardCat = card.querySelector('.blog-card-cat');
+                var show = cat === 'All' || (cardCat && cardCat.textContent.trim() === cat);
+                card.classList.toggle('hidden', !show);
+            });
+        }
         tabs.forEach(function (tab) {
             tab.addEventListener('click', function () {
-                tabs.forEach(function (t) {
-                    t.classList.remove('active');
-                    t.setAttribute('aria-selected', 'false');
-                });
-                tab.classList.add('active');
-                tab.setAttribute('aria-selected', 'true');
-                var cat = tab.getAttribute('data-cat');
-                cards.forEach(function (card) {
-                    var cardCat = card.querySelector('.blog-card-cat');
-                    var show = cat === 'All' || (cardCat && cardCat.textContent.trim() === cat);
-                    card.classList.toggle('hidden', !show);
-                });
+                click(tab);
             });
         });
+        var match = (window.location.search || '').match(/[?&]cat=([^&]+)/);
+        if (match) {
+            var wanted = decodeURIComponent(match[1]);
+            var found = false;
+            tabs.forEach(function (tab) {
+                if (tab.getAttribute('data-cat') === wanted) {
+                    click(tab);
+                    found = true;
+                }
+            });
+            if (!found) click(tabs[0]);
+        } else {
+            click(tabs[0]);
+        }
     })();
     </script>
     <script src="js/script.min.js" defer></script>

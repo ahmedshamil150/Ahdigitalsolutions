@@ -28,6 +28,7 @@
     <style>*,:after,:before{box-sizing:border-box;margin:0;padding:0}:root{--color-bg:#000;--color-bg-secondary:#000;--color-card:#000;--color-accent:#01d3fd;--color-accent-hover:#01d3fd;--color-accent-secondary:#01d3fd;--color-heading:#fff;--color-body:#ccc;--color-muted:#999;--color-border:rgba(255,255,255,.08);--font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;--container-max:1200px;--spacing-xs:.5rem;--spacing-sm:1rem;--spacing-md:1.5rem;--spacing-lg:2rem;--spacing-xl:4rem;--spacing-2xl:6rem}html{scroll-behavior:auto;font-size:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}body{font-family:var(--font-family);background-color:var(--color-bg);color:var(--color-body);line-height:1.6;margin:0;padding:0;overflow-x:hidden;overflow-y:scroll}.container{width:100%;max-width:var(--container-max);margin:0 auto;padding:0 var(--spacing-lg)}.header{position:fixed;top:0;left:0;width:100%;z-index:10000;transition:top .4s ease}.nav{display:flex;justify-content:space-between;align-items:center;padding:14px var(--spacing-lg);background:#000;border-radius:0;border:none;box-shadow:none;transition:all .4s ease;width:100%}.header.scrolled .nav{background:#000;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:9999px;box-shadow:0 8px 40px rgba(0,0,0,.25);border:1px solid var(--color-border);padding:10px var(--spacing-lg);width:min(90%,1200px);margin:0 auto}.logo{font-size:1.2rem;font-weight:700;letter-spacing:-.02em;color:var(--color-heading);text-decoration:none}.logo-accent{color:var(--color-accent)}.nav-links{display:flex;gap:var(--spacing-lg);list-style:none;align-items:center}.nav-links a{color:var(--color-muted);text-decoration:none;font-size:.9rem;font-weight:500}.layer{position:fixed;top:0;left:0;width:100%;height:100vh;display:flex;flex-direction:column;justify-content:flex-start;padding-top:80px;overflow:hidden;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-bottom:1px solid var(--color-border);background:var(--color-bg)}.layer[data-units]{overflow-y:auto}.layer>.container{flex:1;display:flex;flex-direction:column;justify-content:center;width:100%}#scroll-container{position:relative}.hero-fixed{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:2;background-color:var(--color-bg);color:var(--color-body);border-bottom:1px solid var(--color-border);display:flex;flex-direction:column;justify-content:center;overflow:hidden}.hero-fixed .container{position:relative;z-index:1;height:auto;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.hero-card{position:relative;max-width:600px;width:100%;padding:48px;background:rgba(0,0,0,.85);border-left:3px solid var(--color-accent);display:flex;flex-direction:column;align-items:flex-start;text-align:left;margin-top:-40px}.hero-fixed .hero-card{opacity:0;transform:translateY(30px);animation:heroFadeIn .8s cubic-bezier(.4,0,.2,1) .3s forwards}.hero-title{font-size:clamp(1.8rem,5vw,3.5rem);line-height:1.1;font-weight:700;letter-spacing:-.02em;color:var(--color-heading)}.hero-desc{font-size:clamp(1rem,2vw,1.2rem);line-height:1.7;color:var(--color-body);margin-top:var(--spacing-md)}.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;font-size:1rem;font-weight:600;border-radius:8px;border:none;cursor:pointer;text-decoration:none;transition:all .3s ease;position:relative;overflow:hidden;color:var(--color-heading)}.btn--primary{background:var(--color-accent);color:#000}.btn--ghost{background:transparent;border:1px solid var(--color-border)}.btn--ghost:hover{background:rgba(255,255,255,.05)}.mobile-notice{display:none}@keyframes heroFadeIn{to{opacity:1;transform:translateY(0)}}main>section>.container,footer>.container{padding-top:100px}.layer[data-custom-bg]{border:none;justify-content:center;padding-top:60px;box-shadow:inset 0 0 30px rgba(255,255,255,.06),0 0 30px rgba(255,255,255,.08);background:#f0f0f0;background-image:radial-gradient(ellipse at 20% 40%,hsla(0,0%,100%,.08) 0%,transparent 55%),radial-gradient(ellipse at 80% 60%,hsla(0,0%,100%,.04) 0%,transparent 50%)}[data-custom-bg] .layer-content{position:relative;z-index:1}@media(max-width:768px){.mobile-notice{display:block;position:fixed;top:0;left:0;width:100vw;box-sizing:border-box;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center;padding:8px 16px;font-size:.7rem;color:var(--color-muted);background:rgba(0,0,0,.95);z-index:10001}.hero-fixed{position:relative;height:auto;min-height:50vh}.hero-card{max-width:100%;padding:20px 18px;border-radius:16px;margin-top:0}}</style>
     <link rel="stylesheet" href="css/style.min.css">
     <link rel="stylesheet" href="css/stroke-text.min.css">
+    <link rel="stylesheet" href="css/accordion-gallery.min.css">
 
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -654,150 +655,76 @@
                 <div class="container layer-content" style="justify-content:flex-start;padding-top:2rem">
                     <div class="section-badge" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff">From the Blog</div>
                     <h2 class="page-heading" style="text-align:left;margin-bottom:0;color:#fff">Latest Articles & Guides</h2>
-                    <style>
-                        .bw{overflow:hidden;width:100%;margin-top:2rem}
-                        .bt{display:flex;gap:1rem;width:100%}
-                        .bc{flex:0 0 calc((100% - 2rem) / 3);max-width:400px;min-width:280px;background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:16px;padding:1.5rem;box-sizing:border-box;display:flex;flex-direction:column;text-decoration:none;transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease}
-                        .bc:hover{border-color:rgba(0,0,0,.2);box-shadow:0 10px 30px rgba(17,24,39,.06);transform:translateY(-3px)}
-                        .bc-cat{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:#05657c;margin-bottom:.7rem}
-                        .bc-cat::before{content:"\2014";color:#6b7280}
-                        .bc-title{font-family:Georgia,'Times New Roman',serif;font-size:1.15rem;font-weight:700;line-height:1.35;color:#111;margin:0 0 .6rem;transition:color .2s ease}
-                        .bc:hover .bc-title{color:#05657c}
-                        .bc-excerpt{font-size:.9rem;line-height:1.6;color:#555;margin:0 0 .9rem;flex:1}
-                        .bc-meta{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#6b7280;margin-bottom:.8rem}
-                        .bc-link{font-size:.8rem;font-weight:600;color:#111;border-top:1px solid #eef0f4;padding-top:.75rem;transition:color .2s ease}
-                        .bc:hover .bc-link{color:#05657c}
-                        .bc-all{display:inline-flex;padding:.8rem 1.75rem;border:1px solid rgba(255,255,255,.4);border-radius:4px;color:#fff;text-decoration:none;font-size:.88rem;font-weight:600;background:transparent;transition:all .2s ease}
-                        .bc-all:hover{background:#01d3fd;border-color:#01d3fd;color:#000}
-                        @media(max-width:768px){.bc{flex:0 0 calc(100vw - 4rem - .5rem);min-width:0}.bt{gap:.5rem}}
-                    </style>
-                    <div class="bw"><div class="bt" id="bt">
-                        <a class="bc" href="/blog/website-cost-new-york">
-                            <span class="bc-cat">Pricing</span>
-                            <span class="bc-title">How Much Does a Website Cost in New York? (2026 Guide)</span>
-                            <span class="bc-excerpt">Real New York website prices in USD — from $5,000 business sites to $50,000+ custom e-commerce, and what drives the cost.</span>
-                            <span class="bc-meta">Aug 14, 2026 &middot; 9 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
+                    <p class="page-text" style="margin:0.5rem 0 0;text-align:left;color:#ccc">Browse our blog by category. Hover a panel to expand it, then click to jump straight to that topic's articles.</p>
+                    <div class="accordion-gallery" data-ag-trigger="hover" data-ag-default-index="0" data-ag-height="440px" role="list" aria-label="Blog categories">
+                        <style>
+                            .bc-all{display:inline-flex;padding:.8rem 1.75rem;border:1px solid rgba(255,255,255,.4);border-radius:4px;color:#fff;text-decoration:none;font-size:.88rem;font-weight:600;background:transparent;transition:all .2s ease}
+                            .bc-all:hover{background:#01d3fd;border-color:#01d3fd;color:#000}
+                        </style>
+                        <a class="ag-panel" href="/blog?cat=Web%20Design" role="listitem" tabindex="0" aria-label="Web Design articles">
+                            <span class="ag-panel__frame">
+                                <span class="ag-panel__media"><img src="images/webdesign.png" alt="Web Design blog articles" loading="lazy" draggable="false"></span>
+                                <span class="ag-panel__overlay" aria-hidden="true"></span>
+                            </span>
+                            <span class="ag-panel__label" aria-hidden="true">
+                                <span class="ag-panel__bar"></span>
+                                <span class="ag-panel__text">Web Design</span>
+                            </span>
                         </a>
-                        <a class="bc" href="/blog/hire-web-designers-pakistan">
-                            <span class="bc-cat">Web Design</span>
-                            <span class="bc-title">How to Hire Web Designers in Pakistan (2026 Guide)</span>
-                            <span class="bc-excerpt">Portfolios to check, questions to ask, costs, and red flags — the practical way to hire the right web designers in Pakistan.</span>
-                            <span class="bc-meta">Aug 13, 2026 &middot; 9 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
+                        <a class="ag-panel" href="/blog?cat=SEO" role="listitem" tabindex="0" aria-label="SEO blog articles">
+                            <span class="ag-panel__frame">
+                                <span class="ag-panel__media"><img src="images/services.webp" alt="SEO blog articles" loading="lazy" draggable="false"></span>
+                                <span class="ag-panel__overlay" aria-hidden="true"></span>
+                            </span>
+                            <span class="ag-panel__label" aria-hidden="true">
+                                <span class="ag-panel__bar"></span>
+                                <span class="ag-panel__text">SEO</span>
+                            </span>
                         </a>
-                        <a class="bc" href="/blog/grow-e-commerce-store">
-                            <span class="bc-cat">E-commerce</span>
-                            <span class="bc-title">How to Grow Your E-commerce Store in Pakistan (2026 Guide)</span>
-                            <span class="bc-excerpt">Product pages, pricing, delivery, ads, and repeat customers — the practical way to grow online sales in Pakistan.</span>
-                            <span class="bc-meta">Aug 12, 2026 &middot; 9 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
+                        <a class="ag-panel" href="/blog?cat=Pricing" role="listitem" tabindex="0" aria-label="Pricing articles">
+                            <span class="ag-panel__frame">
+                                <span class="ag-panel__media"><img src="images/Pricing.webp" alt="Website pricing blog articles" loading="lazy" draggable="false"></span>
+                                <span class="ag-panel__overlay" aria-hidden="true"></span>
+                            </span>
+                            <span class="ag-panel__label" aria-hidden="true">
+                                <span class="ag-panel__bar"></span>
+                                <span class="ag-panel__text">Pricing</span>
+                            </span>
                         </a>
-                        <a class="bc" href="/blog/get-more-customers-online">
-                            <span class="bc-cat">Marketing</span>
-                            <span class="bc-title">How to Get More Customers Online in Pakistan (2026 Guide)</span>
-                            <span class="bc-excerpt">Website, local SEO, Google Business Profile, content, and lead capture — the practical way to grow your business online in Pakistan.</span>
-                            <span class="bc-meta">Aug 11, 2026 &middot; 9 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
+                        <a class="ag-panel" href="/blog?cat=E-commerce" role="listitem" tabindex="0" aria-label="E-commerce blog articles">
+                            <span class="ag-panel__frame">
+                                <span class="ag-panel__media"><img src="images/Work.webp" alt="E-commerce blog articles" loading="lazy" draggable="false"></span>
+                                <span class="ag-panel__overlay" aria-hidden="true"></span>
+                            </span>
+                            <span class="ag-panel__label" aria-hidden="true">
+                                <span class="ag-panel__bar"></span>
+                                <span class="ag-panel__text">E-commerce</span>
+                            </span>
                         </a>
-                        <a class="bc" href="/blog/web-design-trends-2026">
-                            <span class="bc-cat">Web Design</span>
-                            <span class="bc-title">Web Design Trends 2026: What's In, What's Out</span>
-                            <span class="bc-excerpt">AI-driven UX, bold typography, dark mode, and performance-first design — the trends shaping modern websites in 2026 and what to skip.</span>
-                            <span class="bc-meta">Aug 10, 2026 &middot; 9 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
+                        <a class="ag-panel" href="/blog?cat=Marketing" role="listitem" tabindex="0" aria-label="Marketing blog articles">
+                            <span class="ag-panel__frame">
+                                <span class="ag-panel__media"><img src="images/Blog.webp" alt="Marketing blog articles" loading="lazy" draggable="false"></span>
+                                <span class="ag-panel__overlay" aria-hidden="true"></span>
+                            </span>
+                            <span class="ag-panel__label" aria-hidden="true">
+                                <span class="ag-panel__bar"></span>
+                                <span class="ag-panel__text">Marketing</span>
+                            </span>
                         </a>
-                        <a class="bc" href="/blog/seo-cost-pakistan">
-                            <span class="bc-cat">SEO</span>
-                            <span class="bc-title">How Much Does SEO Cost in Pakistan? (2026 Guide)</span>
-                            <span class="bc-excerpt">Real SEO prices in Pakistan — monthly retainers, one-time audits, and what you actually pay for. Plus how to avoid cheap SEO scams.</span>
-                            <span class="bc-meta">Aug 8, 2026 &middot; 8 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
+                        <a class="ag-panel" href="/blog?cat=Performance" role="listitem" tabindex="0" aria-label="Performance blog articles">
+                            <span class="ag-panel__frame">
+                                <span class="ag-panel__media"><img src="images/hero-workspace.webp" alt="Performance blog articles" loading="lazy" draggable="false"></span>
+                                <span class="ag-panel__overlay" aria-hidden="true"></span>
+                            </span>
+                            <span class="ag-panel__label" aria-hidden="true">
+                                <span class="ag-panel__bar"></span>
+                                <span class="ag-panel__text">Performance</span>
+                            </span>
                         </a>
-                        <a class="bc" href="/blog/website-maintenance-pakistan">
-                            <span class="bc-cat">Web Design</span>
-                            <span class="bc-title">Website Maintenance in Pakistan: Why Your Website Needs It</span>
-                            <span class="bc-excerpt">Security, backups, and updates — why your website needs care, what maintenance includes, and what it costs.</span>
-                            <span class="bc-meta">Aug 7, 2026 &middot; 8 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                        <a class="bc" href="/blog/e-commerce-website-pakistan">
-                            <span class="bc-cat">E-commerce</span>
-                            <span class="bc-title">E-commerce Website Development in Pakistan: A Complete Guide</span>
-                            <span class="bc-excerpt">Platforms, payment gateways, and costs — a practical guide to launching your online store and selling across Pakistan.</span>
-                            <span class="bc-meta">Aug 6, 2026 &middot; 9 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                        <a class="bc" href="/blog/website-design-for-doctors-clinics">
-                            <span class="bc-cat">Web Design</span>
-                            <span class="bc-title">Website Design for Doctors and Clinics in Pakistan: A Complete Guide</span>
-                            <span class="bc-excerpt">Patients research clinics online before they book. What a healthcare website needs — trust, booking, and local SEO — and what it costs.</span>
-                            <span class="bc-meta">Aug 5, 2026 &middot; 8 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                        <a class="bc" href="/blog/why-business-needs-website">
-                            <span class="bc-cat">Web Design</span>
-                            <span class="bc-title">Why Your Business Needs a Website in 2026 (Even If You Use Social Media)</span>
-                            <span class="bc-excerpt">Social media is rented land; your website is your own. The case for owning your corner of the internet in 2026.</span>
-                            <span class="bc-meta">Aug 4, 2026 &middot; 8 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                        <a class="bc" href="/blog/seo-vs-google-ads-pakistan">
-                            <span class="bc-cat">Marketing</span>
-                            <span class="bc-title">SEO vs Google Ads in Pakistan: Which Should You Invest In?</span>
-                            <span class="bc-excerpt">Compare the costs, speed, and results of SEO and Google Ads — and learn when to use each, or combine both, to grow online.</span>
-                            <span class="bc-meta">Jul 7, 2026 &middot; 8 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                        <a class="bc" href="/blog/choose-web-development-company-pakistan">
-                            <span class="bc-cat">Web Design</span>
-                            <span class="bc-title">How to Choose a Web Development Company in Pakistan: A Buyer's Guide</span>
-                            <span class="bc-excerpt">What to check before hiring — real portfolios, technical quality, SEO, transparent pricing, and post-launch support.</span>
-                            <span class="bc-meta">Jun 8, 2026 &middot; 9 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                        <a class="bc" href="/blog/local-seo-pakistan">
-                            <span class="bc-cat">SEO</span>
-                            <span class="bc-title">Local SEO for Small Businesses in Pakistan: The 2026 Guide</span>
-                            <span class="bc-excerpt">A step-by-step guide to ranking your business in your city — Google Business Profile, reviews, citations, and local landing pages.</span>
-                            <span class="bc-meta">May 20, 2026 &middot; 8 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                        <a class="bc" href="/blog/what-is-geo">
-                            <span class="bc-cat">SEO</span>
-                            <span class="bc-title">What Is GEO? Generative Engine Optimization Explained</span>
-                            <span class="bc-excerpt">AI engines now read, cite, and recommend your content. Learn what GEO is and how to optimize your site for ChatGPT and AI search.</span>
-                            <span class="bc-meta">Apr 14, 2026 &middot; 9 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                        <a class="bc" href="/blog/improve-website-speed">
-                            <span class="bc-cat">Performance</span>
-                            <span class="bc-title">How to Improve Website Speed: A Complete Guide</span>
-                            <span class="bc-excerpt">Slow websites lose visitors and rankings. Here are the concrete steps we take to make websites load faster — and how to measure the results.</span>
-                            <span class="bc-meta">Mar 9, 2026 &middot; 10 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                        <a class="bc" href="/blog/website-cost-pakistan">
-                            <span class="bc-cat">Pricing</span>
-                            <span class="bc-title">How Much Does a Website Cost in Pakistan? (2026 Guide)</span>
-                            <span class="bc-excerpt">A transparent breakdown of website design and development costs in Pakistan, from basic brochure sites to custom e-commerce builds.</span>
-                            <span class="bc-meta">Feb 4, 2026 &middot; 9 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                        <a class="bc" href="/blog/what-is-aeo">
-                            <span class="bc-cat">SEO</span>
-                            <span class="bc-title">What Is AEO? Answer Engine Optimization Explained</span>
-                            <span class="bc-excerpt">AI chatbots and AI Overviews are changing how people find answers. Learn what AEO is and how to optimize your site to be the answer.</span>
-                            <span class="bc-meta">Jan 12, 2026 &middot; 8 min read</span>
-                            <span class="bc-link">Read Article &rarr;</span>
-                        </a>
-                    </div></div>
+                    </div>
                     <div style="text-align:center;margin-top:2rem">
                         <a href="/blog" class="bc-all">View All Articles &rarr;</a>
                     </div>
-                    <script>
-                    (function(){var t=document.getElementById('bt'),c=t.children,n=c.length;if(n<2)return;for(var i=0;i<3;i++){var cl=c[i].cloneNode(true);cl.setAttribute('aria-hidden','true');cl.setAttribute('tabindex','-1');t.appendChild(cl)}var cc=t.children,si=setInterval(function(){var w=cc[0].offsetWidth+parseFloat(getComputedStyle(t).gap||16);if(!w)return;var x=parseFloat(t.style.transform.replace('translateX(','').replace('px)',''))||0,p=x-w;t.style.transition='transform .6s ease';t.style.transform='translateX('+p+'px)';if(Math.abs(p)>=n*w){setTimeout(function(){t.style.transition='none';t.style.transform='translateX(0)'},600)}},3500)})();
-                    </script>
                 </div>
             </section>
             
@@ -887,5 +814,6 @@
     </script>
     <script src="js/script.min.js" defer></script>
     <script src="js/stroke-text.min.js" defer></script>
+    <script src="js/accordion-gallery.min.js" defer></script>
 </body>
 </html>
