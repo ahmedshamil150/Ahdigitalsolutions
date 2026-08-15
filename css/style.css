@@ -488,9 +488,18 @@ body {
     z-index: 1;
     height: auto;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+}
+
+/* Hero layout — card on the left, media on the right */
+.hero-layout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 56px;
+    margin-top: -80px;
 }
 
 /* Hero card — solid overlay, no glass */
@@ -504,7 +513,22 @@ body {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    margin-top: -80px;
+}
+
+/* Hero media — image on the right side of the card */
+.hero-media {
+    flex: 0 0 auto;
+    width: min(520px, 42%);
+    margin: 0;
+}
+
+.hero-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
 }
 
 /* Hero title */
@@ -2235,11 +2259,26 @@ footer > .container {
         gap: 0;
     }
 
+    .hero-layout {
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 0;
+    }
+
     .hero-card {
         max-width: 100%;
         padding: 20px 18px;
         border-radius: 16px;
-        margin-top: -48px;
+        margin-top: 0;
+    }
+
+    .hero-media {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-media img {
+        border-radius: 12px;
     }
 
     .hero-line {
