@@ -516,6 +516,20 @@ body {
     text-align: left;
 }
 
+.hero-card--center {
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-card--center .hero-card-text {
+    align-items: center;
+    max-width: 100%;
+}
+
+.hero-card--center .hero-actions {
+    justify-content: center;
+}
+
 .hero-card-text {
     flex: 1 1 auto;
     max-width: 520px;
@@ -2324,6 +2338,14 @@ footer > .container {
     .hero-card-text {
         max-width: 100%;
         align-items: flex-start;
+    }
+
+    .hero-card--center .hero-card-text {
+        align-items: center;
+    }
+
+    .hero-card--center .hero-actions {
+        justify-content: center;
     }
 
     .hero-media {
