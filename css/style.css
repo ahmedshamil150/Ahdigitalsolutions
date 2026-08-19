@@ -379,11 +379,11 @@ body {
 }
 
 .layer[data-bg="light"] .svc-learn {
-    color: var(--color-accent);
+    color: #05657c;
 }
 
 .layer[data-bg="light"] .svc-learn:hover {
-    color: var(--color-accent-hover);
+    color: #04404f;
 }
 
 /* ================================
@@ -948,7 +948,7 @@ body {
 
 .layer[data-bg="light"] .svc-card-btn--contact {
     background: var(--color-accent);
-    color: #fff;
+    color: #000;
     border-color: var(--color-accent);
 }
 
@@ -958,12 +958,12 @@ body {
 }
 
 .layer[data-bg="light"] .svc-card-btn--wa {
-    color: #25D366;
-    border-color: #25D366;
+    color: #0f7d43;
+    border-color: #0f7d43;
 }
 
 .layer[data-bg="light"] .svc-card-btn--wa:hover {
-    background: #25D366;
+    background: #0f7d43;
     color: #fff;
 }
 
