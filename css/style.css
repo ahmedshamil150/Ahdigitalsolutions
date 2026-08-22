@@ -370,9 +370,9 @@ body {
 }
 
 .layer[data-bg="light"] .svc-card-icon {
-    background: rgba(5, 101, 124, 0.12);
-    color: #05657c;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: #00c2ff;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(0, 194, 255, 0.4);
 }
 
 .layer[data-bg="light"] .svc-card-title {
@@ -892,14 +892,14 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 14px;
-    background: rgba(1, 211, 253, 0.12);
-    color: #05657c;
+    background: #00c2ff;
+    color: #fff;
     flex-shrink: 0;
     position: absolute;
     top: -24px;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 194, 255, 0.4);
 }
 
 .svc-card-icon svg {
