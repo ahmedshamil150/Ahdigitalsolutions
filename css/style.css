@@ -2052,49 +2052,49 @@ footer > .container {
     background: transparent;
 }
 
-/* Dark section overrides */
-.layer[data-bg="dark"]:not([data-bg="light"]) .price-title {
+/* Dark section overrides — sections without data-bg="light" */
+.layer:not([data-bg="light"]) .price-title {
     color: #fff;
 }
 
-.layer[data-bg="dark"]:not([data-bg="light"]) .price-subtitle {
+.layer:not([data-bg="light"]) .price-subtitle {
     color: #fff;
 }
 
-.layer[data-bg="dark"]:not([data-bg="light"]) .price-list li {
+.layer:not([data-bg="light"]) .price-list li {
     color: #fff;
 }
 
-.layer[data-bg="dark"]:not([data-bg="light"]) .price-badge {
+.layer:not([data-bg="light"]) .price-badge {
     background: rgba(0, 194, 255, 0.15);
     color: #fff;
 }
 
-.layer[data-bg="dark"]:not([data-bg="light"]) .price-card-name {
+.layer:not([data-bg="light"]) .price-card-name {
     color: #fff;
 }
 
-.layer[data-bg="dark"]:not([data-bg="light"]) .price-curr-btn {
+.layer:not([data-bg="light"]) .price-curr-btn {
     border-color: rgba(255, 255, 255, 0.2);
     color: #fff;
 }
 
-.layer[data-bg="dark"]:not([data-bg="light"]) .price-curr-btn:hover {
+.layer:not([data-bg="light"]) .price-curr-btn:hover {
     border-color: #00c2ff;
     color: #fff;
 }
 
-.layer[data-bg="dark"]:not([data-bg="light"]) .price-curr-btn.active {
+.layer:not([data-bg="light"]) .price-curr-btn.active {
     background: #00c2ff;
     color: #000;
     border-color: #00c2ff;
 }
 
-.layer[data-bg="dark"]:not([data-bg="light"]) .price-wa-link {
+.layer:not([data-bg="light"]) .price-wa-link {
     color: #25D366;
 }
 
-.layer[data-bg="dark"]:not([data-bg="light"]) .price-wa-link:hover {
+.layer:not([data-bg="light"]) .price-wa-link:hover {
     color: #fff;
 }
 
