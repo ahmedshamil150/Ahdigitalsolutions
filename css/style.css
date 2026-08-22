@@ -2873,6 +2873,53 @@ footer > .container {
         max-width: 95%;
     }
 
+    /* === Pricing page mobile === */
+    .price-section {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1.5rem 0;
+    }
+
+    .price-section--reverse {
+        flex-direction: column;
+    }
+
+    .price-content {
+        width: 100%;
+    }
+
+    .price-title {
+        font-size: 1.6rem;
+    }
+
+    .price-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .price-list li {
+        font-size: 0.82rem;
+    }
+
+    .price-card-wrapper {
+        flex: none;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .price-currency {
+        gap: 0.3rem;
+    }
+
+    .price-curr-btn {
+        padding: 0.3rem 0.55rem;
+        font-size: 0.68rem;
+    }
+
+    .layer > .container {
+        padding: 40px var(--spacing-md);
+    }
+
     /* === Subpage body mobile === */
     .page-body {
         grid-template-columns: 1fr;
