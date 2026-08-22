@@ -384,12 +384,14 @@ body {
 }
 
 .layer[data-bg="light"] .svc-learn {
-    background: #05657c;
-    color: #fff;
+    background: #fff;
+    color: #05657c;
+    border-color: #05657c;
 }
 
 .layer[data-bg="light"] .svc-learn:hover {
-    background: #04404f;
+    background: #05657c;
+    color: #fff;
 }
 
 /* ================================
@@ -930,18 +932,19 @@ body {
     padding: 0.45rem 1rem;
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--color-bg);
-    background: var(--color-accent);
+    color: var(--color-accent);
+    background: #fff;
+    border: 1px solid var(--color-accent);
     border-radius: 999px;
     text-decoration: none;
     transition: all 0.2s ease;
     font-family: inherit;
-    border: none;
     cursor: pointer;
 }
 
 .svc-learn:hover {
-    background: var(--color-accent-hover);
+    background: var(--color-accent);
+    color: #fff;
     transform: translateY(-1px);
 }
 
