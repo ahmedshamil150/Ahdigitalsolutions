@@ -2070,6 +2070,81 @@ footer > .container {
     color: #00c2ff;
 }
 
+.layer[data-bg="dark"]:not([data-bg="light"]) .price-curr-btn {
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #aaa;
+}
+
+.layer[data-bg="dark"]:not([data-bg="light"]) .price-curr-btn:hover {
+    border-color: #00c2ff;
+    color: #fff;
+}
+
+.layer[data-bg="dark"]:not([data-bg="light"]) .price-curr-btn.active {
+    background: #00c2ff;
+    color: #000;
+    border-color: #00c2ff;
+}
+
+.layer[data-bg="dark"]:not([data-bg="light"]) .price-wa-link {
+    color: #25D366;
+}
+
+.layer[data-bg="dark"]:not([data-bg="light"]) .price-wa-link:hover {
+    color: #fff;
+}
+
+.price-currency {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.price-curr-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: transparent;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.price-curr-btn:hover {
+    border-color: #00c2ff;
+    color: #00c2ff;
+}
+
+.price-curr-btn.active {
+    background: #00c2ff;
+    color: #000;
+    border-color: #00c2ff;
+}
+
+.price-wa-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #0f7d43;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.price-wa-link:hover {
+    color: #0a5a30;
+}
+
+.price-wa-link svg {
+    flex-shrink: 0;
+}
+
 .folio-card-actions {
     display: flex;
     gap: 0.5rem;
