@@ -1862,6 +1862,214 @@ footer > .container {
     color: #fff;
 }
 
+/* ================================
+   Pricing Section – Individual Plans
+   ================================ */
+.price-section {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.price-section--reverse {
+    flex-direction: row-reverse;
+}
+
+.price-content {
+    flex: 1;
+}
+
+.price-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    background: rgba(1, 211, 253, 0.1);
+    color: #05657c;
+    margin-bottom: 1rem;
+}
+
+.price-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111;
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.price-subtitle {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+}
+
+.price-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.price-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+.price-list li svg {
+    width: 16px;
+    height: 16px;
+    color: #00c2ff;
+    flex-shrink: 0;
+}
+
+.price-card-wrapper {
+    flex: 0 0 320px;
+}
+
+.price-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+.price-card--dark {
+    background: #0a0a0a;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+.price-card--dark:hover {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+.price-card-top {
+    text-align: center;
+}
+
+.price-card-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #888;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.price-card--dark .price-card-name {
+    color: #888;
+}
+
+.price-card-amount {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.02em;
+}
+
+.price-card--dark .price-card-amount {
+    color: #fff;
+}
+
+.price-card-btn {
+    display: block;
+    text-align: center;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    background: #00c2ff;
+    color: #000;
+    border: none;
+}
+
+.price-card-btn:hover {
+    background: #00a8e0;
+    transform: translateY(-1px);
+}
+
+.price-card--dark .price-card-btn {
+    background: #fff;
+    color: #000;
+}
+
+.price-card--dark .price-card-btn:hover {
+    background: #f0f0f0;
+}
+
+.price-card-btn--accent {
+    background: #00c2ff;
+    color: #000;
+}
+
+.price-card-btn--outline {
+    background: transparent;
+    border: 1px solid #ddd;
+    color: #555;
+}
+
+.price-card-btn--outline:hover {
+    border-color: #00c2ff;
+    color: #00c2ff;
+    background: transparent;
+}
+
+.price-card-btn--outline-light {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #aaa;
+}
+
+.price-card-btn--outline-light:hover {
+    border-color: #fff;
+    color: #fff;
+    background: transparent;
+}
+
+/* Dark section overrides */
+.layer[data-bg="dark"]:not([data-bg="light"]) .price-title {
+    color: #fff;
+}
+
+.layer[data-bg="dark"]:not([data-bg="light"]) .price-subtitle {
+    color: #aaa;
+}
+
+.layer[data-bg="dark"]:not([data-bg="light"]) .price-list li {
+    color: #ccc;
+}
+
+.layer[data-bg="dark"]:not([data-bg="light"]) .price-badge {
+    background: rgba(0, 194, 255, 0.15);
+    color: #00c2ff;
+}
+
 .folio-card-actions {
     display: flex;
     gap: 0.5rem;
