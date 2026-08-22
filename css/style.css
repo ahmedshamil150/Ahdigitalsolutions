@@ -2058,21 +2058,25 @@ footer > .container {
 }
 
 .layer[data-bg="dark"]:not([data-bg="light"]) .price-subtitle {
-    color: #aaa;
+    color: #fff;
 }
 
 .layer[data-bg="dark"]:not([data-bg="light"]) .price-list li {
-    color: #ccc;
+    color: #fff;
 }
 
 .layer[data-bg="dark"]:not([data-bg="light"]) .price-badge {
     background: rgba(0, 194, 255, 0.15);
-    color: #00c2ff;
+    color: #fff;
+}
+
+.layer[data-bg="dark"]:not([data-bg="light"]) .price-card-name {
+    color: #fff;
 }
 
 .layer[data-bg="dark"]:not([data-bg="light"]) .price-curr-btn {
-    border-color: rgba(255, 255, 255, 0.15);
-    color: #aaa;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
 }
 
 .layer[data-bg="dark"]:not([data-bg="light"]) .price-curr-btn:hover {
