@@ -361,51 +361,6 @@
         updateCard(card, 'PKR');
     });
     </script>
-    <script src="js/stroke-text.min.js" defer></script>
-</body>
-</html>
-, rate: 278, locale: 'en-US' },
-        EUR: { symbol: '\u20ac', rate: 302, locale: 'de-DE' },
-        GBP: { symbol: '\u00a3', rate: 352, locale: 'en-GB' },
-        AED: { symbol: 'AED ', rate: 76, locale: 'ar-AE' },
-        SAR: { symbol: 'SAR ', rate: 74, locale: 'ar-SA' },
-        CAD: { symbol: 'C
-    <script src="js/script.min.js" defer></script>
-    <script src="js/stroke-text.min.js" defer></script>
-</body>
-</html>
-, rate: 203, locale: 'en-CA' },
-        AUD: { symbol: 'A
-    <script src="js/script.min.js" defer></script>
-    <script src="js/stroke-text.min.js" defer></script>
-</body>
-</html>
-, rate: 182, locale: 'en-AU' }
-    };
-    (function(){
-        var cards = document.querySelectorAll('.price-card');
-        var pkrBtn = document.querySelector('.region-btn[data-currency="PKR"]');
-        function updatePrices(currency) {
-            var c = currencies[currency];
-            cards.forEach(function(card){
-                var lowKey = 'data-price-low-' + currency.toLowerCase();
-                var highKey = 'data-price-high-' + currency.toLowerCase();
-                var low = parseInt(card.getAttribute(lowKey));
-                var high = parseInt(card.getAttribute(highKey));
-                var display = card.querySelector('.price-display');
-                if (display) {
-                    if (high > 0) {
-                        display.textContent = c.symbol + ' ' + low.toLocaleString(c.locale) + ' \u2013 ' + high.toLocaleString(c.locale);
-                    } else {
-                        display.textContent = 'Starting from ' + c.symbol + ' ' + low.toLocaleString(c.locale) + '+';
-                    }
-                }
-            });
-        }
-        // Auto-select PKR on load
-        updatePrices('PKR');
-    })();
-    </script>
     <script src="js/script.min.js" defer></script>
     <script src="js/stroke-text.min.js" defer></script>
 </body>
