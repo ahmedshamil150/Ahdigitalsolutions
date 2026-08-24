@@ -2488,14 +2488,54 @@ footer > .container {
     padding: 40px 0;
 }
 
-.faq-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 var(--spacing-xl);
-    align-items: start;
+.faq-layout {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
 }
 
-/* Desktop only: keep the FAQ inside the viewport when an answer expands */
+.faq-scroll-box {
+    flex: 1;
+    min-width: 0;
+}
+
+.faq-image-side {
+    flex: 0 0 340px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.faq-image-wrapper {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+}
+
+.faq-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(220px, 72%);
+    height: min(220px, 72%);
+    background: #00c2ff;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.faq-image-wrapper img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+/* Desktop only: scrollable FAQ box inside viewport */
 @media (min-width: 769px) {
     .faq-section {
         max-height: calc(100vh - 140px);
@@ -2503,9 +2543,13 @@ footer > .container {
         flex-direction: column;
     }
 
-    .faq-grid {
+    .faq-layout {
         flex: 1;
         min-height: 0;
+    }
+
+    .faq-scroll-box {
+        max-height: calc(100vh - 220px);
         overflow-y: auto;
         overscroll-behavior: contain;
         scrollbar-width: thin;
@@ -2513,11 +2557,11 @@ footer > .container {
         padding-right: 8px;
     }
 
-    .faq-grid::-webkit-scrollbar {
+    .faq-scroll-box::-webkit-scrollbar {
         width: 4px;
     }
 
-    .faq-grid::-webkit-scrollbar-thumb {
+    .faq-scroll-box::-webkit-scrollbar-thumb {
         background: rgba(255, 255, 255, 0.2);
         border-radius: 4px;
     }
@@ -2578,9 +2622,23 @@ footer > .container {
         max-width: 600px;
     }
 
-    .faq-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
+    .faq-layout {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .faq-image-side {
+        flex: none;
+        width: 100%;
+        order: -1;
+    }
+
+    .faq-image-wrapper {
+        max-width: 260px;
+        margin: 0 auto;
+    }
+
+    .faq-scroll-box {
         max-height: none;
         overflow: visible;
         padding-right: 0;
