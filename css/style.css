@@ -2491,16 +2491,17 @@ footer > .container {
 .faq-layout {
     display: flex;
     gap: 3rem;
-    align-items: flex-start;
+    align-items: flex-end;
 }
 
 .faq-image-side {
-    flex: 0 0 340px;
+    flex: 1 1 0%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: visible;
+    min-width: 0;
 }
 
 .faq-image-wrapper {
@@ -2515,8 +2516,8 @@ footer > .container {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: min(220px, 72%);
-    height: min(220px, 72%);
+    width: min(320px, 80%);
+    height: min(320px, 80%);
     background: #00c2ff;
     border-radius: 50%;
     z-index: -1;
@@ -2532,7 +2533,7 @@ footer > .container {
 }
 
 .faq-scroll-box {
-    flex: 1;
+    flex: 1 1 0%;
     min-width: 0;
 }
 
