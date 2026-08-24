@@ -2494,22 +2494,18 @@ footer > .container {
     align-items: flex-start;
 }
 
-.faq-scroll-box {
-    flex: 1;
-    min-width: 0;
-}
-
 .faq-image-side {
     flex: 0 0 340px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: visible;
 }
 
 .faq-image-wrapper {
     position: relative;
-    z-index: 0;
+    z-index: 1;
     width: 100%;
 }
 
@@ -2535,7 +2531,12 @@ footer > .container {
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
 }
 
-/* Desktop only: scrollable FAQ box inside viewport */
+.faq-scroll-box {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Desktop only: scrollable FAQ box showing ~5 questions */
 @media (min-width: 769px) {
     .faq-section {
         max-height: calc(100vh - 140px);
@@ -2549,7 +2550,7 @@ footer > .container {
     }
 
     .faq-scroll-box {
-        max-height: calc(100vh - 220px);
+        max-height: 420px;
         overflow-y: auto;
         overscroll-behavior: contain;
         scrollbar-width: thin;
