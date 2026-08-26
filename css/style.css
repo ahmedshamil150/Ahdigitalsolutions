@@ -198,6 +198,13 @@ body {
     background: var(--color-bg);
 }
 
+/* Pre-position layers off-screen so JS-driven transforms cause zero layout shift */
+@media (min-width: 769px) {
+    .layer:not([data-slide="none"]) {
+        transform: translate3d(0, 100vh, 0);
+    }
+}
+
 .layer[data-units] {
     overflow-y: auto;
 }
@@ -1368,10 +1375,13 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 0;
     pointer-events: none;
     z-index: 0;
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.12),
+        inset 0 0 20px rgba(255, 255, 255, 0.04);
     animation: neonPulse 3s ease-in-out infinite;
 }
 
@@ -1382,14 +1392,10 @@ body {
 
 @keyframes neonPulse {
     0%, 100% {
-        border-color: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+        opacity: 0.4;
     }
     50% {
-        border-color: rgba(255, 255, 255, 0.35);
-        box-shadow:
-            0 0 20px rgba(255, 255, 255, 0.12),
-            inset 0 0 20px rgba(255, 255, 255, 0.04);
+        opacity: 1;
     }
 }
 
