@@ -1226,7 +1226,7 @@ body {
    Subpage Hero
    ================================ */
 .hero-sub {
-    background: #000;
+    background-color: #000;
     background-size: cover;
     background-position: center;
 }
