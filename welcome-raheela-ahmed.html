@@ -405,54 +405,6 @@
         }
         .foot-link:hover { color: #01d3fd; }
 
-        /* ── INVOICE POPUP ── */
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background: rgba(0,0,0,0.35);
-            backdrop-filter: blur(4px);
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .popup-overlay.show { display: flex; }
-        .popup-box {
-            background: #fff;
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.15);
-        }
-        .popup-icon {
-            width: 52px;
-            height: 52px;
-            background: #f5f4f0;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.2rem;
-        }
-        .popup-icon svg { width: 22px; height: 22px; color: #888; }
-        .popup-box h3 { font-size: 1.1rem; font-weight: 700; color: #111; margin-bottom: 0.6rem; }
-        .popup-box p { font-size: 0.88rem; color: #666; line-height: 1.7; margin-bottom: 1.5rem; }
-        .popup-close {
-            background: #0a0a0a;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 0.65rem 2rem;
-            font-size: 0.88rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.15s;
-        }
-        .popup-close:hover { background: #222; }
-
         @media (max-width: 480px) {
             .contact-strip { flex-direction: column; align-items: flex-start; }
             .contact-btns { width: 100%; }
@@ -491,7 +443,7 @@
 
             <div class="body-text">
                 <p>Glad to have you on board. Everything is set on our end and we are ready to get started.</p>
-                <p>I've put together the three documents for your project below. The quote breaks down what we're building and what it costs, the agreement covers the terms so we're both on the same page, and the invoice is there when you're ready to move forward.</p>
+                <p>I've put together the three documents for your project below. The quote breaks down what we're building and what it costs, the agreement covers the terms so we're both on the same page, and the invoice includes the advance payment details.</p>
                 <p>If anything needs changing or you have questions, just reach out — happy to sort it over WhatsApp or a quick call.</p>
             </div>
 
@@ -520,7 +472,7 @@
                     <span class="doc-arrow">→</span>
                 </a>
 
-                <div class="doc-card" onclick="document.getElementById('invoicePopup').classList.add('show')">
+                <a class="doc-card" href="welcome-docs/invoice%231.pdf" target="_blank" rel="noopener noreferrer">
                     <div class="doc-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
                     </div>
@@ -529,7 +481,7 @@
                         <span>Payment details</span>
                     </div>
                     <span class="doc-arrow">→</span>
-                </div>
+                </a>
 
             </div>
 
@@ -602,18 +554,6 @@
                 <a href="/" class="foot-link">ahdigitalsolutions.dev →</a>
             </footer>
 
-        </div>
-    </div>
-
-    <!-- Invoice Popup -->
-    <div id="invoicePopup" class="popup-overlay" onclick="if(event.target===this)this.classList.remove('show')">
-        <div class="popup-box">
-            <div class="popup-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-            </div>
-            <h3>Invoice</h3>
-            <p>Your invoice will be sent once the website is completed — directly via WhatsApp or email.</p>
-            <button class="popup-close" onclick="document.getElementById('invoicePopup').classList.remove('show')">Got it</button>
         </div>
     </div>
 
