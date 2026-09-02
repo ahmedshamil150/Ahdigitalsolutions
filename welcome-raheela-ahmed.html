@@ -156,23 +156,33 @@
         <div class="docs">
             <h2>Your documents</h2>
 
-            <a class="doc-link" href="#" target="_blank" rel="noopener noreferrer">
+            <a class="doc-link" href="welcome-docs/project-quote.pdf" target="_blank" rel="noopener noreferrer">
                 <strong>Project Quote</strong>
                 <span>Scope, deliverables, pricing</span>
                 <em>&rarr;</em>
             </a>
 
-            <a class="doc-link" href="#" target="_blank" rel="noopener noreferrer">
+            <a class="doc-link" href="welcome-docs/service-agreement.pdf" target="_blank" rel="noopener noreferrer">
                 <strong>Service Agreement</strong>
                 <span>Terms and contract details</span>
                 <em>&rarr;</em>
             </a>
 
-            <a class="doc-link" href="#" target="_blank" rel="noopener noreferrer">
+            <a class="doc-link invoice-link" href="javascript:void(0)" onclick="document.getElementById('invoicePopup').style.display='flex'">
                 <strong>Invoice</strong>
                 <span>Payment details</span>
                 <em>&rarr;</em>
             </a>
+        </div>
+
+        <!-- Invoice Popup -->
+        <div id="invoicePopup" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.7); align-items:center; justify-content:center; padding:20px;" onclick="if(event.target===this)this.style.display='none'">
+            <div style="background:#fff; border-radius:16px; padding:40px 32px; max-width:420px; width:100%; text-align:center; font-family:'DM Sans',sans-serif;">
+                <div style="font-size:48px; margin-bottom:16px;">&#128196;</div>
+                <h3 style="margin:0 0 12px; color:#111; font-size:20px;">Invoice</h3>
+                <p style="margin:0 0 24px; color:#555; line-height:1.6; font-size:15px;">Your first invoice will be shared once the website is completed. I will send it directly to you via WhatsApp or email.</p>
+                <button onclick="document.getElementById('invoicePopup').style.display='none'" style="background:#000; color:#fff; border:none; border-radius:10px; padding:12px 32px; font-size:15px; font-weight:600; cursor:pointer;">Got it</button>
+            </div>
         </div>
 
         <div class="note">
