@@ -10,250 +10,178 @@
     <meta property="og:site_name" content="AH Digital Solutions">
     <meta property="og:title" content="Welcome, Raheela Ahmed! | AH Digital Solutions">
     <meta property="og:description" content="We're excited to have you with us.">
-    <meta property="og:image" content="https://www.ahdigitalsolutions.dev/images/wecomeraheelaahmed.webp">
+    <meta property="og:image" content="https://www.ahdigitalsolutions.dev/images/wecomeraheelaahmed.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:url" content="https://www.ahdigitalsolutions.dev/welcome-raheela-ahmed">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Welcome, Raheela Ahmed! | AH Digital Solutions">
     <meta name="twitter:description" content="We're excited to have you with us.">
-    <meta name="twitter:image" content="https://www.ahdigitalsolutions.dev/images/wecomeraheelaahmed.webp">
+    <meta name="twitter:image" content="https://www.ahdigitalsolutions.dev/images/wecomeraheelaahmed.jpg">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/logo.png">
     <style>
         *, *:after, *:before { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --color-bg: #000;
-            --color-heading: #fff;
-            --color-body: #ccc;
-            --color-muted: #999;
-            --color-accent: #01d3fd;
-            --color-border: rgba(255,255,255,0.08);
-            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        html { scroll-behavior: auto; font-size: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        html { font-size: 100%; -webkit-font-smoothing: antialiased; }
         body {
-            font-family: var(--font-family);
-            background-color: var(--color-bg);
-            color: var(--color-body);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #ccc;
+            line-height: 1.7;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-        .welcome-container {
-            width: 100%;
-            max-width: 800px;
+        .wrap {
+            max-width: 620px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 4rem 1.5rem 3rem;
         }
-        .welcome-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--color-border);
-            border-radius: 16px;
-            padding: 3rem 2.5rem;
-            text-align: center;
-        }
-        .welcome-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--color-accent), #0099cc);
-            color: #000;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.4rem 1.2rem;
-            border-radius: 9999px;
-            margin-bottom: 1.5rem;
-        }
-        .welcome-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--color-heading);
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-        }
-        .welcome-title span {
-            color: var(--color-accent);
-        }
-        .welcome-subtitle {
+        .logo {
             font-size: 1.1rem;
-            color: var(--color-muted);
-            margin-bottom: 2.5rem;
-        }
-        .welcome-message {
-            font-size: 1rem;
-            color: var(--color-body);
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            text-align: left;
-        }
-        .welcome-message p {
-            margin-bottom: 1rem;
-        }
-        .docs-section-title {
-            font-size: 1rem;
             font-weight: 700;
-            color: var(--color-heading);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 1rem;
-            text-align: left;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 3rem;
         }
-        .doc-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .logo b { color: #01d3fd; }
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.25;
+            margin-bottom: 0.4rem;
+        }
+        h1 em {
+            font-style: normal;
+            color: #01d3fd;
+        }
+        .date {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .body {
+            font-size: 1rem;
             margin-bottom: 2.5rem;
         }
-        .doc-card {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 1.2rem 1.5rem;
+        .body p {
+            margin-bottom: 1rem;
+        }
+        .docs {
+            margin-bottom: 3rem;
+        }
+        .docs h2 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 1rem;
+        }
+        .doc-link {
+            display: block;
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 8px;
             text-decoration: none;
-            color: var(--color-body);
-            transition: all 0.3s ease;
+            color: #ccc;
+            margin-bottom: 0.6rem;
+            transition: border-color 0.2s;
         }
-        .doc-card:hover {
-            border-color: var(--color-accent);
-            background: rgba(1,211,253,0.05);
-            transform: translateY(-2px);
+        .doc-link:hover {
+            border-color: #01d3fd;
         }
-        .doc-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 1.3rem;
-        }
-        .doc-icon--quote { background: rgba(1,211,253,0.15); color: var(--color-accent); }
-        .doc-icon--contract { background: rgba(0,200,83,0.15); color: #00c853; }
-        .doc-icon--invoice { background: rgba(255,171,0,0.15); color: #ffab00; }
-        .doc-info {
-            flex: 1;
-            text-align: left;
-        }
-        .doc-name {
+        .doc-link strong {
+            display: block;
+            color: #fff;
             font-size: 0.95rem;
             font-weight: 600;
-            color: var(--color-heading);
-            margin-bottom: 0.15rem;
         }
-        .doc-desc {
-            font-size: 0.8rem;
-            color: var(--color-muted);
+        .doc-link span {
+            font-size: 0.82rem;
+            color: #777;
         }
-        .doc-arrow {
-            color: var(--color-muted);
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        .doc-card:hover .doc-arrow {
-            color: var(--color-accent);
-        }
-        .welcome-footer {
-            border-top: 1px solid var(--color-border);
-            padding-top: 1.5rem;
-            text-align: center;
-        }
-        .welcome-brand {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--color-heading);
-            margin-bottom: 0.5rem;
-        }
-        .welcome-brand span {
-            color: var(--color-accent);
-        }
-        .welcome-contact {
+        .doc-link em {
+            float: right;
+            font-style: normal;
+            color: #555;
             font-size: 0.85rem;
-            color: var(--color-muted);
+            margin-top: 0.1rem;
         }
-        .welcome-contact a {
-            color: var(--color-accent);
+        .note {
+            background: rgba(1,211,253,0.06);
+            border-left: 2px solid #01d3fd;
+            padding: 1rem 1.2rem;
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 3rem;
+            border-radius: 0 6px 6px 0;
+        }
+        .note a {
+            color: #01d3fd;
             text-decoration: none;
         }
-        .welcome-contact a:hover {
-            text-decoration: underline;
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 1.5rem;
+            font-size: 0.82rem;
+            color: #555;
+        }
+        footer a {
+            color: #01d3fd;
+            text-decoration: none;
         }
         @media (min-width: 640px) {
-            .welcome-card { padding: 4rem 3.5rem; }
-            .welcome-title { font-size: 2.8rem; }
-            .doc-cards { flex-direction: row; }
-            .doc-card { flex-direction: column; text-align: center; padding: 1.5rem; }
-            .doc-info { text-align: center; }
+            .wrap { padding: 6rem 2rem 4rem; }
+            h1 { font-size: 2.3rem; }
         }
     </style>
 </head>
 <body>
-    <div class="welcome-container">
-        <div class="welcome-card">
-            <div class="welcome-badge">New Client</div>
-            <h1 class="welcome-title">Welcome, <span>Raheela Ahmed</span>!</h1>
-            <p class="welcome-subtitle">We're excited to have you with us.</p>
+    <div class="wrap">
+        <a href="/" class="logo">AH<b>.</b>Digital</a>
 
-            <div class="welcome-message">
-                <p>Thank you for choosing AH Digital Solutions. We are thrilled to partner with you on this project and look forward to delivering exceptional results.</p>
-                <p>Below you will find your project documents. Please review each one at your convenience. If you have any questions, do not hesitate to reach out — we are here to help.</p>
-            </div>
+        <h1>Raheela, welcome to <em>AH Digital</em>.</h1>
+        <p class="date">September 2026</p>
 
-            <p class="docs-section-title">Your Project Documents</p>
-
-            <div class="doc-cards">
-                <a class="doc-card" href="#" target="_blank" rel="noopener noreferrer">
-                    <div class="doc-icon doc-icon--quote">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    </div>
-                    <div class="doc-info">
-                        <div class="doc-name">Project Quote</div>
-                        <div class="doc-desc">Scope, deliverables, and pricing</div>
-                    </div>
-                    <div class="doc-arrow">&#8599;</div>
-                </a>
-
-                <a class="doc-card" href="#" target="_blank" rel="noopener noreferrer">
-                    <div class="doc-icon doc-icon--contract">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M12 18v-6"></path><path d="M9 15l3 3 3-3"></path></svg>
-                    </div>
-                    <div class="doc-info">
-                        <div class="doc-name">Service Agreement</div>
-                        <div class="doc-desc">Terms, conditions, and contract details</div>
-                    </div>
-                    <div class="doc-arrow">&#8599;</div>
-                </a>
-
-                <a class="doc-card" href="#" target="_blank" rel="noopener noreferrer">
-                    <div class="doc-icon doc-icon--invoice">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    </div>
-                    <div class="doc-info">
-                        <div class="doc-name">Invoice</div>
-                        <div class="doc-desc">Payment details and due date</div>
-                    </div>
-                    <div class="doc-arrow">&#8599;</div>
-                </a>
-            </div>
-
-            <div class="welcome-footer">
-                <div class="welcome-brand">AH<span>.</span>Digital</div>
-                <p class="welcome-contact">
-                    Questions? Reach us at <a href="mailto:info@ahdigitalsolutions.dev">info@ahdigitalsolutions.dev</a> or <a href="https://wa.me/923295087704" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                </p>
-            </div>
+        <div class="body">
+            <p>Glad to have you on board. Everything is set on our end and we are ready to get started.</p>
+            <p>I have put together the three documents for your project below. Take a look through them when you get a chance — the quote breaks down what we are building and what it costs, the agreement covers the terms so we are both on the same page, and the invoice is there for when you are ready to move forward.</p>
+            <p>If anything needs changing or you have questions about any of it, just let me know. Happy to jump on a call or sort it out over WhatsApp.</p>
         </div>
+
+        <div class="docs">
+            <h2>Your documents</h2>
+
+            <a class="doc-link" href="#" target="_blank" rel="noopener noreferrer">
+                <strong>Project Quote</strong>
+                <span>Scope, deliverables, pricing</span>
+                <em>&rarr;</em>
+            </a>
+
+            <a class="doc-link" href="#" target="_blank" rel="noopener noreferrer">
+                <strong>Service Agreement</strong>
+                <span>Terms and contract details</span>
+                <em>&rarr;</em>
+            </a>
+
+            <a class="doc-link" href="#" target="_blank" rel="noopener noreferrer">
+                <strong>Invoice</strong>
+                <span>Payment details</span>
+                <em>&rarr;</em>
+            </a>
+        </div>
+
+        <div class="note">
+            Easiest way to reach me is <a href="https://wa.me/923295087704" target="_blank" rel="noopener noreferrer">WhatsApp</a> — I usually reply within a few hours. Or email <a href="mailto:info@ahdigitalsolutions.dev">info@ahdigitalsolutions.dev</a> if you prefer.
+        </div>
+
+        <footer>
+            &copy; 2026 AH Digital Solutions
+        </footer>
     </div>
 </body>
 </html>
