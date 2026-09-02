@@ -25,173 +25,505 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <style>
         *, *:after, *:before { box-sizing: border-box; margin: 0; padding: 0; }
+
         html { font-size: 100%; -webkit-font-smoothing: antialiased; }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #000;
-            color: #ccc;
+            background: #f5f4f0;
+            color: #1a1a1a;
             line-height: 1.7;
             min-height: 100vh;
+            overflow-x: hidden;
         }
+
+        /* ── CURTAIN LOADER ── */
+        .curtain {
+            position: fixed;
+            inset: 0;
+            z-index: 9000;
+            pointer-events: none;
+        }
+        .curtain-top,
+        .curtain-bottom {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+        .curtain-top { top: 0; }
+        .curtain-bottom { bottom: 0; }
+
+        .curtain-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9001;
+            text-align: center;
+            pointer-events: none;
+        }
+        .curtain-label .cl-sub {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+        }
+        .curtain-label .cl-name {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.5s ease 0.35s, transform 0.5s ease 0.35s;
+        }
+        .curtain-label .cl-name span { color: #01d3fd; }
+
+        .curtain-label.visible .cl-sub,
+        .curtain-label.visible .cl-name {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .curtain.open .curtain-top { transform: translateY(-100%); }
+        .curtain.open .curtain-bottom { transform: translateY(100%); }
+
+        /* ── PAGE ── */
+        .page {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+        }
+        .page.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── LAYOUT ── */
         .wrap {
-            max-width: 620px;
+            max-width: 680px;
             margin: 0 auto;
-            padding: 4rem 1.5rem 3rem;
+            padding: 3.5rem 1.5rem 4rem;
+        }
+
+        /* ── NAV BAR ── */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4rem;
         }
         .logo {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
-            color: #fff;
+            color: #0a0a0a;
             text-decoration: none;
-            display: inline-block;
-            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
         }
         .logo b { color: #01d3fd; }
-        h1 {
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1.25;
-            margin-bottom: 0.4rem;
+        .topbar-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #999;
+            background: #ebebeb;
+            padding: 0.3rem 0.75rem;
+            border-radius: 99px;
         }
-        h1 em {
+
+        /* ── HERO BLOCK ── */
+        .hero {
+            margin-bottom: 3.5rem;
+        }
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 1.1rem;
+        }
+        .hero-eyebrow::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 1px;
+            background: #bbb;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            color: #0a0a0a;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 em {
             font-style: normal;
             color: #01d3fd;
         }
-        .date {
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 2rem;
+        .hero-date {
+            font-size: 0.78rem;
+            color: #aaa;
+            font-weight: 500;
         }
-        .body {
-            font-size: 1rem;
+
+        /* ── DIVIDER ── */
+        .divider {
+            height: 1px;
+            background: #e5e5e5;
+            margin: 2.5rem 0;
+        }
+
+        /* ── BODY TEXT ── */
+        .body-text {
+            font-size: 0.975rem;
+            color: #444;
+            line-height: 1.8;
             margin-bottom: 2.5rem;
         }
-        .body p {
-            margin-bottom: 1rem;
-        }
-        .docs {
-            margin-bottom: 3rem;
-        }
-        .docs h2 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #666;
+        .body-text p + p { margin-top: 0.9rem; }
+
+        /* ── DOCS ── */
+        .docs-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 1rem;
-        }
-        .doc-link {
-            display: block;
-            padding: 1rem 1.2rem;
-            border: 1px solid rgba(255,255,255,0.07);
-            border-radius: 8px;
-            text-decoration: none;
-            color: #ccc;
-            margin-bottom: 0.6rem;
-            transition: border-color 0.2s;
-        }
-        .doc-link:hover {
-            border-color: #01d3fd;
-        }
-        .doc-link strong {
-            display: block;
-            color: #fff;
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-        .doc-link span {
-            font-size: 0.82rem;
-            color: #777;
-        }
-        .doc-link em {
-            float: right;
-            font-style: normal;
-            color: #555;
-            font-size: 0.85rem;
-            margin-top: 0.1rem;
-        }
-        .note {
-            background: rgba(1,211,253,0.06);
-            border-left: 2px solid #01d3fd;
-            padding: 1rem 1.2rem;
-            font-size: 0.9rem;
             color: #aaa;
+            margin-bottom: 0.9rem;
+        }
+        .doc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .doc-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.1rem;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+        }
+        .doc-card:hover {
+            border-color: #01d3fd;
+            box-shadow: 0 4px 20px rgba(1,211,253,0.1);
+            transform: translateY(-1px);
+        }
+        .doc-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .doc-icon svg { width: 16px; height: 16px; color: #888; }
+        .doc-card:hover .doc-icon { background: rgba(1,211,253,0.1); }
+        .doc-card:hover .doc-icon svg { color: #01d3fd; }
+        .doc-info { flex: 1; }
+        .doc-info strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #111;
+            line-height: 1.3;
+        }
+        .doc-info span {
+            font-size: 0.78rem;
+            color: #aaa;
+        }
+        .doc-arrow {
+            font-size: 0.85rem;
+            color: #ccc;
+            transition: color 0.18s, transform 0.18s;
+        }
+        .doc-card:hover .doc-arrow {
+            color: #01d3fd;
+            transform: translateX(3px);
+        }
+
+        /* ── CONTACT STRIP ── */
+        .contact-strip {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
             margin-bottom: 3rem;
-            border-radius: 0 6px 6px 0;
+            flex-wrap: wrap;
         }
-        .note a {
-            color: #01d3fd;
+        .contact-strip-text {
+            flex: 1;
+            font-size: 0.85rem;
+            color: #666;
+            min-width: 180px;
+        }
+        .contact-strip-text strong { color: #111; display: block; font-size: 0.88rem; margin-bottom: 0.1rem; }
+        .contact-btns {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+        .btn-wa, .btn-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 7px;
+            font-size: 0.8rem;
+            font-weight: 600;
             text-decoration: none;
+            transition: all 0.18s;
         }
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.06);
+        .btn-wa {
+            background: #25d366;
+            color: #fff;
+        }
+        .btn-wa:hover { background: #1ebe5d; }
+        .btn-email {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .btn-email:hover { background: #e5e5e5; }
+        .btn-wa svg, .btn-email svg { width: 13px; height: 13px; }
+
+        /* ── FOOTER ── */
+        .foot {
+            border-top: 1px solid #e8e8e8;
             padding-top: 1.5rem;
-            font-size: 0.82rem;
-            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
-        footer a {
-            color: #01d3fd;
+        .foot-copy { font-size: 0.78rem; color: #bbb; }
+        .foot-link {
+            font-size: 0.78rem;
+            color: #bbb;
             text-decoration: none;
+            transition: color 0.15s;
         }
-        @media (min-width: 640px) {
-            .wrap { padding: 6rem 2rem 4rem; }
-            h1 { font-size: 2.3rem; }
+        .foot-link:hover { color: #01d3fd; }
+
+        /* ── INVOICE POPUP ── */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .popup-overlay.show { display: flex; }
+        .popup-box {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+        }
+        .popup-icon {
+            width: 52px;
+            height: 52px;
+            background: #f5f4f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+        }
+        .popup-icon svg { width: 22px; height: 22px; color: #888; }
+        .popup-box h3 { font-size: 1.1rem; font-weight: 700; color: #111; margin-bottom: 0.6rem; }
+        .popup-box p { font-size: 0.88rem; color: #666; line-height: 1.7; margin-bottom: 1.5rem; }
+        .popup-close {
+            background: #0a0a0a;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.65rem 2rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .popup-close:hover { background: #222; }
+
+        @media (max-width: 480px) {
+            .contact-strip { flex-direction: column; align-items: flex-start; }
+            .contact-btns { width: 100%; }
+            .btn-wa, .btn-email { flex: 1; justify-content: center; }
         }
     </style>
 </head>
 <body>
-    <div class="wrap">
-        <a href="/" class="logo">AH<b>.</b>Digital</a>
 
-        <h1>Raheela, welcome to <em>AH Digital</em>.</h1>
-        <p class="date">September 2026</p>
-
-        <div class="body">
-            <p>Glad to have you on board. Everything is set on our end and we are ready to get started.</p>
-            <p>I have put together the three documents for your project below. Take a look through them when you get a chance — the quote breaks down what we are building and what it costs, the agreement covers the terms so we are both on the same page, and the invoice is there for when you are ready to move forward.</p>
-            <p>If anything needs changing or you have questions about any of it, just let me know. Happy to jump on a call or sort it out over WhatsApp.</p>
-        </div>
-
-        <div class="docs">
-            <h2>Your documents</h2>
-
-            <a class="doc-link" href="welcome-docs/project-quote.pdf" target="_blank" rel="noopener noreferrer">
-                <strong>Project Quote</strong>
-                <span>Scope, deliverables, pricing</span>
-                <em>&rarr;</em>
-            </a>
-
-            <a class="doc-link" href="welcome-docs/services-agreement.pdf" target="_blank" rel="noopener noreferrer">
-                <strong>Service Agreement</strong>
-                <span>Terms and contract details</span>
-                <em>&rarr;</em>
-            </a>
-
-            <a class="doc-link invoice-link" href="javascript:void(0)" onclick="document.getElementById('invoicePopup').style.display='flex'">
-                <strong>Invoice</strong>
-                <span>Payment details</span>
-                <em>&rarr;</em>
-            </a>
-        </div>
-
-        <!-- Invoice Popup -->
-        <div id="invoicePopup" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.7); align-items:center; justify-content:center; padding:20px;" onclick="if(event.target===this)this.style.display='none'">
-            <div style="background:#fff; border-radius:16px; padding:40px 32px; max-width:420px; width:100%; text-align:center; font-family:'DM Sans',sans-serif;">
-                <div style="font-size:48px; margin-bottom:16px;">&#128196;</div>
-                <h3 style="margin:0 0 12px; color:#111; font-size:20px;">Invoice</h3>
-                <p style="margin:0 0 24px; color:#555; line-height:1.6; font-size:15px;">Your first invoice will be shared once the website is completed. I will send it directly to you via WhatsApp or email.</p>
-                <button onclick="document.getElementById('invoicePopup').style.display='none'" style="background:#000; color:#fff; border:none; border-radius:10px; padding:12px 32px; font-size:15px; font-weight:600; cursor:pointer;">Got it</button>
-            </div>
-        </div>
-
-        <div class="note">
-            Easiest way to reach me is <a href="https://wa.me/923295087704" target="_blank" rel="noopener noreferrer">WhatsApp</a> — I usually reply within a few hours. Or email <a href="mailto:info@ahdigitalsolutions.dev">info@ahdigitalsolutions.dev</a> if you prefer.
-        </div>
-
-        <footer>
-            &copy; 2026 AH Digital Solutions
-        </footer>
+    <!-- CURTAIN -->
+    <div class="curtain" id="curtain">
+        <div class="curtain-top"></div>
+        <div class="curtain-bottom"></div>
     </div>
+    <div class="curtain-label" id="curtainLabel">
+        <div class="cl-sub">AH Digital Solutions</div>
+        <div class="cl-name">Welcome<span>.</span></div>
+    </div>
+
+    <!-- PAGE -->
+    <div class="page" id="page">
+        <div class="wrap">
+
+            <div class="topbar">
+                <a href="/" class="logo">AH<b>.</b>Digital</a>
+                <span class="topbar-tag">Client Portal</span>
+            </div>
+
+            <div class="hero">
+                <div class="hero-eyebrow">New Project</div>
+                <h1>Raheela, welcome to<br><em>AH Digital.</em></h1>
+                <span class="hero-date">September 2026</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="body-text">
+                <p>Glad to have you on board. Everything is set on our end and we are ready to get started.</p>
+                <p>I've put together the three documents for your project below. The quote breaks down what we're building and what it costs, the agreement covers the terms so we're both on the same page, and the invoice is there when you're ready to move forward.</p>
+                <p>If anything needs changing or you have questions, just reach out — happy to sort it over WhatsApp or a quick call.</p>
+            </div>
+
+            <div class="docs-label">Your Documents</div>
+            <div class="doc-list">
+
+                <a class="doc-card" href="welcome-docs/project-quote.pdf" target="_blank" rel="noopener noreferrer">
+                    <div class="doc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <div class="doc-info">
+                        <strong>Project Quote</strong>
+                        <span>Scope, deliverables &amp; pricing</span>
+                    </div>
+                    <span class="doc-arrow">→</span>
+                </a>
+
+                <a class="doc-card" href="welcome-docs/services-agreement.pdf" target="_blank" rel="noopener noreferrer">
+                    <div class="doc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
+                    </div>
+                    <div class="doc-info">
+                        <strong>Service Agreement</strong>
+                        <span>Terms &amp; contract details</span>
+                    </div>
+                    <span class="doc-arrow">→</span>
+                </a>
+
+                <div class="doc-card" onclick="document.getElementById('invoicePopup').classList.add('show')">
+                    <div class="doc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                    </div>
+                    <div class="doc-info">
+                        <strong>Invoice</strong>
+                        <span>Payment details</span>
+                    </div>
+                    <span class="doc-arrow">→</span>
+                </div>
+
+            </div>
+
+            <div class="contact-strip">
+                <div class="contact-strip-text">
+                    <strong>Have a question?</strong>
+                    I usually reply within a few hours.
+                </div>
+                <div class="contact-btns">
+                    <a class="btn-wa" href="https://wa.me/923295087704" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp
+                    </a>
+                    <a class="btn-email" href="mailto:info@ahdigitalsolutions.dev">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+
+            <footer class="foot">
+                <span class="foot-copy">&copy; 2026 AH Digital Solutions</span>
+                <a href="/" class="foot-link">ahdigitalsolutions.dev →</a>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Invoice Popup -->
+    <div id="invoicePopup" class="popup-overlay" onclick="if(event.target===this)this.classList.remove('show')">
+        <div class="popup-box">
+            <div class="popup-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <h3>Invoice</h3>
+            <p>Your invoice will be sent once the website is completed — directly via WhatsApp or email.</p>
+            <button class="popup-close" onclick="document.getElementById('invoicePopup').classList.remove('show')">Got it</button>
+        </div>
+    </div>
+
+    <script>
+        var label = document.getElementById('curtainLabel');
+        var curtain = document.getElementById('curtain');
+        var page = document.getElementById('page');
+
+        // show text
+        setTimeout(function() { label.classList.add('visible'); }, 100);
+
+        // open curtain
+        setTimeout(function() {
+            label.style.transition = 'opacity 0.3s ease';
+            label.style.opacity = '0';
+            curtain.classList.add('open');
+        }, 1400);
+
+        // reveal page & remove curtain
+        setTimeout(function() {
+            page.classList.add('visible');
+        }, 1700);
+
+        setTimeout(function() {
+            curtain.style.display = 'none';
+            label.style.display = 'none';
+        }, 2400);
+    </script>
+
 </body>
 </html>
